@@ -21,7 +21,7 @@ export const HomeView = () => (
   <div id='analysis-section'>
     {
       items.map((item, idx) => {
-        return <ul className='analysis-list'>
+        return <ul key={idx.toString()} className='analysis-list'>
           {item.message}
         </ul>
       })
