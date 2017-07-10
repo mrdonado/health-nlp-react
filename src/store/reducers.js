@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import locationReducer from './location'
-import { firebaseStateReducer } from 'react-redux-firebase'
+// import { firebaseStateReducer } from 'react-redux-firebase'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     location: locationReducer,
-    firebase: firebaseStateReducer,
+    // firebase: firebaseStateReducer,
     ...asyncReducers
   })
 }
