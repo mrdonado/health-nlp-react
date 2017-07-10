@@ -1,5 +1,5 @@
-import React from 'react'
-import './HomeView.scss'
+import React from 'react';
+import './HomeView.scss';
 
 const items = [
   {
@@ -15,7 +15,7 @@ const items = [
       problem: 'a problem',
       solution: 'a solution'
     }
-  }]
+  }];
 
 export const HomeView = () => (
   <div id='analysis-section'>
@@ -27,6 +27,6 @@ export const HomeView = () => (
       })
     }
   </div>
-)
+);
 
-export default HomeView
+export default HomeView;
