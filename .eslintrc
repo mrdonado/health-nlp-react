@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "standard",
+//    "standard",
     "standard-react"
   ],
   "plugins": [
@@ -12,7 +12,6 @@
   "env": {
     "browser": true
   },
-
   "globals": {
     "__DEV__": false,
     "__TEST__": false,
@@ -21,6 +20,8 @@
   },
   "rules": {
     "key-spacing": "off",
+    "no-extra-semi": 2,
+    "no-spaced-func": 0,
     "jsx-quotes": [
       2,
       "prefer-single"
