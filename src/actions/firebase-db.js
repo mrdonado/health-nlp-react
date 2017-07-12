@@ -7,6 +7,8 @@ const config = {
   projectId: 'health-nlp-88b08',
   storageBucket: 'health-nlp-88b08.appspot.com',
   messagingSenderId: '329948122061'
-}
+};
 
-firebase.initializeApp(config)
+const firebasedb = firebase.initializeApp(config);
+
+export default firebasedb;
