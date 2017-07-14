@@ -4,7 +4,7 @@ import database from './firebase-db';
 export function getAnalysis() {
   return dispatch => {
     dispatch(getAnalysisRequestedAction());
-    return database.ref('/').once('value', snap => {
+    return database.ref('/analysis').once('value', snap => {
       const analysis = snap.val();
       dispatch(getAnalysisFulfilledAction(analysis))
     })
