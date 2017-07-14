@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": [
-//    "standard",
+    //    "standard",
     "standard-react"
   ],
   "plugins": [
@@ -20,7 +20,8 @@
   },
   "rules": {
     "key-spacing": "off",
-    "no-extra-semi": 2,
+    "no-extra-semi": "off",
+    "semi": "warn",
     "no-spaced-func": 0,
     "jsx-quotes": [
       2,
