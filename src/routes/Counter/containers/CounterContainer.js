@@ -13,10 +13,12 @@ import Counter from '../components/Counter';
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
-const mapDispatchToProps = {
-  increment: () => increment(1),
-  onGetAnalysis: () => dispatch(getAnalysis()),
-  doubleAsync
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: () => increment(1),
+    onGetAnalysis: () => dispatch(getAnalysis()),
+    doubleAsync
+  };
 };
 
 const mapStateToProps = (state) => ({
