@@ -1,20 +1,20 @@
-import { combineReducers } from 'redux'
-import locationReducer from './location'
-// import { firebaseStateReducer } from 'react-redux-firebase'
+import { combineReducers } from 'redux';
+import locationReducer from './location';
+import analysisReducer from '../reducers/analysis-reducer';
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     location: locationReducer,
-    // firebase: firebaseStateReducer,
+    analysis: analysisReducer,
     ...asyncReducers
   })
 }
 
 export const injectReducer = (store, { key, reducer }) => {
-  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
+  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return;
 
-  store.asyncReducers[key] = reducer
+  store.asyncReducers[key] = reducer;
   store.replaceReducer(makeRootReducer(store.asyncReducers))
 }
 
-export default makeRootReducer
+export default makeRootReducer;

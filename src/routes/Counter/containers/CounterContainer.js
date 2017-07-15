@@ -13,18 +13,18 @@ import Counter from '../components/Counter';
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increment: () => increment(1),
-    onGetAnalysis: () => dispatch(getAnalysis()),
-    doubleAsync
-  };
+const mapDispatchToProps = {
+  increment: () => increment(1),
+  onGetAnalysis: getAnalysis,
+  doubleAsync
 };
 
-const mapStateToProps = (state) => ({
-  counter: state.counter,
-  analysis: state.analysis
-});
+const mapStateToProps = (state) => {
+  return {
+    counter: state.counter,
+    analysis: state.analysis
+  };
+};
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
