@@ -1,7 +1,7 @@
-import React from 'react'
-import { browserHistory, Router } from 'react-router'
-import { Provider } from 'react-redux'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { browserHistory, Router } from 'react-router';
+import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
   static propTypes = {
@@ -10,7 +10,7 @@ class App extends React.Component {
   }
 
   shouldComponentUpdate () {
-    return false
+    return false;
   }
 
   render () {
@@ -20,8 +20,8 @@ class App extends React.Component {
           <Router history={browserHistory} children={this.props.routes} />
         </div>
       </Provider>
-    )
+    );
   }
 }
 
-export default App
+export default App;

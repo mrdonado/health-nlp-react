@@ -1,7 +1,7 @@
-const argv = require('yargs').argv
-const webpackConfig = require('./webpack.config')
+const argv = require('yargs').argv;
+const webpackConfig = require('./webpack.config');
 
-const TEST_BUNDLER = './tests/test-bundler.js'
+const TEST_BUNDLER = './tests/test-bundler.js';
 
 const karmaConfig = {
   basePath: '../',
@@ -45,6 +45,6 @@ const karmaConfig = {
     stats: 'errors-only',
     noInfo: true,
   },
-}
+};
 
-module.exports = (cfg) => cfg.set(karmaConfig)
+module.exports = (cfg) => cfg.set(karmaConfig);

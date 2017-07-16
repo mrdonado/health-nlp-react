@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
 import makeRootReducer from './reducers';
 import { updateLocation } from './location';
-// import { reactReduxFirebase } from 'react-redux-firebase'
 
 const createStore = (initialState = {}) => {
   // ======================================================
@@ -31,7 +30,6 @@ const createStore = (initialState = {}) => {
     initialState,
     composeEnhancers(
       applyMiddleware(...middleware),
-      //      reactReduxFirebase(fbConfig, { userProfile: 'users' }),
       ...enhancers
     )
   );
