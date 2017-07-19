@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { increment, doubleAsync } from '../modules/counter';
-import { getAnalysis } from '../../../actions/get-analysis';
+// import { getAnalysis } from '../../../actions/get-analysis';
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -15,14 +15,14 @@ import Counter from '../components/Counter';
 
 const mapDispatchToProps = {
   increment: () => increment(1),
-  onGetAnalysis: getAnalysis,
+  // onGetAnalysis: getAnalysis,
   doubleAsync
 };
 
 const mapStateToProps = (state) => {
   return {
-    counter: state.counter,
-    analysis: state.analysis
+    counter: state.counter
+    // analysis: state.analysis
   };
 };
 
