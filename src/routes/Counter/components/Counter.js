@@ -22,9 +22,9 @@ class Counter extends React.Component {
     };
   }
 
-  componentDidMount = () => {
-    this.props.onGetAnalysis();
-  };
+  // componentDidMount = () => {
+  //   this.props.onGetAnalysis();
+  // };
 
   render() {
     return <div style={{ margin: '0 auto' }} >
@@ -36,7 +36,7 @@ class Counter extends React.Component {
       <button className='btn btn-secondary' onClick={this.props.doubleAsync}>
         Double (Async)
     </button>
-      {this.props.analysis ? renderAnalysis(this.props.analysis) : 'no-analysis'}
+      {/* {this.props.analysis ? renderAnalysis(this.props.analysis) : 'no-analysis'} */}
     </div >;
   }
 }
@@ -45,8 +45,8 @@ Counter.propTypes = {
   counter: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
   doubleAsync: PropTypes.func.isRequired,
-  analysis: PropTypes.any.isRequired,
-  onGetAnalysis: PropTypes.func.isRequired
+  // analysis: PropTypes.any.isRequired,
+  // onGetAnalysis: PropTypes.func.isRequired
 };
 
 export default Counter;
