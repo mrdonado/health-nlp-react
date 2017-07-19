@@ -50,7 +50,7 @@ function getAnalysisFulfilledAction(analysis) {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export function analysisReducer(state = {}, action) {
+export default function analysisReducer(state = {}, action) {
   switch (action.type) {
     case ActionTypes.GetAnalysisRequested: {
       return Object.assign({}, state, {
