@@ -1,4 +1,4 @@
-import database from '../firebase/firebase-db';
+import database from '../../../firebase/firebase-db';
 
 // ------------------------------------
 // Constants
