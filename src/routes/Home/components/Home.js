@@ -1,10 +1,10 @@
 import React from 'react';
-import './HomeView.scss';
+import './Home.scss';
 
-export const HomeView = () => (
+export const Home = () => (
   <div id='analysis-section'>
     Home View
   </div>
 );
 
-export default HomeView;
+export default Home;
