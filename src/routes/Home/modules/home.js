@@ -1,6 +1,56 @@
-import ActionTypes from '../constants/action-types';
+import database from '../firebase/firebase-db';
 
-export default function analysisReducer(state = {}, action) {
+// ------------------------------------
+// Constants
+// ------------------------------------
+export const actionTypes = {
+  GetAnalysisRequested: 'GET_ANALYSIS_REQUESTED',
+  GetAnalysisRejected: 'GET_ANALYSIS_REJECTED',
+  GetAnalysisFulfilled: 'GET_ANALYSIS_FULFILLED'
+};
+
+// ------------------------------------
+// Actions
+// ------------------------------------
+
+// getAnalysis thunk
+export function getAnalysis() {
+  return dispatch => {
+    dispatch(getAnalysisRequestedAction());
+    return database.ref('/analysis').once('value', snap => {
+      const analysis = snap.val();
+      dispatch(getAnalysisFulfilledAction(analysis));
+    })
+      .catch((error) => {
+        console.log(error);
+        dispatch(getAnalysisRejectedAction());
+      });
+  };
+}
+
+function getAnalysisRequestedAction() {
+  return {
+    type: ActionTypes.GetAnalysisRequested
+  };
+}
+
+function getAnalysisRejectedAction() {
+  return {
+    type: ActionTypes.GetAnalysisRejected
+  };
+}
+
+function getAnalysisFulfilledAction(analysis) {
+  return {
+    type: ActionTypes.GetAnalysisFulfilled,
+    analysis
+  };
+}
+
+// ------------------------------------
+// Reducer
+// ------------------------------------
+export function analysisReducer(state = {}, action) {
   switch (action.type) {
     case ActionTypes.GetAnalysisRequested: {
       return Object.assign({}, state, {
