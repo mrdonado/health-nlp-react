@@ -1,9 +1,3 @@
-// import HomeView from './components/Home';
-
-// // Sync route definition
-// export default {
-//   component : HomeView
-// };
 import { injectReducer } from '../../store/reducers';
 
 export default (store) => ({
@@ -19,7 +13,7 @@ export default (store) => ({
       const reducer = require('./modules/home').default;
 
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'home', reducer });
+      injectReducer(store, { key: 'analysis', reducer });
 
       /*  Return getComponent   */
       cb(null, Home);
