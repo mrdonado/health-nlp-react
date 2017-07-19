@@ -8,8 +8,8 @@ const renderAnalysis = (data) => {
   }
   const keys = Object.keys(data.analysis);
   let template = [];
-  keys.forEach((key) => {
-    template.push(<div>{data.analysis[key].analysis.problem}</div>);
+  keys.forEach((key, idx) => {
+    template.push(<div key={'analysis-' + idx}>{data.analysis[key].analysis.problem}</div>);
   });
   return template;
 };
