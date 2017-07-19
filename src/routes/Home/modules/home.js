@@ -3,7 +3,7 @@ import database from '../../../firebase/firebase-db';
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const actionTypes = {
+export const ActionTypes = {
   GetAnalysisRequested: 'GET_ANALYSIS_REQUESTED',
   GetAnalysisRejected: 'GET_ANALYSIS_REJECTED',
   GetAnalysisFulfilled: 'GET_ANALYSIS_FULFILLED'
