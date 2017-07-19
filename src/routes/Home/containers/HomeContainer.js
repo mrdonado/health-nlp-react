@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { increment, doubleAsync } from '../modules/home';
-// import { getAnalysis } from '../../../actions/get-analysis';
+import { getAnalysis } from '../modules/home';
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -14,9 +13,7 @@ import Home from '../components/Home';
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  increment: () => increment(1),
-  // onGetAnalysis: getAnalysis,
-  doubleAsync
+  onGetAnalysis: getAnalysis
 };
 
 const mapStateToProps = (state) => {
