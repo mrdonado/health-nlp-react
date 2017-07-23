@@ -4,7 +4,9 @@ deprecated
 node_modules
 .vscode
 dist
+build
 coverage
 .idea/
 .yarn-cache
 *.swp
+src/**/*.css
