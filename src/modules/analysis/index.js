@@ -13,14 +13,16 @@ export const ActionTypes = {
 // Actions
 // ------------------------------------
 
-// getAnalysis thunk
-export function getAnalysis() {
+export function getAnalysis(count = 5) {
   return dispatch => {
     dispatch(getAnalysisRequestedAction());
-    return database.ref('/analysis').once('value', snap => {
-      const analysis = snap.val();
-      dispatch(getAnalysisFulfilledAction(analysis));
-    })
+    return database.ref('/analysis')
+      .limitToLast(count)
+      .once('value',
+      snap => {
+        const analysis = snap.val();
+        dispatch(getAnalysisFulfilledAction(analysis));
+      })
       .catch((error) => {
         console.log(error);
         dispatch(getAnalysisRejectedAction());
