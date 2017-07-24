@@ -9,6 +9,8 @@ import {
   decrementAsync
 } from '../../modules/counter';
 
+import { getAnalysis } from '../../modules/analysis';
+
 const renderAnalysis = (data) => {
   if (typeof data.analysis === 'undefined') {
     return '';
@@ -23,7 +25,7 @@ const renderAnalysis = (data) => {
 class Home extends React.Component {
 
   componentDidMount = () => {
-    console.log('mount...');
+    this.props.getAnalysis();
   };
   render() {
     return <div>
@@ -48,14 +50,14 @@ class Home extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  // analysis: state.analysis,
+  analysis: state.analysis,
   count: state.counter.count,
   isIncrementing: state.counter.isIncrementing,
   isDecrementing: state.counter.isDecrementing
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  // onGetAnalysis,
+  getAnalysis,
   increment,
   incrementAsync,
   decrement,
