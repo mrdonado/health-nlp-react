@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "firebase": "^4.1.4",
+    "firebase": "^4.1.5",
     "node-sass-chokidar": "^0.0.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -27,6 +27,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "npm-run-all": "^4.0.2"
+    "enzyme": "^2.9.1",
+    "npm-run-all": "^4.0.2",
+    "sinon": "^2.3.8"
   }
 }
