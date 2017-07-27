@@ -6,7 +6,8 @@ import database from '../../firebase/firebase-db';
 export const ActionTypes = {
   GetAnalysisRequested: 'GET_ANALYSIS_REQUESTED',
   GetAnalysisRejected: 'GET_ANALYSIS_REJECTED',
-  GetAnalysisFulfilled: 'GET_ANALYSIS_FULFILLED'
+  GetAnalysisFulfilled: 'GET_ANALYSIS_FULFILLED',
+  AnalysisAdded: 'ANALYSIS_ADDED'
 };
 
 // ------------------------------------
@@ -86,24 +87,24 @@ export const analysisReducer = (state = {}, action) => {
     case ActionTypes.AddToAnalysisRejected: {
       return Object.assign({}, state, {
         inProgress: false,
-        error: 'Error in adding guest.',
+        error: 'Error in adding analysis.',
       });
     }
     case ActionTypes.AddToAnalysisFulfilled: {
       const newState = Object.assign({}, state, {
         inProgress: false,
-        success: 'Added guest.'
+        success: 'Added analysis.'
       });
-      // newState.guests = newState.guests || [];
-      // newState.guests = newState.guests.slice();
-      // newState.guests.push(action.guest);
+      newState.analysis = newState.analysis || [];
+      newState.analysis = newState.analysis.slice();
+      newState.analysis.push(action.analysis);
       return newState;
     }
-    case ActionTypes.GuestAdded: {
+    case ActionTypes.AnalysisAdded: {
       const newState = Object.assign({}, state);
-      newState.guests = newState.guests || [];
-      newState.guests = newState.guests.slice();
-      newState.guests.push(action.guest);
+      newState.analysis = newState.analysis || [];
+      newState.analysis = newState.analysis.slice();
+      newState.analysis.push(action.analysis);
       return newState;
     }
     default:
