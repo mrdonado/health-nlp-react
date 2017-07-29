@@ -35,7 +35,7 @@ describe('Home component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Home {..._props} />, div);
-    expect(_spies.getAnalysis.called);
+    expect(_spies.getAnalysis.called).toBeTruthy();
   });
 
 });
