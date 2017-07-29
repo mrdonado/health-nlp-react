@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Home } from '.';
+import { Home } from './home';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import sinon from 'sinon';
