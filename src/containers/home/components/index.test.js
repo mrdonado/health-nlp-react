@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import chai from 'chai';
-
-const expect = chai.expect;
 
 describe('Home component', () => {
 
@@ -38,7 +35,7 @@ describe('Home component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Home {..._props} />, div);
-    expect(_spies.getAnalysis.called).to.be.ok;
+    expect(_spies.getAnalysis.called);
   });
 
 });
