@@ -15,7 +15,7 @@ const renderAnalysis = (data) => {
   });
   return template;
 };
-class Home extends React.Component {
+export class Home extends React.Component {
 
   componentDidMount = () => {
     this.props.getAnalysis();
