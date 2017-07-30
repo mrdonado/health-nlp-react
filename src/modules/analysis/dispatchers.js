@@ -1,8 +1,9 @@
-import database from '../../firebase/firebase-db';
 import Actions from './actions';
 
 /**
- * Action dispatcher getAnalysis (default export).
+ * Action dispatcher getAnalysis (default export). In order
+ * to use it, it must be initialized with a firebase database
+ * first (@see ./firebase/firebase-db.js).
  * 
  * This thunk retrieves the specified count of latest analysis,
  * dispatching a getAnalysisFulfilled action on success and
@@ -10,7 +11,7 @@ import Actions from './actions';
  * 
  * @param {number} count 
  */
-const getAnalysis = (count = 5) => {
+const getAnalysis = (database) => (count = 5) => {
   return dispatch => {
     dispatch(getAnalysisRequestedAction());
     return database.ref('/analysis')
