@@ -33,5 +33,13 @@
     "react-addons-test-utils": "^15.6.0",
     "react-test-renderer": "^15.6.1",
     "sinon": "^2.3.8"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!node_modules/",
+      "!**/index.js",
+      "!src/registerServiceWorker.js"
+    ]
   }
 }
