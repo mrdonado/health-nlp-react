@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default () => (
+const About = (props) => (
   <div>
     <h1>About Us</h1>
     <p></p>
   </div>
 );
+
+export default About;
