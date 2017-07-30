@@ -1,7 +1,7 @@
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getAnalysis } from '../../modules/analysis';
+import getAnalysis from '../../modules/analysis/dispatchers';
 import { Home } from './components/home';
 
 const mapStateToProps = state => ({
