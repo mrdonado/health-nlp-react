@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
+    "deep-freeze": "^0.0.1",
     "enzyme": "^2.9.1",
     "npm-run-all": "^4.0.2",
     "react-addons-test-utils": "^15.6.0",
