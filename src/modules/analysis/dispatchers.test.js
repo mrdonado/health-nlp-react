@@ -1,4 +1,4 @@
-import getAnalysis from './dispatchers';
+import analysisDispatchers from './dispatchers';
 
 let dbName, count, value, onceCb, errorCb, dispatchedAction;
 
@@ -36,22 +36,22 @@ const dispatch = (action) => {
 
 describe('Analysis action dispatchers', () => {
 
-  const analysisDispatcher = getAnalysis(new DbMock());
+  const { getResults } = analysisDispatchers(new DbMock());
 
   it('should dispatch getAnalysis and obtain 6 elements from the database on success.', () => {
     resetVars();
-    analysisDispatcher(6)(dispatch);
+    getResults()(dispatch, () => { return { analysis: { resultsCount: 10 } } });
     expect(dispatchedAction).toEqual({ 'type': 'GET_ANALYSIS_REQUESTED' });
     expect(dbName).toEqual('/analysis');
-    expect(count).toEqual(6);
+    expect(count).toEqual(10);
     // Success call
-    onceCb({ val: () => ({ 'analysis': '6 elements...' }) });
-    expect(dispatchedAction).toEqual({ 'analysis': { 'analysis': '6 elements...' }, 'type': 'GET_ANALYSIS_FULFILLED' });
+    onceCb({ val: () => ({ 'analysis': '10 elements...' }) });
+    expect(dispatchedAction).toEqual({ 'results': { 'analysis': '10 elements...' }, 'type': 'GET_ANALYSIS_FULFILLED' });
   });
 
   it('should dispatch getAnalysis and reject on error', () => {
     resetVars();
-    analysisDispatcher()(dispatch);
+    getResults()(dispatch, () => { return { analysis: { resultsCount: 5 } } });
     expect(dispatchedAction).toEqual({ 'type': 'GET_ANALYSIS_REQUESTED' });
     expect(dbName).toEqual('/analysis');
     expect(count).toEqual(5);
