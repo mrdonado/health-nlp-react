@@ -26,24 +26,24 @@ describe('Analysis reducers', () => {
 
   it('should reduce GetAnalysisFulfilled', () => {
     const state = {};
-    const analysis = {analysis: 'some analysis...'};
+    const results = {analysis: 'some analysis...'};
     deepFreeze(state);
     const newState = analysisReducer(state, {type: Actions.GetAnalysisFulfilled,
-      analysis});
+      results});
     expect(newState.inProgress).toEqual(false);
-    expect(newState.analysis).toEqual(analysis);
-    expect(newState.success).toEqual('Got analysis.');
+    expect(newState.results).toEqual(results);
+    expect(newState.success).toEqual('Got analysis results.');
   });
 
   it('should reduce GetAnalysisFulfilled', () => {
     const state = {};
-    const analysis = {analysis: 'some analysis...'};
+    const results = {analysis: 'some analysis...'};
     deepFreeze(state);
     const newState = analysisReducer(state, {type: Actions.GetAnalysisFulfilled,
-      analysis});
+      results});
     expect(newState.inProgress).toEqual(false);
-    expect(newState.analysis).toEqual(analysis);
-    expect(newState.success).toEqual('Got analysis.');
+    expect(newState.results).toEqual(results);
+    expect(newState.success).toEqual('Got analysis results.');
   });
 
   it('should ignore unknown actions', () => {
