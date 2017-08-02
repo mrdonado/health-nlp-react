@@ -11,7 +11,7 @@ describe('Home component', () => {
   let _props, _spies, _wrapper;
 
   const analysis = {
-    analysis: {
+    results: {
       key0: {
         analysis: {
           problem: 'some problem'
@@ -25,7 +25,7 @@ describe('Home component', () => {
     _props = {
       analysis,
       ...bindActionCreators({
-        getAnalysis: (_spies.getAnalysis = sinon.spy()),
+        getResults: (_spies.getResults = sinon.spy()),
         changePage: (_spies.increment = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
@@ -35,7 +35,7 @@ describe('Home component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Home {..._props} />, div);
-    expect(_spies.getAnalysis.called).toBeTruthy();
+    expect(_spies.getResults.called).toBeTruthy();
   });
 
 });
