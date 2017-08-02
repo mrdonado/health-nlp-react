@@ -3,19 +3,20 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 import database from '../../firebase/firebase-db';
-import getAnalysis from '../../modules/analysis/dispatchers';
+import analysisDispatchers from '../../modules/analysis/dispatchers';
 import { Home } from './components/home';
+
+// The analysis dispatchers must be configured with the
+// firebase database instance.
+const { getResults, moreResults } = analysisDispatchers(database(firebase));
 
 const mapStateToProps = state => ({
   analysis: state.analysis
 });
 
-// The getAnalysisDispatcher must be configured with the
-// firebase database instance.
-const getAnalysisDispatcher = getAnalysis(database(firebase));
-
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getAnalysis: getAnalysisDispatcher,
+  getResults,
+  moreResults,
   changePage: () => push('/about-us')
 }, dispatch);
 
