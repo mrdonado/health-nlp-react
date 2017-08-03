@@ -1,4 +1,16 @@
 import Actions from './actions';
+import * as R from 'ramda';
+
+const combineResults = (results = [], newResults = []) => {
+  const cResults = [...results];
+  const existingIds = R.groupBy(o => o.id)(results);
+  newResults.forEach(result => {
+    if (typeof existingIds[result.id] === 'undefined') {
+      cResults.push(result);
+    }
+  });
+  return cResults;
+};
 
 
 export const analysisReducer = (state = { resultsCount: 5 }, action) => {
@@ -18,11 +30,11 @@ export const analysisReducer = (state = { resultsCount: 5 }, action) => {
       });
 
     case Actions.GetAnalysisFulfilled:
-      const results = action.results;
+      const newResults = action.results;
       const newState = Object.assign({}, state, {
         inProgress: false,
         success: 'Got analysis results.',
-        results: results
+        results: combineResults(state.results, newResults)
       });
       return newState;
 

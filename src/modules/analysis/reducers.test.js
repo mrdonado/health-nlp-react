@@ -24,9 +24,12 @@ describe('Analysis reducers', () => {
     expect(newState.inProgress).toEqual(false);
   });
 
-  it('should reduce GetAnalysisFulfilled', () => {
-    const state = {};
-    const results = { analysis: 'some analysis...' };
+  it('should reduce GetAnalysisFulfilled (ignore repeated results)', () => {
+    const state = {
+      results: [
+        { id: 'asdf', analysis: 'some analysis...' }]
+    };
+    const results = [{ id: 'asdf', analysis: 'some analysis...' }];
     deepFreeze(state);
     const newState = analysisReducer(state, {
       type: Actions.GetAnalysisFulfilled,
@@ -37,9 +40,9 @@ describe('Analysis reducers', () => {
     expect(newState.success).toEqual('Got analysis results.');
   });
 
-  it('should reduce GetAnalysisFulfilled', () => {
+  it('should reduce GetAnalysisFulfilled (add new results)', () => {
     const state = {};
-    const results = { analysis: 'some analysis...' };
+    const results = [{ id: 'asdf', analysis: 'some analysis...' }];
     deepFreeze(state);
     const newState = analysisReducer(state, {
       type: Actions.GetAnalysisFulfilled,
