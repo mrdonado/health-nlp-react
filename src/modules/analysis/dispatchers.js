@@ -1,5 +1,12 @@
 import Actions from './actions';
 
+const firebaseObjectToArray = (fbo) => {
+  const result = [];
+  const ids = Object.keys(fbo);
+  ids.forEach(id => result.push(Object.assign({ id }, fbo[id])));
+  return result;
+};
+
 /**
  * analysisDispatchers. In order to use them, they 
  * must be first initialized with a firebase database
@@ -24,7 +31,8 @@ const analysisDispatchers = (database) => {
         .limitToLast(count)
         .once('value',
         snap => {
-          const results = snap.val();
+          const resultsObject = snap.val();
+          const results = firebaseObjectToArray(resultsObject);
           dispatch(getResultsFulfilledAction(results));
         })
         .catch((error) => {

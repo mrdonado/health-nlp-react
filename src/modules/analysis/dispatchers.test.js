@@ -51,8 +51,8 @@ describe('Analysis action dispatchers', () => {
     expect(dbName).toEqual('/analysis');
     expect(count).toEqual(10);
     // Success call
-    onceCb({ val: () => ({ 'analysis': '10 elements...' }) });
-    expect(dispatchedActions[1]).toEqual({ 'results': { 'analysis': '10 elements...' }, 'type': 'GET_ANALYSIS_FULFILLED' });
+    onceCb({ val: () => ({ id0: { data: 'analysis0' } }) });
+    expect(dispatchedActions[1]).toEqual({ 'results': [{ id: 'id0', data: 'analysis0' }], 'type': 'GET_ANALYSIS_FULFILLED' });
   });
 
   it('should dispatch getAnalysis and reject on error', () => {
