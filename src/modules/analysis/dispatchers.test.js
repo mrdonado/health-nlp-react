@@ -1,6 +1,6 @@
 import analysisDispatchers from './dispatchers';
 
-let dbName, count, value, onceCb, errorCb, dispatchedAction;
+let dbName, count, value, onceCb, errorCb, dispatchedActions, currentState;
 
 const resetVars = () => {
   dbName = null;
@@ -8,7 +8,8 @@ const resetVars = () => {
   value = null;
   onceCb = null;
   errorCb = null;
-  dispatchedAction = null;
+  currentState = null;
+  dispatchedActions = [];
 };
 
 function DbMock() { };
@@ -31,33 +32,47 @@ DbMock.prototype.catch = function (cb) {
 };
 
 const dispatch = (action) => {
-  dispatchedAction = action;
+  dispatchedActions.push(action);
+};
+
+const getState = () => {
+  return currentState;
 };
 
 describe('Analysis action dispatchers', () => {
 
-  const { getResults } = analysisDispatchers(new DbMock());
+  const { getResults, moreResults } = analysisDispatchers(new DbMock());
 
   it('should dispatch getAnalysis and obtain 6 elements from the database on success.', () => {
     resetVars();
-    getResults()(dispatch, () => { return { analysis: { resultsCount: 10 } } });
-    expect(dispatchedAction).toEqual({ 'type': 'GET_ANALYSIS_REQUESTED' });
+    currentState = { analysis: { resultsCount: 10 } };
+    getResults()(dispatch, getState);
+    expect(dispatchedActions[0]).toEqual({ 'type': 'GET_ANALYSIS_REQUESTED' });
     expect(dbName).toEqual('/analysis');
     expect(count).toEqual(10);
     // Success call
     onceCb({ val: () => ({ 'analysis': '10 elements...' }) });
-    expect(dispatchedAction).toEqual({ 'results': { 'analysis': '10 elements...' }, 'type': 'GET_ANALYSIS_FULFILLED' });
+    expect(dispatchedActions[1]).toEqual({ 'results': { 'analysis': '10 elements...' }, 'type': 'GET_ANALYSIS_FULFILLED' });
   });
 
   it('should dispatch getAnalysis and reject on error', () => {
     resetVars();
-    getResults()(dispatch, () => { return { analysis: { resultsCount: 5 } } });
-    expect(dispatchedAction).toEqual({ 'type': 'GET_ANALYSIS_REQUESTED' });
+    currentState = { analysis: { resultsCount: 5 } };
+    getResults()(dispatch, getState);
+    expect(dispatchedActions[0]).toEqual({ 'type': 'GET_ANALYSIS_REQUESTED' });
     expect(dbName).toEqual('/analysis');
     expect(count).toEqual(5);
     // Error call
     errorCb('Some error!');
-    expect(dispatchedAction).toEqual({ "type": "GET_ANALYSIS_REJECTED" });
+    expect(dispatchedActions[1]).toEqual({ "type": "GET_ANALYSIS_REJECTED" });
+  });
+
+  it('should obtain more results by dispatching a MoreResults action and getting the results afterwards', () => {
+    resetVars();
+    moreResults()(dispatch);
+    expect(dispatchedActions[0]).toEqual({ 'type': 'MORE_RESULTS' });
+    currentState = { analysis: { resultsCount: 5 } };
+    expect(dispatchedActions[1](dispatch, getState)).toEqual(getResults()(dispatch, getState));
   });
 
 });
