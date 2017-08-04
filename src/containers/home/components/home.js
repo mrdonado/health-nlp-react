@@ -23,6 +23,7 @@ export class Home extends React.Component {
   componentDidUpdate = () => {
     window.scrollTo(0, document.body.scrollHeight);
   };
+
   render() {
     return <div>
       <h1>Home</h1>
