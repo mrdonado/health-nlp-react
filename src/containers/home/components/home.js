@@ -96,7 +96,6 @@ export class Home extends React.Component {
 
   render() {
     return <div>
-      <h1>Home</h1>
       <div id='analysis-section'>
         <ul id="analysis-list">
           {this.props.analysis ? renderAnalysis(this.props.analysis) : 'no-analysis'}
