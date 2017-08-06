@@ -12,7 +12,6 @@ const combineResults = (results = [], newResults = []) => {
   return cResults;
 };
 
-
 export const analysisReducer = (state = { resultsCount: 5 }, action) => {
   switch (action.type) {
 
@@ -37,6 +36,14 @@ export const analysisReducer = (state = { resultsCount: 5 }, action) => {
         results: combineResults(state.results, newResults)
       });
       return newState;
+
+    case Actions.AnalysisAdded:
+      return Object.assign({}, state, {
+        inProgress: false,
+        success: 'Got a new analysis.',
+        results: [action.analysis, ...state.results],
+        resultsCount: state.resultsCount + 1
+      });
 
     case Actions.MoreResults:
       return Object.assign({}, state, {

@@ -16,6 +16,29 @@ const firebaseObjectToArray = (fbo) => {
 const analysisDispatchers = (database) => {
 
   /**
+   * When executed, it configures a listener for new
+   * analysis added to the database.
+   */
+  const watchAnalysisAddedEvent = (dispatch) => {
+    let initialDataLoaded = false;
+    database.ref('/analysis').on('child_added', (snap) => {
+      if (initialDataLoaded) {
+        dispatch(analysisAddedAction(snap.val(), snap.key));
+      }
+    });
+    database.ref('/analysis').once('value', () => {
+      initialDataLoaded = true;
+    });
+  };
+
+  const analysisAddedAction = (analysis, key) => {
+    return {
+      type: Actions.AnalysisAdded,
+      analysis: Object.assign({id: key}, analysis)
+    };
+  };
+
+  /**
   * 
    * This thunk retrieves the specified count of latest analysis,
    * dispatching a getResultsFulfilled action on success and
@@ -74,7 +97,7 @@ const analysisDispatchers = (database) => {
       return dispatch(getResults());
     };
   };
-  return { getResults, moreResults };
+  return { getResults, moreResults, watchAnalysisAddedEvent };
 };
 
 export default analysisDispatchers;

@@ -8,17 +8,22 @@ import { Home } from './components/home';
 
 // The analysis dispatchers must be configured with the
 // firebase database instance.
-const { getResults, moreResults } = analysisDispatchers(database(firebase));
+const { getResults, moreResults, watchAnalysisAddedEvent } = analysisDispatchers(database(firebase));
 
 const mapStateToProps = state => ({
   analysis: state.analysis
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getResults,
-  moreResults,
-  changePage: () => push('/about-us')
-}, dispatch);
+const mapDispatchToProps = dispatch => {
+
+  watchAnalysisAddedEvent(dispatch);
+
+  return bindActionCreators({
+    getResults,
+    moreResults,
+    changePage: () => push('/about-us')
+  }, dispatch)
+};
 
 export default connect(
   mapStateToProps,
