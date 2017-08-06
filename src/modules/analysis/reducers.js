@@ -13,6 +13,8 @@ const combineResults = (results = [], newResults = []) => {
 };
 
 export const analysisReducer = (state = { resultsCount: 5 }, action) => {
+  let newResults, newState;
+
   switch (action.type) {
 
     case Actions.GetAnalysisRequested:
@@ -29,8 +31,8 @@ export const analysisReducer = (state = { resultsCount: 5 }, action) => {
       });
 
     case Actions.GetAnalysisFulfilled:
-      const newResults = action.results;
-      const newState = Object.assign({}, state, {
+      newResults = action.results;
+      newState = Object.assign({}, state, {
         inProgress: false,
         success: 'Got analysis results.',
         results: combineResults(state.results, newResults)
@@ -38,10 +40,16 @@ export const analysisReducer = (state = { resultsCount: 5 }, action) => {
       return newState;
 
     case Actions.AnalysisAdded:
+      let existingAnalysis = state.results.find(r => r.id === action.analysis.id);
+      if (existingAnalysis) {
+        newResults = [...state.results];
+      } else {
+        newResults = [action.analysis, ...state.results];
+      }
       return Object.assign({}, state, {
         inProgress: false,
         success: 'Got a new analysis.',
-        results: [action.analysis, ...state.results],
+        results: newResults,
         resultsCount: state.resultsCount + 1
       });
 
