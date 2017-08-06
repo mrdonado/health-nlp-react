@@ -109,7 +109,7 @@ export class Home extends React.Component {
           </li>
         </ul>
       </div>
-      <p><button onClick={() => this.props.changePage()}>Go to about page via redux</button></p>
+      {/* <p><button onClick={() => this.props.changePage()}>Go to about page via redux</button></p> */}
     </div >;
   }
 };
