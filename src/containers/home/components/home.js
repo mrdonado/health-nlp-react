@@ -63,7 +63,7 @@ const renderAnalysis = (data) => {
   let template = [];
   keys.forEach((key, idx) => {
     template.push(
-      <li className="analysis-item" key={'analysis-' + idx}>
+      <li className="analysis-item" key={'analysis-' + data.results[key].id}>
         <span className="date-and-query">
           <i className={'source ' + data.results[key].source}></i>
           {data.results[key].source} - {data.results[key].created_at} <span hidden="data.results[key].query">- Query: "{data.results[key].query}"</span>
