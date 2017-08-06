@@ -11,13 +11,15 @@ describe('Home component', () => {
   let _props, _spies, _wrapper;
 
   const analysis = {
-    results: {
-      key0: {
+    results: [
+      {
+        message: 'a message with some problem and some solution',
         analysis: {
-          problem: 'some problem'
+          problem: 'some problem',
+          solution: 'some solution'
         }
       }
-    }
+    ]
   };
 
   beforeEach(() => {
