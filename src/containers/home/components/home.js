@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from './spinner';
 import './home.css';
 
 /**
@@ -96,7 +97,7 @@ export class Home extends React.Component {
 
   render() {
     return <div>
-      <div id='analysis-section'>
+      {this.props.analysis.results ? <div id='analysis-section'>
         <ul id="analysis-list">
           {this.props.analysis ? renderAnalysis(this.props.analysis) : 'no-analysis'}
           {/* Show more button as last element of the list. */}
@@ -107,8 +108,8 @@ export class Home extends React.Component {
             Show more
           </li>
         </ul>
-      </div>
-      {/* <p><button onClick={() => this.props.changePage()}>Go to about page via redux</button></p> */}
+      </div> : <Spinner />}
+
     </div >;
   }
 };
