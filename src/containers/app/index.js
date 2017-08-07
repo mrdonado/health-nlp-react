@@ -8,15 +8,14 @@ import './app.css';
 
 const App = () => (
   <div>
-    <header>
+    <nav>
       <NavLink to="/">
         Home
       </NavLink>
       <NavLink to="/about-us">
         About
       </NavLink>
-    </header>
-
+    </nav>
     <main>
       <Route exact path="/" component={Home} />
       <Route exact path="/about-us" component={About} />
