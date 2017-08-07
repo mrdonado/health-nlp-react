@@ -10,7 +10,7 @@ const App = () => (
   <div>
     <nav>
       <NavLink to="/">
-        Home
+        Timeline 
       </NavLink>
       <NavLink to="/about-us">
         About
