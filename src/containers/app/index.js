@@ -1,13 +1,20 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import NavLink from './components/nav-link';
+import { Route } from 'react-router-dom';
 import Home from '../home';
 import About from '../about/components/about';
+import './app.css';
+
 
 const App = () => (
   <div>
     <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
+      <NavLink to="/">
+        Home
+      </NavLink>
+      <NavLink to="/about-us">
+        About
+      </NavLink>
     </header>
 
     <main>
