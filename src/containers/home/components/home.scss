@@ -30,6 +30,21 @@
     }
 }
 
+button.add-analysis{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 100px;
+    outline: none;
+    background-color: $green-gradient;
+    color: $white-gradient;
+    font-size: 200%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    box-shadow: 1px 1px 5px gray;
+}
+
 ul#analysis-list {
     list-style: none;
     max-width: 450px;

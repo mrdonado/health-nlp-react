@@ -27,6 +27,7 @@ export class Home extends React.Component {
             Show more
           </li>
         </ul>
+        <button className="add-analysis">+</button>
       </div> : <Spinner />}
 
     </div >;
