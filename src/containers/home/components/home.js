@@ -1,9 +1,15 @@
 import React from 'react';
 import Spinner from './spinner';
 import AnalysisBlock from './analysis-block';
+import AnalysisForm from './analysis-form';
 import './home.css';
 
 export class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { showAnalysis: false };
+  }
 
   componentDidMount = () => {
     this.props.getResults();
@@ -27,9 +33,13 @@ export class Home extends React.Component {
             Show more
           </li>
         </ul>
-        <button className="add-analysis">+</button>
+        <button onClick={() => {
+          this.setState({ showAnalysis: !this.state.showAnalysis });
+        }} className="add-analysis">+</button>
       </div> : <Spinner />}
-
+      {this.state.showAnalysis &&
+        <AnalysisForm></AnalysisForm>
+      }
     </div >;
   }
 };
