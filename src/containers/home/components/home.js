@@ -8,7 +8,7 @@ export class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { showAnalysis: false };
+    this.state = { showForm: false };
   }
 
   componentDidMount = () => {
@@ -34,10 +34,10 @@ export class Home extends React.Component {
           </li>
         </ul>
         <button onClick={() => {
-          this.setState({ showAnalysis: !this.state.showAnalysis });
+          this.setState({ showForm: !this.state.showForm });
         }} className="add-analysis">+</button>
       </div> : <Spinner />}
-      {this.state.showAnalysis &&
+      {this.state.showForm &&
         <AnalysisForm></AnalysisForm>
       }
     </div >;
