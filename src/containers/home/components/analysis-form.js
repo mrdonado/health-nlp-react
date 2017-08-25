@@ -31,9 +31,28 @@ export default class AnalysisForm extends React.Component {
             name="message"
             rows="4">
           </textarea>
+
           <div className="send-button"
             onClick={() => {
-              // sendNewJob()
+              const data = {
+                source: 'web',
+                user_name: 'Some userName',
+                user_description: 'Some user description',
+                message: 'Some message with a problem and a solution'
+              };
+              fetch('http://localhost:3005/analysis',
+                {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(data)
+                }).then((response) => {
+                  return response.json();
+                }).then((data) => {
+                  console.log(data);
+                });
             }
             }>Send</div>
         </form >
