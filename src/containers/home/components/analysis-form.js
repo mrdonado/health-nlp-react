@@ -7,9 +7,6 @@ export default class AnalysisForm extends React.Component {
       onClick={this.props.onClose}
       className={this.props.opened ? 'active' : ''}>
       <div id="analysis-form">
-        <button className="close-button"
-          alt="Close"
-          onClick={this.props.onClose}>&nbsp;</button>
         <h2>Test The Analyzer</h2>
         <form onClick={(e) => { e.stopPropagation() }}>
           <div className="row">
