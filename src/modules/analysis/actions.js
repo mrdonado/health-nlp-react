@@ -6,7 +6,8 @@ const Actions = {
   GetAnalysisRejected: 'GET_ANALYSIS_REJECTED',
   GetAnalysisFulfilled: 'GET_ANALYSIS_FULFILLED',
   AnalysisAdded: 'ANALYSIS_ADDED',
-  MoreResults: 'MORE_RESULTS'
+  MoreResults: 'MORE_RESULTS',
+  SwapForm: 'SWAP_FORM'
 };
 
 export default Actions;
