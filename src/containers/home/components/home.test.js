@@ -26,6 +26,9 @@ describe('Home component', () => {
     _spies = {}
     _props = {
       analysis,
+      form: {
+        showForm: false
+      },
       ...bindActionCreators({
         getResults: (_spies.getResults = sinon.spy()),
         changePage: (_spies.increment = sinon.spy())
