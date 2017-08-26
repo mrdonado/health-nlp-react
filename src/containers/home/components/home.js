@@ -37,9 +37,11 @@ export class Home extends React.Component {
           this.setState({ showForm: !this.state.showForm });
         }} className="add-analysis">+</button>
       </div> : <Spinner />}
-      {this.state.showForm &&
-        <AnalysisForm></AnalysisForm>
-      }
+      <AnalysisForm
+        onClose={() => {
+          this.setState({ showForm: false });
+        }}
+        opened={this.state.showForm}></AnalysisForm>
     </div >;
   }
 };
