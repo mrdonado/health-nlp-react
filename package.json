@@ -2,6 +2,7 @@
   "name": "health-nlp-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "firebase": "^4.1.5",
     "node-sass-chokidar": "^0.0.3",
