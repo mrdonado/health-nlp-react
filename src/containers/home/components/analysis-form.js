@@ -3,15 +3,15 @@ import './analysis-form.css';
 
 export default class AnalysisForm extends React.Component {
   render() {
-    return <div>
-      <button className="close-button"
-        alt="Close"
-        onClick={() => {
-          //closeForm()
-        }}>&nbsp;</button>
+    return <div id="form-mask"
+      onClick={this.props.onClose}
+      className={this.props.opened ? 'active' : ''}>
       <div id="analysis-form">
+        <button className="close-button"
+          alt="Close"
+          onClick={this.props.onClose}>&nbsp;</button>
         <h2>Test The Analyzer</h2>
-        <form>
+        <form onClick={(e) => { e.stopPropagation() }}>
           <div className="row">
             <label htmlFor="user-name">User Name:</label>
             <input type="text"
