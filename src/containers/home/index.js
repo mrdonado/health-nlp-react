@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 import database from '../../firebase/firebase-db';
-import analysisDispatchers from '../../modules/analysis/dispatchers';
+import { analysisDispatchers, swapForm } from '../../modules/analysis/dispatchers';
 import { Home } from './components/home';
 
 // The analysis dispatchers must be configured with the
@@ -11,7 +11,8 @@ import { Home } from './components/home';
 const { getResults, moreResults, watchAnalysisAddedEvent } = analysisDispatchers(database(firebase));
 
 const mapStateToProps = state => ({
-  analysis: state.analysis
+  analysis: state.analysis,
+  form: state.form
 });
 
 const mapDispatchToProps = dispatch => {
@@ -19,6 +20,7 @@ const mapDispatchToProps = dispatch => {
   watchAnalysisAddedEvent(dispatch);
 
   return bindActionCreators({
+    swapForm,
     getResults,
     moreResults,
     changePage: () => push('/about-us')

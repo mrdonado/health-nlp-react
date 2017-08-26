@@ -7,6 +7,12 @@ const firebaseObjectToArray = (fbo) => {
   return result;
 };
 
+const swapForm = (dispatch) => {
+  return {
+    type: Actions.SwapForm
+  };
+};
+
 /**
  * analysisDispatchers. In order to use them, they 
  * must be first initialized with a firebase database
@@ -34,7 +40,7 @@ const analysisDispatchers = (database) => {
   const analysisAddedAction = (analysis, key) => {
     return {
       type: Actions.AnalysisAdded,
-      analysis: Object.assign({id: key}, analysis)
+      analysis: Object.assign({ id: key }, analysis)
     };
   };
 
@@ -100,4 +106,4 @@ const analysisDispatchers = (database) => {
   return { getResults, moreResults, watchAnalysisAddedEvent };
 };
 
-export default analysisDispatchers;
+export { analysisDispatchers, swapForm };

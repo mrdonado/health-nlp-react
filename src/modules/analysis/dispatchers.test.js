@@ -1,4 +1,4 @@
-import analysisDispatchers from './dispatchers';
+import { analysisDispatchers } from './dispatchers';
 
 let dbName, count, value, onceCb, errorCb, dispatchedActions, currentState;
 
