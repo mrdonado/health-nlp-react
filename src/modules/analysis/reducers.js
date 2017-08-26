@@ -12,7 +12,14 @@ const combineResults = (results = [], newResults = []) => {
   return cResults;
 };
 
-export const analysisReducer = (state = { resultsCount: 5 }, action) => {
+const swapFormReducer = (state = { showForm: false }, action) => {
+  if (action.type === Actions.SwapForm) {
+    return Object.assign({}, state, { showForm: !state.showForm });
+  }
+  return state;
+};
+
+const analysisReducer = (state = { resultsCount: 5 }, action) => {
   let newResults, newState;
 
   switch (action.type) {
@@ -61,3 +68,5 @@ export const analysisReducer = (state = { resultsCount: 5 }, action) => {
       return state;
   }
 };
+
+export { analysisReducer, swapFormReducer };
