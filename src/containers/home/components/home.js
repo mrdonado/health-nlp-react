@@ -6,11 +6,6 @@ import './home.css';
 
 export class Home extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { showForm: false };
-  }
-
   componentDidMount = () => {
     this.props.getResults();
   };
@@ -33,15 +28,11 @@ export class Home extends React.Component {
             Show more
           </li>
         </ul>
-        <button onClick={() => {
-          this.setState({ showForm: !this.state.showForm });
-        }} className="add-analysis">+</button>
+        <button onClick={this.props.swapForm} className="add-analysis">+</button>
       </div> : <Spinner />}
       <AnalysisForm
-        onClose={() => {
-          this.setState({ showForm: false });
-        }}
-        opened={this.state.showForm}></AnalysisForm>
+        onClose={this.props.swapForm}
+        opened={this.props.form.showForm}></AnalysisForm>
     </div >;
   }
 };
