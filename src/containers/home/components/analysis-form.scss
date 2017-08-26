@@ -1,69 +1,97 @@
 @import '../../../common.scss';
 .close-button {
-    cursor: pointer;
-    position: absolute;
-    background-image: url('../../../assets/images/close-icon.svg');
-    top: 1.5rem;
-    right: 1.6rem;
-    height: 1.6rem;
-    width: 1.6rem;
-    background-size: contain;
-    background-color: transparent;
-    border: none;
+  cursor: pointer;
+  position: absolute;
+  background-image: url('../../../assets/images/close-icon.svg');
+  top: 1.5rem;
+  right: 1.6rem;
+  height: 1.6rem;
+  width: 1.6rem;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+}
+
+#form-mask {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: visibility 0.5s, background-color 0.5s;
+  &.active {
+    background-color: transparentize(black, 0.5);
+    visibility: visible;
+  }
+}
+
+.active {
+  #analysis-form {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }
 
 #analysis-form {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0.5rem 2rem 2rem 2rem;
-    overflow-y: auto;
-    max-height: 80vh;
-    background-color: white;
-    .send-button {
-        @extend %green-button;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s, transform 0.5s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  padding: 0.5rem 2rem 2rem 2rem;
+  overflow-y: auto;
+  max-height: 80vh;
+  max-width: 470px;
+  width: 80vw;
+  background-color: white;
+  .send-button {
+    @extend %green-button;
+  }
+  form {
+    display: flex;
+    flex-flow: column;
+    input:focus,
+    textarea:focus {
+      outline-color: $green-gradient;
     }
-    form {
-        display: flex;
-        flex-flow: column;
-        input:focus,
-        textarea:focus {
-            outline-color: $green-gradient;
-        }
-        .row {
-            display: flex;
-            flex-flow: row wrap;
-            margin: 0.5rem 0 0.5rem 0;
-            line-height: 2rem;
-            label {
-                flex: 1;
-            }
-            input {
-                flex: 2;
-                margin-left: 0.2em;
-                padding-left: 0.5em;
-                font-size: 150%;
-                max-width: 30vw;
-                border: 1px solid gray;
-                border-radius: 3px;
-                transition: outline 1s;
-            }
-        }
-        label.message {
-            margin: 0.5rem 0 0.5rem 0;
-        }
-        textarea#message {
-            border: 1px solid gray;
-            border-radius: 3px;
-            margin-bottom: 1rem;
-            transition: outline 1s;
-        }
+    .row {
+      display: flex;
+      flex-flow: row wrap;
+      margin: 0.5rem 0 0.5rem 0;
+      line-height: 2rem;
+      label {
+        flex: 1;
+      }
+      input {
+        flex: 2;
+        margin-left: 0.2em;
+        padding-left: 0.5em;
+        font-size: 150%;
+        max-width: 30vw;
+        border: 1px solid gray;
+        border-radius: 3px;
+        transition: outline 1s;
+      }
     }
-    .info {
-        font-size: 80%;
-        margin-top: 1.3rem;
-        border-top: 3px double gray;
-        font-size: 80%;
-        padding-top: 0.2rem;
+    label.message {
+      margin: 0.5rem 0 0.5rem 0;
     }
+    textarea#message {
+      border: 1px solid gray;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+      transition: outline 1s;
+    }
+  }
+  .info {
+    font-size: 80%;
+    margin-top: 1.3rem;
+    border-top: 3px double gray;
+    font-size: 80%;
+    padding-top: 0.2rem;
+  }
 }
