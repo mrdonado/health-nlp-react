@@ -1,0 +1,23 @@
+version: '2'
+services:
+  httpd:
+    image: httpd:2.4
+    container_name: httpd_static
+    volumes:
+      - ./docs:/usr/local/apache2/htdocs/
+    restart: "always"
+    environment:
+      - VIRTUAL_HOST=lifescope.jdonado.com
+      - LETSENCRYPT_EMAIL=jdonado@jdonado.com
+      - LETSENCRYPT_HOST=lifescope.jdonado.com
+    networks:
+      - jdonado-nw
+#    ports:
+#      - "127.0.0.1:9000:80"
+    expose:
+      - 8888
+
+networks:
+   jdonado-nw:
+     external:
+       name: jdonado-nw
