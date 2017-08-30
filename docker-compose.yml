@@ -7,9 +7,9 @@ services:
       - ./docs:/usr/local/apache2/htdocs/
     restart: "always"
     environment:
-      - VIRTUAL_HOST=lifescope.jdonado.com
+      - VIRTUAL_HOST=www.lifescope-project.com
       - LETSENCRYPT_EMAIL=jdonado@jdonado.com
-      - LETSENCRYPT_HOST=lifescope.jdonado.com
+      - LETSENCRYPT_HOST=www.lifescope-project.com
     networks:
       - jdonado-nw
 #    ports:
