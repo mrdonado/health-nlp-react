@@ -5,19 +5,19 @@ const About = (props) => (
   <div id="about-content">
     <h1>About this project</h1>
     <p>
-      Lifescope is an Artificial Intelligence software that finds solutions to health diseases in digital sources, such as social network or news feeds. It consists of a live stream of text messages, and a Natural Language Processing algorithm that extracts health problems and solutions, and provides semantic labels to categorize the message sender profile. In other words, it finds out what the message says and who says it, providing an accurate and real-time analysis on massive health data.
+      Lifescope is an Artificial Intelligence software that <strong>finds solutions to health diseases</strong> in digital sources, such as social network or news feeds. It consists of a live stream of text messages, and a Natural Language Processing algorithm that extracts health problems and solutions, and provides semantic labels to categorize the message sender profile. In other words, it finds out <strong>what the message says and who says it</strong>, providing an accurate and real-time analysis on massive health data.
     </p>
     <p>
-      This is an open source software project. It aims to provide the latest information on healthcare, and helps in clarifying it by making the sender explicit and discarding unknown sources.
+      This is an open source software project. It aims to provide the latest information on healthcare, and helps in clarifying it by <strong>making the sender explicit </strong>and discarding unknown sources.
     </p>
     <p>
-      We believe that Lifescope will offer great research opportunities to anyone interested in healthcare information. We are concerned with the challenging issues posed by the New Media Age, where information flow surpasses the human ability to digest new data - consider, for example, how many talks, conferences or health discoveries are being posted now, at any second. That’s where Lifescope comes in.
+      We believe that Lifescope will offer <strong>great research opportunities to anyone interested in healthcare information</strong>. We are concerned with the challenging issues posed by the New Media Age, where information flow surpasses the human ability to digest new data - consider, for example, how many talks, conferences or health discoveries are being posted now, at any second. That’s where Lifescope comes in.
     </p>
     <p>
-      Currently, the project is on development. After this first stage, we have completed the backend, frontend and analytics modules of the streaming panel that you can see in this web. We are working on a new module to make queries and display graphs on the dataset we are gathering. In the meantime, you can see an example of some raw data files here.
+      Currently, the project is on development. After this first stage, <strong>we have completed the backend, frontend and analytics modules</strong> of the streaming panel that you can see in this web. We are working on <strong>a new module to make queries</strong> and <strong>display graphs</strong> on the dataset we are gathering. In the meantime, you can see an example of some raw data files here.
     </p>
     <p>
-      Please, do not take the information provided here as medical advice. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the current performance score is around 80%.
+      Please, <strong>do not take the information provided here as medical advice</strong>. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the <strong>current performance score is around 80%</strong>.
     </p>
     <p>
       Comments and suggestions are welcome. Contact us at info@lifescope-project.com</p>
