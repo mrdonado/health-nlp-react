@@ -3,13 +3,31 @@ import './about.css';
 
 const About = (props) => (
   <div id="about-content">
-    <h1>What is this page all about?</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, optio. Et exercitationem consequatur recusandae autem rerum iste, ipsa optio nostrum quidem libero atque doloremque dicta labore id ut vero eos ratione cumque, ad. Quos eveniet enim, omnis alias. Libero, labore! Optio hic sed vero, quam voluptate, delectus labore. Amet ducimus vel, suscipit cumque nesciunt reiciendis illum, asperiores dolorum repellendus, blanditiis nisi adipisci distinctio error voluptate labore non doloribus exercitationem. Perferendis fuga eveniet deleniti illo omnis nobis voluptatibus soluta necessitatibus neque dolorum dolorem voluptas, aut vitae molestiae repudiandae voluptatum nam, assumenda laborum aliquid architecto suscipit. Nobis at in et expedita quibusdam?</p>
-    <h2>About the authors</h2>
-    <h3><a href="https://github.com/JuanFF">Juan Fernández Fernández</a></h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe in, laborum voluptatum neque quasi dolore ipsa quo vel. Accusamus placeat nesciunt, quibusdam magnam sit suscipit numquam voluptates odio iste omnis. Ut omnis temporibus quia ea, eveniet minima nihil, dolorum id, sequi, obcaecati cumque sed harum. Eius facere fuga optio dicta!</p>
-    <h3><a href="http://www.jdonado.com/">F. Javier R. Donado</a></h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae porro praesentium quam ut, molestias fuga rem possimus, dolores assumenda voluptas enim dignissimos culpa libero optio nisi doloribus animi, perferendis pariatur accusamus! Similique enim, tempore. Possimus fugiat, ipsum, facere iusto dignissimos beatae laudantium sunt nam non aliquam sit esse labore. Ad!</p>
+    <h1>About this project</h1>
+    <p>
+      Lifescope is an Artificial Intelligence software that finds solutions to health diseases in digital sources, such as social network or news feeds. It consists of a live stream of text messages, and a Natural Language Processing algorithm that extracts health problems and solutions, and provides semantic labels to categorize the message sender profile. In other words, it finds out what the message says and who says it, providing an accurate and real-time analysis on massive health data.
+    </p>
+    <p>
+      This is an open source software project. It aims to provide the latest information on healthcare, and helps in clarifying it by making the sender explicit and discarding unknown sources.
+    </p>
+    <p>
+      We believe that Lifescope will offer great research opportunities to anyone interested in healthcare information. We are concerned with the challenging issues posed by the New Media Age, where information flow surpasses the human ability to digest new data - consider, for example, how many talks, conferences or health discoveries are being posted now, at any second. That’s where Lifescope comes in.
+    </p>
+    <p>
+      Currently, the project is on development. After this first stage, we have completed the backend, frontend and analytics modules of the streaming panel that you can see in this web. We are working on a new module to make queries and display graphs on the dataset we are gathering. In the meantime, you can see an example of some raw data files here.
+    </p>
+    <p>
+      Please, do not take the information provided here as medical advice. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the current performance score is around 80%.
+    </p>
+    <p>
+      Comments and suggestions are welcome. Contact us at info@lifescope-project.com</p>
+    <h2>On the authors</h2>
+    <p>
+      <a href="http://www.jdonado.com/">F. Javier R. Donado</a> is M.Eng. in Telecommunication and has been developing software professionally since 2010...
+    </p>
+    <p>
+      <a href="https://github.com/JuanFF">Juan Fernández Fernández</a> holds a PhD in Natural Language Processing. He works in Analytics and Information Extraction systems based on insights into the properties of human language, specially Semantics and Cognition. He suffers from an autoimmune condition called alopecia areata, for which there is currently no effective treatment. He works in this project to make a contribution to research on hard to treat diseases.
+    </p>
   </div>
 );
 
