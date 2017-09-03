@@ -5,7 +5,7 @@ const About = (props) => (
   <div id="about-content">
     <h1>About this project</h1>
     <p>
-      Lifescope is an Artificial Intelligence software that <strong>finds solutions to health diseases</strong> in digital sources, such as social network or news feeds. It consists of a live stream of text messages, and a Natural Language Processing algorithm that extracts health problems and solutions, and provides semantic labels to categorize the message sender profile. In other words, it finds out <strong>what the message says and who says it</strong>, providing an accurate and real-time analysis on massive health data.
+      Lifescope is an Artificial Intelligence software that <strong>finds solutions to health diseases</strong> in digital sources, such as social networks or news feeds. It consists of a live stream of text messages, and a Natural Language Processing algorithm that extracts health problems and solutions, and provides semantic labels to categorize the message sender profile. In other words, it finds out <strong>what the message says and who says it</strong>, providing an accurate and real-time analysis on massive health data.
     </p>
     <p>
       This is an open source software project. It aims to provide the latest information on healthcare, and helps in clarifying it by <strong>making the sender explicit </strong>and discarding unknown sources.
