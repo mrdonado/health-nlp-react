@@ -20,7 +20,8 @@ const About = (props) => (
       Please, <strong>do not take the information provided here as medical advice</strong>. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the <strong>current performance score is around 80%</strong>.
     </p>
     <p>
-      Comments and suggestions are welcome. Contact us at info@lifescope-project.com</p>
+      Comments and suggestions are welcome. Contact us at <a href="mailto:info@lifescope-project.com">info@lifescope-project.com</a>
+    </p>
     <h2>On the authors</h2>
     <p>
       <a href="https://github.com/JuanFF">Juan Fernández Fernández</a> holds a PhD in Natural Language Processing. He works in Analytics and Information Extraction systems based on insights into the properties of human language, specially Semantics and Cognition. He suffers from an autoimmune condition called alopecia areata, for which there is currently no effective treatment. He works in this project to make a contribution to research on hard to treat diseases.
