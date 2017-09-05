@@ -9,15 +9,17 @@ import './app.css';
 const App = () => (
   <div>
     <nav>
-      <span className="logo">
-        lifescope
+      <div className="nav-content-wrapper">
+        <span className="logo">
+          lifescope
       </span>
-      <NavLink to="/">
-        T/L 
+        <NavLink to="/">
+          T/L
       </NavLink>
-      <NavLink to="/about-us">
-        About
+        <NavLink to="/about-us">
+          About
       </NavLink>
+      </div>
     </nav>
     <main>
       <Route exact path="/" component={Home} />
