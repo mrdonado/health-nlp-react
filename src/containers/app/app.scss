@@ -56,7 +56,7 @@ nav a {
     margin: 1rem;
     color: #bdbdbd;
     transition: color 0.5s;
-    &.active {
+    &.active, &:hover {
         color: white;
     }
     &:before {
