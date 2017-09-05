@@ -6,7 +6,7 @@ nav {
     }
     text-align: center;
     font-size: 120%;
-    background-color: #252525;
+    background-color: #170f29;
     color: white;
     border-bottom: 1px solid #ebebeb;
     height: 4rem;
@@ -21,6 +21,8 @@ nav {
         font-family: 'raleway-bold', 'Arial Narrow', Arial, sans-serif;
         left: 2rem;
         font-size: 137%;
+        z-index: 5;
+        background-color: rgba(23, 15, 41, 0.46);
         display: block;
         position: absolute;
     }
