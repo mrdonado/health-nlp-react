@@ -9,8 +9,11 @@ import './app.css';
 const App = () => (
   <div>
     <nav>
+      <span className="logo">
+        lifescope
+      </span>
       <NavLink to="/">
-        Timeline 
+        T/L 
       </NavLink>
       <NavLink to="/about-us">
         About
