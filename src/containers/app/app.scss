@@ -1,4 +1,9 @@
 nav {
+    .nav-content-wrapper {
+        max-width: 960px;
+        margin: auto;
+        position: relative;
+    }
     text-align: center;
     font-size: 120%;
     background-color: #252525;
@@ -23,17 +28,22 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: white;
     position: relative;
     margin: 1rem;
+    color: #bdbdbd;
+    transition: color 0.5s;
+    &.active {
+        color: white;
+    }
     &:before {
         content: "";
         position: absolute;
-        height: 1px;
         width: 140%;
         bottom: -1.3rem;
         left: -20%;
-        background-color: white;
+        border-radius: 5px;
+        height: 2.5px;
+        background-color: transparentize(white, 0.55);
         visibility: hidden;
         -webkit-transform: scaleX(0);
         transform: scaleX(0);
