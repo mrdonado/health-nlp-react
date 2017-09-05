@@ -1,8 +1,39 @@
 nav {
-    .nav-content-wrapper {
-        max-width: 960px;
-        margin: auto;
-        position: relative;
+    .nav-content-wrapper a {
+        display: none;
+    }
+    .logo {
+        font-family: 'raleway-bold', 'Arial Narrow', Arial, sans-serif;
+        font-size: 137%;
+        z-index: 5;
+        background-color: rgba(23, 15, 41, 0.46);
+        display: block;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+    #burger-menu {
+        position: absolute;
+        left: 1rem;
+        color: white;
+        font-size: 300%;
+    } // Desktop media query
+    @media screen and (min-width: 550px) {
+        #burger-menu {
+            display: none;
+        }
+        .nav-content-wrapper {
+            max-width: 960px;
+            margin: auto;
+            position: relative;
+            a {
+                display: inline;
+            }
+        }
+        .logo {
+            left: 2rem;
+            transform: none;
+        }
     }
     text-align: center;
     font-size: 120%;
@@ -17,15 +48,6 @@ nav {
     width: 100%;
     box-shadow: 0px 0px 10px 0px #e7e7e7;
     z-index: 10;
-    .logo {
-        font-family: 'raleway-bold', 'Arial Narrow', Arial, sans-serif;
-        left: 2rem;
-        font-size: 137%;
-        z-index: 5;
-        background-color: rgba(23, 15, 41, 0.46);
-        display: block;
-        position: absolute;
-    }
 }
 
 nav a {

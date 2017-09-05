@@ -9,6 +9,9 @@ import './app.css';
 const App = () => (
   <div>
     <nav>
+      <div id="burger-menu">
+        ≡
+      </div>
       <div className="nav-content-wrapper">
         <span className="logo">
           lifescope
