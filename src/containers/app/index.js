@@ -13,20 +13,26 @@ export default class App extends React.Component {
 
   render() {
     const navLinks = <div>
+      <span className="logo">
+        lifescope</span>
       <NavLink to="/">T/L</NavLink>
       <NavLink to="/about-us">About</NavLink>
     </div>;
 
     return <div>
       <div id="side-menu"
-        className={this.state && this.state.sideMenuActive}>
-        <div id="close-menu"
-         onClick={() => {
+        onClick={() => {
           this.setState({ sideMenuActive: '' });
-        }}>
-          X
-        </div>
+        }}
+        className={this.state && this.state.sideMenuActive}>
+
         {navLinks}
+      </div>
+      <div id="side-menu-mask"
+        onClick={() => {
+          this.setState({ sideMenuActive: '' });
+        }}
+        className={this.state && this.state.sideMenuActive}>
       </div>
       <nav>
         <div id="burger-menu"
@@ -36,8 +42,6 @@ export default class App extends React.Component {
           ≡
       </div>
         <div className="nav-content-wrapper">
-          <span className="logo">
-            lifescope</span>
           {navLinks}
         </div>
       </nav>
