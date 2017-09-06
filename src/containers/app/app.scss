@@ -1,4 +1,14 @@
+$deep-blue: #170f29;
+#burger-menu,
+#close-menu {
+    position: absolute;
+    left: 1rem;
+    color: white;
+    font-size: 300%;
+}
+
 nav {
+    top: 0;
     .nav-content-wrapper a {
         display: none;
     }
@@ -6,17 +16,11 @@ nav {
         font-family: 'raleway-bold', 'Arial Narrow', Arial, sans-serif;
         font-size: 137%;
         z-index: 5;
-        background-color: rgba(23, 15, 41, 0.46);
+        background-color: transparentize($deep-blue, 0.5);
         display: block;
         left: 50%;
         position: absolute;
         transform: translateX(-50%);
-    }
-    #burger-menu {
-        position: absolute;
-        left: 1rem;
-        color: white;
-        font-size: 300%;
     } // Desktop media query
     @media screen and (min-width: 550px) {
         #burger-menu {
@@ -37,13 +41,12 @@ nav {
     }
     text-align: center;
     font-size: 120%;
-    background-color: #170f29;
+    background-color: $deep-blue;
     color: white;
     border-bottom: 1px solid #ebebeb;
     height: 4rem;
     line-height: 4rem;
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
     box-shadow: 0px 0px 10px 0px #e7e7e7;
@@ -56,7 +59,8 @@ nav a {
     margin: 1rem;
     color: #bdbdbd;
     transition: color 0.5s;
-    &.active, &:hover {
+    &.active,
+    &:hover {
         color: white;
     }
     &:before {
@@ -79,6 +83,30 @@ nav a {
         visibility: visible;
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
+    }
+}
+
+#side-menu {
+    width: 85%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -85%;
+    transition: left 0.45s;
+    z-index: 25;
+    background-color: $deep-blue;
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 150%;
+        display: block;
+        width: 100%;
+        margin: 2rem;
+        height: 2rem;
+    }
+    &.active {
+        left: 0;
+        box-shadow: 5px 0px 5px 0px transparentize(black, 0.5);
     }
 }
 
