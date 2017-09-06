@@ -134,5 +134,8 @@ nav a {
 }
 
 body {
-    padding-top: 5rem;
+    padding-top: 1rem;
+    @media screen and (min-width: 550px) {
+        padding-top: 5rem;
+    }
 }

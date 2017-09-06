@@ -3,7 +3,10 @@
     margin: auto;
     max-width: 500px;
     margin-top: 50px;
-    padding: 0 1rem 0 1rem;
+    padding: 1rem 1rem 0 1rem;
+    @media screen and (min-width: 550px) {
+      padding: 0;
+    }
     footer {
         height: 70px;
     }
