@@ -4,18 +4,26 @@ import './home.css';
 export default class Home extends React.Component {
   render() {
     return <div id="home-content">
-      <p>
-        Lifescope is an Artificial Intelligence algorithm that finds solutions to healthcare problems.
+      <section>
+        <p className="p1">
+          Lifescope is an <br /><strong>Artificial Intelligence</strong> algorithm that finds <strong>solutions</strong> to healthcare <strong>problems</strong>.
       </p>
-      <p>
-        It's constantly monitoring social media feeds to search treatments for diseases.
+      </section>
+      <section>
+        <p className="p2">
+          It's constantly <strong>monitoring</strong> social media feeds to search <strong>treatments</strong> for diseases.
       </p>
-      <p>
-        It provides an accurate and real-time analysis of incoming messages in a timeline.
+      </section>
+      <section>
+        <p className="p3">
+          It provides an accurate and <strong>real-time analysis </strong>of incoming messages in a <strong>timeline</strong>.
       </p>
-      <p>
-        The algorithm analyzes not only the content, but also the sender of the message to exclude not health-related sources.
+      </section>
+      <section>
+        <p className="p4">
+          The <strong>algorithm</strong> analyzes not only the content, but also <strong>the sender</strong> of the message to exclude not health-related sources.
       </p>
+      </section>
     </div>
   }
 }

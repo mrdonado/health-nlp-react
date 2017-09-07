@@ -1,8 +1,26 @@
 #home-content {
     animation: fade-in 0.5s 1;
     max-width: 800px;
-    padding: 4rem 1rem 0 1rem;
+    padding: 4rem 0 0 0;
     @media screen and (min-width: 550px) {
-        padding: 1rem 1rem 0 1rem;
+        padding: 1rem 0 0 0;
+    }
+    section {
+        p {
+            font-size: 3rem;
+            padding: 1rem;
+            &.p1,
+            &.p3 {
+                text-align: right;
+            }
+            &.p2 {
+                position: absolute;
+                top: 1rem;
+            }
+        }
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 70vh;
     }
 }
