@@ -3,7 +3,7 @@ import './home.css';
 
 export default class Home extends React.Component {
   render() {
-    return <div className="home-container">
+    return <div id="home-content">
       <p>
         Lifescope is an Artificial Intelligence algorithm that finds solutions to healthcare problems.
       </p>
