@@ -1,7 +1,6 @@
 import React from 'react';
-import { push } from 'react-router-redux';
 import NavLink from './components/nav-link';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Timeline from '../timeline';
 import Home from '../home';
 import About from '../about/components/about';
@@ -17,12 +16,11 @@ export default class App extends React.Component {
   render() {
 
     const navLinks = <div>
-      <span className="logo" onClick={() => {
-        console.log('Hello???');
-        push('/');
-      }} >
-        lifescope
-      </span>
+      <Link to="/">
+        <span className="logo">
+          lifescope</span>
+      </Link>
+
       <NavLink to="/timeline">T/L</NavLink>
       <NavLink to="/about-us">About</NavLink>
     </div>;
