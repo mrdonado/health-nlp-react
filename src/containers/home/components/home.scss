@@ -1,6 +1,7 @@
 #home-content {
     animation: fade-in 0.5s 1;
-    max-width: 800px;
+    max-width: 900px;
+    margin: auto;
     padding: 4rem 0 0 0;
     @media screen and (min-width: 550px) {
         padding: 1rem 0 0 0;
