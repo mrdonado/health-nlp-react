@@ -1,7 +1,9 @@
 import React from 'react';
+import { push } from 'react-router-redux';
 import NavLink from './components/nav-link';
 import { Route } from 'react-router-dom';
 import Timeline from '../timeline';
+import Home from '../home';
 import About from '../about/components/about';
 import './app.css';
 
@@ -11,11 +13,17 @@ export default class App extends React.Component {
     this.setState({ sideMenuActive: '' });
   };
 
+
   render() {
+
     const navLinks = <div>
-      <span className="logo">
-        lifescope</span>
-      <NavLink to="/">T/L</NavLink>
+      <span className="logo" onClick={() => {
+        console.log('Hello???');
+        push('/');
+      }} >
+        lifescope
+      </span>
+      <NavLink to="/timeline">T/L</NavLink>
       <NavLink to="/about-us">About</NavLink>
     </div>;
 
@@ -46,10 +54,10 @@ export default class App extends React.Component {
         </div>
       </nav>
       <main>
-        <Route exact path="/" component={Timeline} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/timeline" component={Timeline} />
         <Route exact path="/about-us" component={About} />
       </main>
-    </div>;
+    </div >;
   }
 }
