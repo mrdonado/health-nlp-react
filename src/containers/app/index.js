@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLink from './components/nav-link';
 import { Route } from 'react-router-dom';
-import Home from '../home';
+import Timeline from '../timeline';
 import About from '../about/components/about';
 import './app.css';
 
@@ -46,7 +46,8 @@ export default class App extends React.Component {
         </div>
       </nav>
       <main>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Timeline} />
+        <Route exact path="/timeline" component={Timeline} />
         <Route exact path="/about-us" component={About} />
       </main>
     </div>;

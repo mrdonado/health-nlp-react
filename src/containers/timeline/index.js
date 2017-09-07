@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import firebase from 'firebase';
 import database from '../../firebase/firebase-db';
 import { analysisDispatchers, swapForm } from '../../modules/analysis/dispatchers';
-import { Home } from './components/home';
+import { Timeline } from './components/timeline';
 
 // The analysis dispatchers must be configured with the
 // firebase database instance.
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(Timeline);

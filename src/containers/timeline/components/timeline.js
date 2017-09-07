@@ -2,9 +2,9 @@ import React from 'react';
 import Spinner from './spinner';
 import AnalysisBlock from './analysis-block';
 import AnalysisForm from './analysis-form';
-import './home.css';
+import './timeline.css';
 
-export class Home extends React.Component {
+export class Timeline extends React.Component {
 
   componentDidMount = () => {
     this.props.getResults();
