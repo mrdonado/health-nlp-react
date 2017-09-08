@@ -29,6 +29,7 @@ export default class App extends React.Component {
       <div id="side-menu"
         onClick={() => {
           this.setState({ sideMenuActive: '' });
+          window.scrollTo(0,0);
         }}
         className={this.state && this.state.sideMenuActive}>
 
