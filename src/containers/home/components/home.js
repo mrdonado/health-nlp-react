@@ -4,15 +4,19 @@ import './home.css';
 export default class Home extends React.Component {
 
   componentDidMount() {
-    this.setState({ section: 1 });
+    this.setState({ section: 0 });
+    setTimeout(() => {
+      this.setState({ section: 1 });
+    }, 50);
+    this.scrollEventListener = this.scrollHandler.bind(this);
     window.addEventListener('scroll',
-      this.scrollHandler.bind(this)
+      this.scrollEventListener
     );
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll',
-      this.scrollHandler.bind(this)
+      this.scrollEventListener
     );
   }
 
@@ -48,9 +52,9 @@ export default class Home extends React.Component {
       <section id="section-2" className={this.state &&
         this.state.section === 2 ? 'active' : ''}>
         <p className="p2 p-left">
-          It's constantly <strong>monitoring<br/></strong>
+          It's constantly <strong>monitoring<br /></strong>
           <span className="smaller">
-           social media feeds to find <strong>treatments</strong> for diseases</span>.
+            social media feeds to find <strong>treatments</strong> for diseases</span>.
       </p>
       </section>
       <section id="section-3" className={this.state &&
