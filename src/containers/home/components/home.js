@@ -38,13 +38,19 @@ export default class Home extends React.Component {
       <section id="section-1" className={this.state &&
         this.state.section === 1 ? 'active' : ''}>
         <p className="p1 p-right">
-          Lifescope is an <br /><strong>Artificial Intelligence</strong> algorithm that finds <strong>solutions</strong> to healthcare <strong>problems</strong>.
+          <span className="smaller">
+            Lifescope is an</span><br />
+          <strong>Artificial Intelligence </strong>
+          <span className="smaller">
+            algorithm that finds </span><strong>solutions</strong> to healthcare <strong>problems</strong>.
       </p>
       </section>
       <section id="section-2" className={this.state &&
         this.state.section === 2 ? 'active' : ''}>
         <p className="p2 p-left">
-          It's constantly <strong>monitoring</strong> social media feeds to find <strong>treatments</strong> for diseases.
+          It's constantly <strong>monitoring<br/></strong>
+          <span className="smaller">
+           social media feeds to find <strong>treatments</strong> for diseases</span>.
       </p>
       </section>
       <section id="section-3" className={this.state &&
@@ -56,7 +62,7 @@ export default class Home extends React.Component {
       <section id="section-4" className={this.state &&
         this.state.section === 4 ? 'active' : ''}>
         <p className="p4 p-left">
-          The <strong>algorithm</strong> analyzes not only the content, but also <strong>the sender</strong> of the message to exclude not health-related sources.
+          The <strong>algorithm</strong> <span className="smaller">analyzes not only the content, but also</span><br /><strong>the sender</strong> <span className="smaller">of the message to exclude not health-related sources</span>.
       </p>
       </section>
     </div>

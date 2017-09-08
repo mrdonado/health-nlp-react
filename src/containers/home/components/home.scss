@@ -8,20 +8,28 @@
     }
     section {
         display: table;
+        span.smaller {
+            font-size: 70%;
+        }
         p {
+            color: #170f29;
             padding: 2rem;
             display: table-cell;
             vertical-align: middle;
             width: 80%;
-            font-size: 3rem;
+            @media screen and (orientation: portrait) {
+                font-size: 9vw;
+            }
+            @media screen and (orientation: landscape) {
+                font-size: 5vw;
+            }
             &.p-right {
                 text-align: right;
             }
             &.p-left {
-                position: absolute;
-                top: 1rem;
+                float: left;
             }
-            opacity: 0.2;
+            opacity: 0.15;
             transform: scale(0.75);
             transition: transform 5s,
             opacity 1s;
@@ -43,5 +51,8 @@
     }
     #section-4 {
         margin-bottom: 200px;
+        p{
+          text-align: center;
+        }
     }
 }
