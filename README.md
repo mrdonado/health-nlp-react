@@ -19,12 +19,12 @@ This repository contains the frontend part of the ***health-nlp*** project.
 The ***health-nlp*** project is an NLP (Natural Language Processing) demo composed by the following repositories:
 
 - [health-nlp-react](https://github.com/fjrd84/health-nlp-react): frontend part. It displays the results of the analysis (stored in firebase) and explains everything about the project. It is a react+redux web application.
-- [health-nlp-node](https://github.com/fjrd84/health-nlp-node): nodeJS/express backend for the health-nlp-angular frontend. It takes new job requests and sends them to the beanstalkd job queue.
+- [health-nlp-node](https://github.com/fjrd84/health-nlp-node): nodeJS/express backend for the health-nlp-react frontend. It takes new job requests and sends them to the beanstalkd job queue. It also connects to information sources, streaming information to the analyzer.
 - [health-nlp-analysis](https://github.com/fjrd84/health-nlp-analysis) (this repository): it processes jobs from beanstalkd and sends the results to firebase. It is a Python project.
 
-This project is still on an early stage of development. As soon as there's an online demo available, you'll find a link here.
+This project is still on an early stage of development. You can find the preview version on [https://www.lifescope-project.com](https://www.lifescope-project.com).
 
-[Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31 was used to scaffold the first commit of this repository.
+For more information about the structure of this project, see [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Development server
 
