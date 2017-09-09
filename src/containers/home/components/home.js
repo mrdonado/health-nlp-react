@@ -71,6 +71,12 @@ export default class Home extends React.Component {
           The <strong>algorithm</strong> <span className="smaller">analyzes not only the content, but also</span><br /><strong>the sender</strong> <span className="smaller">of the message to exclude not health-related sources</span>.
       </p>
       </section>
+      <div id="img-loader">
+        <div className="l-1"></div>
+        <div className="l-2"></div>
+        <div className="l-3"></div>
+        <div className="l-4"></div>
+      </div>
     </div>
   }
 }
