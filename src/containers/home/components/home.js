@@ -4,6 +4,7 @@ import './home.css';
 export default class Home extends React.Component {
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.setState({ section: 0 });
     setTimeout(() => {
       this.setState({ section: 1 });
