@@ -1,12 +1,16 @@
 {
-  "main.css": "static/css/main.e680ba23.css",
-  "main.css.map": "static/css/main.e680ba23.css.map",
-  "main.js": "static/js/main.56722c2a.js",
-  "main.js.map": "static/js/main.56722c2a.js.map",
+  "main.css": "static/css/main.dd4f7164.css",
+  "main.css.map": "static/css/main.dd4f7164.css.map",
+  "main.js": "static/js/main.45b5159c.js",
+  "main.js.map": "static/js/main.45b5159c.js.map",
   "static/media/Raleway-Bold.ttf": "static/media/Raleway-Bold.f5c9c1aa.ttf",
   "static/media/Raleway-ExtraBold.ttf": "static/media/Raleway-ExtraBold.299ddfe9.ttf",
   "static/media/Raleway-Italic.ttf": "static/media/Raleway-Italic.b1f58e1b.ttf",
   "static/media/Raleway-Light.ttf": "static/media/Raleway-Light.6b562d7c.ttf",
+  "static/media/bg-1.jpg": "static/media/bg-1.36345058.jpg",
+  "static/media/bg-2.jpg": "static/media/bg-2.1a481eca.jpg",
+  "static/media/bg-3.jpg": "static/media/bg-3.59b9a848.jpg",
+  "static/media/bg-4.jpg": "static/media/bg-4.c283326e.jpg",
   "static/media/close-icon.svg": "static/media/close-icon.cee45fda.svg",
   "static/media/web-icon.png": "static/media/web-icon.0a8dfa71.png"
 }
