@@ -40,6 +40,7 @@ export default class Home extends React.Component {
 
   render() {
     return <div id="home-content">
+      <div className={'background slide-' + ((this.state && this.state.section) || '1')}></div>
       <section id="section-1" className={this.state &&
         this.state.section === 1 ? 'active' : ''}>
         <p className="p1 p-right">

@@ -3,6 +3,25 @@
     max-width: 900px;
     margin: auto;
     padding: 4rem 0 0 0;
+    div.background {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        background-size: cover;
+        opacity: 0.3;
+        background-position: 0 0;
+        transition: background-color 1s, background-image 1s, background-position 10s;
+        &.slide-1 {
+            background-position: -5% -10%;
+            background-image: url(../../../assets/images/bg-1.png);
+        }
+        &.slide-2 {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8kZcD-1FpD5__8nJo8kzQ22YIsGZ-Qto9yGMNM3OBNGn687V1);
+        }
+    }
     @media screen and (min-width: 550px) {
         padding: 1rem 0 0 0;
     }
