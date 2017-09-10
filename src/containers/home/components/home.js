@@ -48,7 +48,7 @@ export default class Home extends React.Component {
             Lifescope is an</span><br />
           <strong>Artificial Intelligence </strong>
           <span className="smaller">
-            algorithm that finds </span><strong>solutions</strong> to healthcare <strong>problems</strong>.
+            software that finds </span><strong>solutions</strong> to healthcare <strong>problems</strong>.
       </p>
       </section>
       <section id="section-2" className={this.state &&
