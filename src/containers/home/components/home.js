@@ -26,7 +26,8 @@ export default class Home extends React.Component {
       s2 = document.getElementById('section-2').offsetTop,
       s3 = document.getElementById('section-3').offsetTop,
       s4 = document.getElementById('section-4').offsetTop,
-      offset = e.srcElement.body.scrollTop + window.innerHeight / 2,
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+      offset = scrollTop + window.innerHeight / 2,
       sections = [s4, s3, s2, s1];
     sections.some((s, idx) => {
       if (offset > s) {
