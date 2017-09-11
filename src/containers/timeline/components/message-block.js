@@ -34,9 +34,9 @@ export default class MessageBlock extends React.Component {
         afterText = message.substring(solutionEnd + 1);
       return <div className="message">
         {beforeText} {/* Text before the problem */}
-        <strong className="problem">{problem}</strong>
+        <i className="problem">{problem}</i>
         {betweenText} {/* Text between the problem and the solution */}
-        <strong className="solution">{solution}</strong>
+        <i className="solution">{solution}</i>
         {afterText} {/* Text after the solution */}
       </div>;
     }
@@ -48,9 +48,9 @@ export default class MessageBlock extends React.Component {
     // Second case: solution first, problem after
     return <div className="message">
       {beforeText} {/* Text before the solution */}
-      <strong className="solution">{solution}</strong>
+      <i className="solution">{solution}</i>
       {betweenText} {/* Text between the solution and the problem */}
-      <strong className="problem">{problem}</strong>
+      <i className="problem">{problem}</i>
       {afterText} {/* Text after the problem */}
     </div>;
   }
