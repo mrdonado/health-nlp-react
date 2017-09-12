@@ -13,7 +13,7 @@ export default class AnalysisBlock extends React.Component {
     return <li className="analysis-item" key={'analysis-' + this.props.result.id}>
       <span className="date-and-query">
         <i className={'source ' + this.props.result.source}></i>
-        {this.props.result.source} - {this.props.result.created_at} <span hidden="this.props.result.query">- Query: "{this.props.result.query}"</span>
+        {this.props.result.source} - {(new Date(this.props.result.created_at)).toLocaleString()} <span hidden="this.props.result.query">- Query: "{this.props.result.query}"</span>
       </span>
       <div className="user-information">
         <span className="name-and-description">
