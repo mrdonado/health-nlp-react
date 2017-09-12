@@ -19,6 +19,7 @@ export class Timeline extends React.Component {
   render() {
     return <div>
       {this.props.analysis.results ? <div id='analysis-section'>
+        <div className="listening"><div className="listening-spinner"></div></div>
         <ul id="analysis-list">
           {this.props
             .analysis
@@ -26,6 +27,7 @@ export class Timeline extends React.Component {
             .map(result =>
               <AnalysisBlock key={'analysis-' + result.id} result={result}></AnalysisBlock>)
           }
+
           {/* Show more button as last element of the list. */}
           <li className="more-results-btn"
             onClick={() => {
