@@ -45,7 +45,7 @@ export class Timeline extends React.Component {
             <li><span className="user-tag doctor">Doctor</span></li>
             <li><span className="user-tag generic">Generic</span></li>
             <li><span className="user-tag health-initiative">Health Initiative</span></li>
-            <li><span className="user-tag interested-in.healthcare">Interested in healthcare</span></li>
+            <li><span className="user-tag interested-in healthcare">Interested in healthcare</span></li>
             <li><span className="user-tag professional">Professional</span></li>
             <li><span className="user-tag academia">Academia</span></li>
             <li><span className="user-tag med-business">Med Business</span></li>
