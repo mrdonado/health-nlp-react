@@ -146,6 +146,39 @@ ul#analysis-list {
                 font-size: 80%;
                 color: $green-gradient;
             }
+            .user-tag {
+                font-family: 'raleway-bold';
+                &.news-source {
+                    color: dodgerblue;
+                }
+                &.doctor {
+                    color: darksalmon;
+                }
+                &.generic {
+                    color: chocolate;
+                }
+                &.health-initiative {
+                    color: darkgoldenrod;
+                }
+                &.interested-in.healthcare {
+                    color: hotpink;
+                }
+                &.professional {
+                    color: cadetblue;
+                }
+                &.academia {
+                    color: darkgreen;
+                }
+                &.med-business{
+                    color: rebeccapurple;
+                }
+                &.institution{
+                    color: grey;
+                }
+                &.healthcare-initiative{
+                    color: mediumslateblue
+                }
+            }
         }
         &.more-results-btn {
             @extend %green-button;
