@@ -4,18 +4,27 @@ export const HelpWindow = (props) => {
   return <div id="help-window"
     onClick={props.closeWindow}
     className={props.showHelp ? 'active' : ''}>
-    <h3>User Tags</h3>
+    <p>
+      Lifescope analyzes health-related feeds taking content and sender into account.
+    </p>
+    <p>
+      As for content, incoming messages are automatically annotated using labels. Green labels match treatments, procedures or generic solutions to health diseases, for which red labels are used.
+    </p>
+    <p>
+      On the other hand, user categories are inferred from user description texts. The algorithm identifies eleven different profiles:
+    </p>
     <ul>
-      <li><span className="user-tag news-source">News Source</span></li>
-      <li><span className="user-tag doctor">Doctor</span></li>
-      <li><span className="user-tag generic">Generic</span></li>
-      <li><span className="user-tag health-initiative">Health Initiative</span></li>
-      <li><span className="user-tag interested-in healthcare">Interested in healthcare</span></li>
-      <li><span className="user-tag professional">Professional</span></li>
-      <li><span className="user-tag academia">Academia</span></li>
-      <li><span className="user-tag med-business">Med Business</span></li>
-      <li><span className="user-tag institution">Institution</span></li>
-      <li><span className="user-tag healthcare-initiative">Healthcare Initiative</span></li>
+      <li><span className="user-tag doctor">Doctor</span>: A self-described physician</li>
+      <li><span className="user-tag news-source">News Source</span>: Any kind of medical news source</li>
+      <li><span className="user-tag health-initiative">Health Initiative</span>: A source related to a healthcare project or action plan</li>
+      <li><span className="user-tag interested-in healthcare">Interested in healthcare</span>: Someone who expresses an interest in healthcare</li>
+      <li><span className="user-tag academia">Academia</span>: A health science researcher or lecturer</li>
+      <li><span className="user-tag med-business">Med Business</span>: A source related to medical products or companies</li>
+      <li><span className="user-tag patient">Patient</span>: A self-described patient</li>
+      <li><span className="user-tag institution">Institution</span>: Any kind of healthcare organization</li>
+      <li><span className="user-tag professional">Professional/Specialist</span>: A self-described expert in some health domain</li>
+      <li><span className="user-tag publishing-source">Publishing source</span>: A medical serious publication</li>
+      <li><span className="user-tag generic">Generic</span>: Any other health-related sources</li>
     </ul>
   </div>;
 };

@@ -87,13 +87,15 @@ div.listening {
     &.generic {
         color: #0074d9;
     }
-    &.health-initiative {
+    &.health-initiative,
+    &.healthcare-initiative {
         color: #ff4136;
     }
     &.interested-in.healthcare {
         color: #39cccc;
     }
-    &.professional {
+    &.professional,
+    &.specialist {
         color: #85144b;
     }
     &.academia {
@@ -105,19 +107,17 @@ div.listening {
     &.institution {
         color: #2ecc40;
     }
-    &.healthcare-initiative {
+    &.patient {
         color: #777777;
     }
-    &.specialist {
-        color: #ffdc00;
-    }
     &.publishing-source {
-        color: #111111;
+        color: #ffdc00;
     }
 }
 
 button.add-analysis,
 button.show-help {
+    cursor: pointer;
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -133,25 +133,27 @@ button.show-help {
 }
 
 button.show-help {
-    bottom: calc(3rem + 50px);
+    right: calc(3rem + 50px);
 }
 
 #help-window {
+    cursor: pointer;
     position: fixed;
-    bottom: calc(5rem + 100px);
+    bottom: calc(3rem + 50px);
     right: 2rem;
-    width: 15rem;
+    width: calc(100% - 6rem);
+    max-width: 40rem;
     padding: 1rem;
     background-color: white;
-    border: 1px solid gray;
     visibility: hidden;
     height: auto;
     max-height: 0;
     opacity: 0;
     overflow-y: auto;
     transition: visibility 0.5s, opacity 0.5s, max-height 1s;
+    box-shadow: 0px 0px 10px 0px darken($white-shadow, 15%);
     &.active {
-        max-height: calc(70% - 100px - 5rem);
+        max-height: calc(100% - 100px - 7rem);
         visibility: visible;
         opacity: 1;
     }
