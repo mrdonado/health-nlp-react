@@ -114,7 +114,19 @@
   #section-1 {
     min-height: 63vh;
   }
-  #section-4 {
-    margin-bottom: 200px;
+  #section-5 {
+    height: calc(100vh - 5rem);
+    p{
+      position: absolute;
+      text-align: center;
+      &.go-to-timeline{
+        top: 0;
+        left: 0;
+      }
+      &.go-to-blog{
+        bottom: 0;
+        right: 0;
+      }
+    }
   }
 }

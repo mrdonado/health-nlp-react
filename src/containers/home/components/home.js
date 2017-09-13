@@ -72,6 +72,12 @@ export default class Home extends React.Component {
           The <strong>algorithm</strong> <span className="smaller">analyzes not only the content, but also</span><br /><strong>the sender</strong> <span className="smaller">of the message to exclude not health-related sources</span>.
       </p>
       </section>
+      <section id="section-5" className="active">
+        <p className="go-to-timeline">Go to the <strong>timeline</strong></p>
+        <a href="http://blog.lifescope-project.com">
+          <p className="go-to-blog"><strong>Lifescope</strong> Insights</p>
+        </a>
+      </section>
       <div id="img-loader">
         <div className="l-1"></div>
         <div className="l-2"></div>
