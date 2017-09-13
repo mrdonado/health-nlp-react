@@ -21,7 +21,7 @@ export default class App extends React.Component {
           lifescope</span>
       </Link>
 
-      <NavLink to="/timeline">T/L</NavLink>
+      <NavLink to="/timeline">Timeline</NavLink>
       <NavLink to="/about-us">About</NavLink>
     </div>;
 
