@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './home.css';
 
 export default class Home extends React.Component {
@@ -73,7 +74,9 @@ export default class Home extends React.Component {
       </p>
       </section>
       <section id="section-5" className="active">
-        <p className="go-to-timeline">Go to the <strong>timeline</strong></p>
+        <Link to="/timeline">
+          <p className="go-to-timeline">Go to the <strong>timeline</strong></p>
+        </Link>
         <a href="http://blog.lifescope-project.com">
           <p className="go-to-blog"><strong>Lifescope</strong> Insights</p>
         </a>
