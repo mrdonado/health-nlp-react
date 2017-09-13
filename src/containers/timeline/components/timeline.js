@@ -1,6 +1,7 @@
 import React from 'react';
 import Spinner from './spinner';
 import AnalysisBlock from './analysis-block';
+import { HelpWindow } from './help-window';
 import AnalysisForm from './analysis-form';
 import './timeline.css';
 
@@ -36,25 +37,12 @@ export class Timeline extends React.Component {
             Show more
           </li>
         </ul>
-        <div id="help-window"
-          onClick={() => {
+        <HelpWindow
+          showHelp={this.state.showHelp}
+          closeWindow={() => {
             this.setState({ showHelp: false });
           }}
-          className={this.state.showHelp ? 'active' : ''}>
-          <h3>User Tags</h3>
-          <ul>
-            <li><span className="user-tag news-source">News Source</span></li>
-            <li><span className="user-tag doctor">Doctor</span></li>
-            <li><span className="user-tag generic">Generic</span></li>
-            <li><span className="user-tag health-initiative">Health Initiative</span></li>
-            <li><span className="user-tag interested-in healthcare">Interested in healthcare</span></li>
-            <li><span className="user-tag professional">Professional</span></li>
-            <li><span className="user-tag academia">Academia</span></li>
-            <li><span className="user-tag med-business">Med Business</span></li>
-            <li><span className="user-tag institution">Institution</span></li>
-            <li><span className="user-tag healthcare-initiative">Healthcare Initiative</span></li>
-          </ul>
-        </div>
+        ></HelpWindow>
         <button onClick={() => {
           this.setState({ showHelp: !this.state.showHelp });
         }} className="show-help">?</button>
