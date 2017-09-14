@@ -236,6 +236,9 @@ ul#analysis-list {
                 border: 3px solid transparentize($green-gradient, 0.45);
                 background-color: transparentize(green, 0.85);
             }
+            a{
+                color: inherit;
+            }
         }
         .user-information {
             white-space: nowrap;

@@ -1,4 +1,5 @@
 import React from 'react';
+import UrlToA from './url-to-a';
 
 /**
  * It receives an item where a message is contained along with an analysis. From the analysis,
@@ -47,11 +48,11 @@ export default class MessageBlock extends React.Component {
       afterText = message.substring(problemEnd + 1);
     // Second case: solution first, problem after
     return <div className="message">
-      {beforeText} {/* Text before the solution */}
+      <UrlToA text={beforeText}></UrlToA> {/* Text before the solution */}
       <i className="solution">{solution}</i>
       {betweenText} {/* Text between the solution and the problem */}
       <i className="problem">{problem}</i>
-      {afterText} {/* Text after the problem */}
+      <UrlToA text={afterText}></UrlToA> {/* Text after the problem */}
     </div>;
   }
 }
