@@ -34,11 +34,11 @@ export default class MessageBlock extends React.Component {
         solution = message.substring(solutionIndex, solutionEnd),
         afterText = message.substring(solutionEnd + 1);
       return <div className="message">
-        {beforeText} {/* Text before the problem */}
+        <UrlToA text={beforeText}></UrlToA> {/* Text before the solution */}
         <i className="problem">{problem}</i>
         {betweenText} {/* Text between the problem and the solution */}
         <i className="solution">{solution}</i>
-        {afterText} {/* Text after the solution */}
+        <UrlToA text={afterText}></UrlToA> {/* Text after the problem */}
       </div>;
     }
     let beforeText = message.substring(0, solutionIndex - 1),
