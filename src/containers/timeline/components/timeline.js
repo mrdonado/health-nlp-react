@@ -30,12 +30,12 @@ export class Timeline extends React.Component {
           }
 
           {/* Show more button as last element of the list. */}
-          <li className="more-results-btn"
+          <button className="more-results-btn"
             onClick={() => {
               this.props.moreResults();
             }}>
             Show more
-          </li>
+          </button>
         </ul>
         <HelpWindow
           showHelp={this.state.showHelp}
