@@ -39,7 +39,8 @@ export class Timeline extends React.Component {
         </ul>
         <HelpWindow
           showHelp={this.state.showHelp}
-          closeWindow={() => {
+          closeWindow={(e) => {
+            e.preventDefault();
             this.setState({ showHelp: false });
           }}
         ></HelpWindow>
@@ -50,7 +51,10 @@ export class Timeline extends React.Component {
       </div> : <Spinner />}
       <AnalysisForm
         onClose={this.props.swapForm}
-        opened={this.props.form.showForm}></AnalysisForm>
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+        opened={this.props.formWindow.showForm}></AnalysisForm>
     </div >;
   }
 };
