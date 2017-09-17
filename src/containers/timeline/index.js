@@ -12,7 +12,7 @@ const { getResults, moreResults, watchAnalysisAddedEvent } = analysisDispatchers
 
 const mapStateToProps = state => ({
   analysis: state.analysis,
-  form: state.form
+  formWindow: state.formWindow
 });
 
 const mapDispatchToProps = dispatch => {
