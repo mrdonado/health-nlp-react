@@ -58,7 +58,7 @@ export class Timeline extends React.Component {
             user_description: values.user_description,
             message: values.message
           };
-          fetch('http://localhost:3005/analysis',
+          fetch('https://health-nlp.api.jdonado.com/analysis',
             {
               method: 'POST',
               headers: {
@@ -69,7 +69,9 @@ export class Timeline extends React.Component {
             }).then((response) => {
               return response.json();
             }).then((data) => {
-              console.log(data);
+              this.props.swapForm();
+            }).catch(() => {
+              this.props.swapForm();
             });
         }}
         opened={this.props.formWindow.showForm}></AnalysisForm>
