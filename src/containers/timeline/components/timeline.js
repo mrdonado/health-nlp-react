@@ -52,7 +52,25 @@ export class Timeline extends React.Component {
       <AnalysisForm
         onClose={this.props.swapForm}
         onSubmit={(values) => {
-          console.log(values);
+          const data = {
+            source: 'web',
+            user_name: values.user_name,
+            user_description: values.user_description,
+            message: values.message
+          };
+          fetch('http://localhost:3005/analysis',
+            {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            }).then((response) => {
+              return response.json();
+            }).then((data) => {
+              console.log(data);
+            });
         }}
         opened={this.props.formWindow.showForm}></AnalysisForm>
     </div >;
