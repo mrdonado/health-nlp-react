@@ -61,6 +61,10 @@
         textarea:focus {
             outline-color: $green-gradient;
         }
+        .input-section {
+            width: 100%;
+            margin-right: 0.5rem;
+        }
         .row {
             display: flex;
             flex-flow: row wrap;
@@ -71,19 +75,28 @@
             }
             input {
                 flex: 2;
-                margin-left: 0.2em;
+                width: 100%;
                 padding-left: 0.5em;
                 font-size: 150%;
-                max-width: 30vw;
                 border: 1px solid gray;
                 border-radius: 3px;
                 transition: outline 1s;
+            }
+            .error-message {
+                color: darken(red, 0.9);
+                text-transform: uppercase;
+                font-size: 75%;
+                padding-top: 0;
+                width: 100%;
+                text-align: right;
+                display: inline-block;
             }
         }
         label.message {
             margin: 0.5rem 0 0.5rem 0;
         }
-        textarea#message {
+        textarea {
+            width: 100%;
             border: 1px solid gray;
             border-radius: 3px;
             margin-bottom: 1rem;
