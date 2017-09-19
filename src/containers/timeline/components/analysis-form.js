@@ -86,8 +86,17 @@ const AnalysisForm = props => {
       onClick={(e) => {
         e.stopPropagation();
       }}>
-      <h2
-      >Test The Analyzer</h2>
+      <h2>Test the analyzer</h2>
+      <div className="info">
+        <p>
+          Here you can try out the analyzer by sending a message to the analysis engine. When the analysis is ready, your message may appear on the top of the messages list, along with the analysis results.
+      </p>
+        <p>
+          Note: The message will only be displayed if you provide a user description that the analyzer recognizes as relevant (a doctor, a news source, a patient, etc.). Otherwise, it will be automatically discarded.</p>
+        <p> 
+          If the message is relevant, it will be displayed within a few seconds.
+      </p>
+      </div>
 
       <form onSubmit={handleSubmit}>
 
@@ -125,14 +134,7 @@ const AnalysisForm = props => {
           Clear Values
         </button> */}
       </form >
-      <div className="info">
-        <p>
-          Here you can try out the analyzer by sending a new message to the analysis engine. When the analysis is ready, your message
-      will appear on the top of the messages list, along with the analysis results.
-      </p>
-        <p> The whole process might take between some seconds and some minutes. Please, be patient.
-      </p>
-      </div>
+
     </div>
   </div>;
 };
