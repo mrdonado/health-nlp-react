@@ -26,6 +26,13 @@ export default class MessageBlock extends React.Component {
       solutionEnd = solutionIndex + this.props.item.analysis.solution.length,
       message = this.props.item.message;
 
+    // Special case: no solution found.
+    if (this.props.item.analysis.solution === '<nothing_found>') {
+      return <div className="message">
+        {message}
+      </div>;
+    }
+
     // First case: problem first, solution after the problem
     if (problemIndex < solutionIndex) {
       let beforeText = message.substring(0, problemIndex - 1),
