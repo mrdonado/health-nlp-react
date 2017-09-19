@@ -5,11 +5,22 @@ import './analysis-form.css';
 
 const validate = values => {
   const errors = {};
-  if (!values.username) {
-    errors.username = 'Required';
-  } else if (values.username.length < 10) {
-    errors.username = 'Must be at least 10 characters';
+  if (!values.user_name) {
+    errors.user_name = 'Required';
+  } else if (values.user_name.length < 6) {
+    errors.user_name = 'Must be at least 6 characters';
   }
+  if (!values.user_description) {
+    errors.user_description = 'Required';
+  } else if (values.user_description.length < 10) {
+    errors.user_description = 'Must be at least 10 characters';
+  }
+  if (!values.message) {
+    errors.message = 'Required';
+  } else if (values.message.length < 15) {
+    errors.message = 'Must be at least 15 characters';
+  }
+
   return errors;
 };
 
@@ -19,7 +30,7 @@ const renderField = ({
   type,
   meta: { touched, error, warning }
 }) =>
-  <div>
+  <div className="input-section">
     <label>
       {label}
     </label>
@@ -27,7 +38,7 @@ const renderField = ({
       <input {...input} placeholder={label} type={type} />
       {touched &&
         ((error &&
-          <span>
+          <span className="error-message">
             {error}
           </span>) ||
           (warning &&
@@ -43,7 +54,7 @@ const renderTextArea = ({
   type,
   meta: { touched, error, warning }
 }) =>
-  <div>
+  <div className="input-section">
     <label>
       {label}
     </label>
@@ -51,7 +62,7 @@ const renderTextArea = ({
       <textarea {...input} placeholder={label} type={type}></textarea>
       {touched &&
         ((error &&
-          <span>
+          <span className="error-message">
             {error}
           </span>) ||
           (warning &&
@@ -63,19 +74,19 @@ const renderTextArea = ({
 
 const warn = values => {
   const warnings = {}
-  if (values.age < 19) {
-    warnings.age = 'Hmm, you seem a bit young...'
-  }
   return warnings
 }
 
 const AnalysisForm = props => {
   const { handleSubmit, /*pristine, reset,*/ submitting, onClose, opened } = props
   return <div id="form-mask"
+    onClick={onClose}
     className={opened ? 'active' : ''}>
-    <div id="analysis-form">
+    <div id="analysis-form"
+      onClick={(e) => {
+        e.stopPropagation();
+      }}>
       <h2
-        onClick={onClose}
       >Test The Analyzer</h2>
 
       <form onSubmit={handleSubmit}>
