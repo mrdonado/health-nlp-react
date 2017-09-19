@@ -37,6 +37,30 @@ const renderField = ({
     </div>
   </div>;
 
+const renderTextArea = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning }
+}) =>
+  <div>
+    <label>
+      {label}
+    </label>
+    <div>
+      <textarea {...input} placeholder={label} type={type}></textarea>
+      {touched &&
+        ((error &&
+          <span>
+            {error}
+          </span>) ||
+          (warning &&
+            <span>
+              {warning}
+            </span>))}
+    </div>
+  </div>;
+
 const warn = values => {
   const warnings = {}
   if (values.age < 19) {
@@ -46,7 +70,7 @@ const warn = values => {
 }
 
 const AnalysisForm = props => {
-  const { handleSubmit, pristine, reset, submitting, onClose, opened } = props
+  const { handleSubmit, /*pristine, reset,*/ submitting, onClose, opened } = props
   return <div id="form-mask"
     className={opened ? 'active' : ''}>
     <div id="analysis-form">
@@ -55,61 +79,40 @@ const AnalysisForm = props => {
       >Test The Analyzer</h2>
 
       <form onSubmit={handleSubmit}>
+
         <div className="row">
           <Field
-            name="username"
+            name="user_name"
             type="text"
             component={renderField}
-            label="Username"
+            label="User name"
           />
         </div>
 
         <div className="row">
-          <label htmlFor="user-name">User Name:</label>
-          <input type="text"
-            name="user-name"
-            id="user-name"></input>
+          <Field
+            name="user_description"
+            type="text"
+            component={renderField}
+            label="User description"
+          />
         </div>
+
         <div className="row">
-          <label htmlFor="user-description">User Description:</label>
-          <input type="text"
-            id="user-description"
-            name="user-description">
-          </input>
+          <Field
+            name="message"
+            type="text"
+            rows="4"
+            component={renderTextArea}
+            label="Message:"
+          />
         </div>
-        <label className="message"
-          htmlFor="message">Message</label>
-        <textarea id="message"
-          name="message"
-          rows="4">
-        </textarea>
-        <button type="submit" disabled={submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+
+        <button className="send-button"
+          type="submit" disabled={submitting}>Send</button>
+        {/* <button type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
-        </button>
-        <div className="send-button"
-          onClick={() => {
-            const data = {
-              source: 'web',
-              user_name: 'Some userName',
-              user_description: 'Some user description',
-              message: 'Some message with a problem and a solution'
-            };
-            fetch('http://localhost:3005/analysis',
-              {
-                method: 'POST',
-                headers: {
-                  'Accept': 'application/json, text/plain, */*',
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              }).then((response) => {
-                return response.json();
-              }).then((data) => {
-                console.log(data);
-              });
-          }
-          }>Send</div>
+        </button> */}
       </form >
       <div className="info">
         <p>
