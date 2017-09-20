@@ -86,55 +86,59 @@ const AnalysisForm = props => {
       onClick={(e) => {
         e.stopPropagation();
       }}>
-      <h2>Test the analyzer</h2>
-      <div className="info">
-        <p>
-          Here you can try out the analyzer by sending a message to the analysis engine. When the analysis is ready, your message may appear on the top of the messages list, along with the analysis results.
+      <div className="close-form"
+        onClick={onClose}
+      >×</div>
+      <div className="form-content">
+
+        <div className="info">
+          <p>
+            Here you can try out the analyzer by sending a message to the analysis engine. When the analysis is ready, your message may appear on the top of the messages list, along with the analysis results.
       </p>
-        <p>
-          Note: The message will only be displayed if you provide a user description that the analyzer recognizes as relevant (a doctor, a news source, a patient, etc.). Otherwise, it will be automatically discarded.</p>
-        <p> 
-          If the message is relevant, it will be displayed within a few seconds.
+          <p>
+            Note: The message will only be displayed if you provide a user description that the analyzer recognizes as relevant (a doctor, a news source, a patient, etc.). Otherwise, it will be automatically discarded.</p>
+          <p>
+            If the message is relevant, it will be displayed within a few seconds.
       </p>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-
-        <div className="row">
-          <Field
-            name="user_name"
-            type="text"
-            component={renderField}
-            label="User name"
-          />
         </div>
 
-        <div className="row">
-          <Field
-            name="user_description"
-            type="text"
-            component={renderField}
-            label="User description"
-          />
-        </div>
+        <form onSubmit={handleSubmit}>
 
-        <div className="row">
-          <Field
-            name="message"
-            type="text"
-            rows="4"
-            component={renderTextArea}
-            label="Message:"
-          />
-        </div>
+          <div className="row">
+            <Field
+              name="user_name"
+              type="text"
+              component={renderField}
+              label="User name"
+            />
+          </div>
 
-        <button className="send-button"
-          type="submit" disabled={submitting}>Send</button>
-        {/* <button type="button" disabled={pristine || submitting} onClick={reset}>
+          <div className="row">
+            <Field
+              name="user_description"
+              type="text"
+              component={renderField}
+              label="User description"
+            />
+          </div>
+
+          <div className="row">
+            <Field
+              name="message"
+              type="text"
+              rows="4"
+              component={renderTextArea}
+              label="Message:"
+            />
+          </div>
+
+          <button className="send-button"
+            type="submit" disabled={submitting}>Send</button>
+          {/* <button type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button> */}
-      </form >
-
+        </form >
+      </div>
     </div>
   </div>;
 };

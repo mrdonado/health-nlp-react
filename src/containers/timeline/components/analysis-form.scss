@@ -49,8 +49,23 @@
     max-width: 470px;
     width: 80vw;
     background-color: white;
+    .close-form {
+        position: fixed;
+        text-align: center;
+        line-height: 1.3rem;
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 2rem;
+        color: white;
+        background-color: #c1c1c1;
+        cursor: pointer;
+    }
     .form-content {
         padding: 0rem 2rem 2rem 2rem;
+        margin-top: 2rem;
         height: calc(100% - 5.5rem);
         overflow-y: auto;
     }
