@@ -77,7 +77,7 @@ export default class Home extends React.Component {
         <Link to="/timeline">
           <p className="go-to-timeline">Go to the <strong>timeline</strong></p>
         </Link>
-        <a href="http://blog.lifescope-project.com">
+        <a rel="noopener noreferrer" href="http://insights.lifescope-project.com">
           <p className="go-to-blog"><strong>Lifescope</strong> Insights</p>
         </a>
       </section>
