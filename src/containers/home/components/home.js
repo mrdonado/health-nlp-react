@@ -27,9 +27,10 @@ export default class Home extends React.Component {
       s2 = document.getElementById('section-2').offsetTop,
       s3 = document.getElementById('section-3').offsetTop,
       s4 = document.getElementById('section-4').offsetTop,
+      s5 = document.getElementById('section-5').offsetTop,
       scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
       offset = scrollTop + window.innerHeight / 2,
-      sections = [s4, s3, s2, s1];
+      sections = [s5, s4, s3, s2, s1];
     sections.some((s, idx) => {
       if (offset > s) {
         this.setState({ section: sections.length - idx });
@@ -73,13 +74,17 @@ export default class Home extends React.Component {
           The <strong>algorithm</strong> <span className="smaller">analyzes not only the content, but also</span><br /><strong>the sender</strong> <span className="smaller">of the message to exclude not health-related sources</span>.
       </p>
       </section>
-      <section id="section-5" className="active">
-        <Link to="/timeline">
-          <p className="go-to-timeline">Go to the <strong>timeline</strong></p>
+      <section id="section-5"
+        className={this.state &&
+          this.state.section === 5 ? 'active' : ''}
+        className="active">
+        <p className="go-to-timeline">       <Link to="/timeline">
+          Go to the <strong>timeline</strong>
         </Link>
-        <a rel="noopener noreferrer" href="http://insights.lifescope-project.com">
+        </p>
+        {/* <a rel="noopener noreferrer" href="http://insights.lifescope-project.com">
           <p className="go-to-blog"><strong>Lifescope</strong> Insights</p>
-        </a>
+        </a> */}
       </section>
       <div id="img-loader">
         <div className="l-1"></div>

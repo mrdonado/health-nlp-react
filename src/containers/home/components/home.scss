@@ -1,121 +1,135 @@
 @keyframes bg-rotate {
-  0% {
-    transform: rotate(0deg) scale(1)
-  }
-  25% {
-    transform: rotate(3deg) scale(1.1)
-  }
-  50% {
-    transform: rotate(-3deg) scale(1.2)
-  }
-  100% {
-    transform: rotate(0deg) scale(1)
-  }
+    0% {
+        transform: rotate(0deg) scale(1)
+    }
+    25% {
+        transform: rotate(3deg) scale(1.1)
+    }
+    50% {
+        transform: rotate(-3deg) scale(1.2)
+    }
+    100% {
+        transform: rotate(0deg) scale(1)
+    }
 }
 
 #img-loader {
-  z-index: -5;
-  position: fixed;
-  top: -10px;
-  left: -10px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  .l-1 {
-    background-image: url(../../../assets/images/bg-1.jpg);
-  }
-  .l-2 {
-    background-image: url(../../../assets/images/bg-2.jpg);
-  }
-  .l-3 {
-    background-image: url(../../../assets/images/bg-3.jpg);
-  }
-  .l-4 {
-    background-image: url(../../../assets/images/bg-4.jpg);
-  }
+    z-index: -5;
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    .l-1 {
+        background-image: url(../../../assets/images/bg-1.jpg);
+    }
+    .l-2 {
+        background-image: url(../../../assets/images/bg-2.jpg);
+    }
+    .l-3 {
+        background-image: url(../../../assets/images/bg-3.jpg);
+    }
+    .l-4 {
+        background-image: url(../../../assets/images/bg-4.jpg);
+    }
+    .l-5 {
+        background-image: url(../../../assets/images/bg-5.jpg);
+    }
 }
 
 #home-content {
-  animation: fade-in 0.5s 1;
-  max-width: 900px;
-  margin: auto;
-  padding: 4rem 0 0 0;
-  div.background {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: white;
-    background-size: cover;
-    opacity: 0.2;
-    animation: bg-rotate 25s infinite;
-    transition: background-color 1s, background-image 1s, background-position 10s;
-    background-position: center;
-    &.slide-1 {
-      background-image: url(../../../assets/images/bg-1.jpg);
+    animation: fade-in 0.5s 1;
+    max-width: 900px;
+    margin: auto;
+    padding: 4rem 0 0 0;
+    div.background {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        background-size: cover;
+        opacity: 0.2;
+        animation: bg-rotate 25s infinite;
+        transition: background-color 1s, background-image 1s, background-position 10s;
+        background-position: center;
+        &.slide-1 {
+            background-image: url(../../../assets/images/bg-1.jpg);
+        }
+        &.slide-2 {
+            background-image: url(../../../assets/images/bg-2.jpg);
+        }
+        &.slide-3 {
+            background-image: url(../../../assets/images/bg-3.jpg);
+        }
+        &.slide-4 {
+            background-image: url(../../../assets/images/bg-4.jpg);
+        }
+        &.slide-5 {
+            background-image: url(../../../assets/images/bg-5.jpg);
+        }
     }
-    &.slide-2 {
-      background-image: url(../../../assets/images/bg-2.jpg);
+    @media screen and (min-width: 550px) {
+        padding: 1rem 0 0 0;
     }
-    &.slide-3 {
-      background-image: url(../../../assets/images/bg-3.jpg);
+    section {
+        display: table;
+        span.smaller {
+            font-size: 70%;
+        }
+        p {
+            color: #170f29;
+            padding: 2rem;
+            display: table-cell;
+            vertical-align: middle;
+            width: 80%;
+            @media screen and (orientation: portrait) {
+                font-size: 9vw;
+            }
+            @media screen and (orientation: landscape) {
+                font-size: 5vw;
+            }
+            &.p-right {
+                text-align: right;
+            }
+            &.p-left {
+                float: left;
+            }
+            opacity: 0.1;
+            transform: scale(0.9);
+            transition: transform 5s,
+            opacity 1s;
+        }
+        &.active {
+            p {
+                opacity: 1;
+            }
+            p.p-left {
+                transform: scale(1) translateX(1rem);
+            }
+            p.p-right {
+                transform: scale(1) translateX(-1rem);
+            }
+        }
+        position: relative;
+        width: 100%;
+        min-height: 55vh;
     }
-    &.slide-4 {
-      background-image: url(../../../assets/images/bg-4.jpg);
+    #section-1 {
+        min-height: 63vh;
     }
-  }
-  @media screen and (min-width: 550px) {
-    padding: 1rem 0 0 0;
-  }
-  section {
-    display: table;
-    span.smaller {
-      font-size: 70%;
-    }
-    p {
-      color: #170f29;
-      padding: 2rem;
-      display: table-cell;
-      vertical-align: middle;
-      width: 80%;
-      @media screen and (orientation: portrait) {
-        font-size: 9vw;
-      }
-      @media screen and (orientation: landscape) {
-        font-size: 5vw;
-      }
-      &.p-right {
-        text-align: right;
-      }
-      &.p-left {
-        float: left;
-      }
-      opacity: 0.1;
-      transform: scale(0.9);
-      transition: transform 5s,
-      opacity 1s;
-    }
-    &.active {
-      p {
-        opacity: 1;
-      }
-      p.p-left {
-        transform: scale(1) translateX(1rem);
-      }
-      p.p-right {
-        transform: scale(1) translateX(-1rem);
-      }
-    }
-    position: relative;
-    width: 100%;
-    min-height: 55vh;
-  }
-  #section-1 {
-    min-height: 63vh;
-  }
-  #section-5 {
-    height: calc(100vh - 5rem);
+    #section-5 {
+        height: calc(78vh - 5rem);
+        padding-bottom: 22vh;
+        p a {
+            font-size: 9.3vw;
+            float: right;
+            text-decoration: none;
+            color: inherit;
+        }
+        /*
     p{
       position: absolute;
       text-align: center;
@@ -127,6 +141,6 @@
         bottom: 0;
         right: 0;
       }
+    }*/
     }
-  }
 }
