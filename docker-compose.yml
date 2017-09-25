@@ -1,7 +1,7 @@
 version: '2'
 services:
   httpd:
-    image: httpd:2.4
+    image: jimbasilio/html5-httpd
     container_name: health-nlp-react 
     volumes:
       - ./docs:/usr/local/apache2/htdocs/
