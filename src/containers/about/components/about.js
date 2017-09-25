@@ -23,7 +23,10 @@ export default class About extends React.Component {
         Currently, the project is on development. After this first stage, <strong>we have completed the backend, frontend and analytics modules</strong> of the streaming panel that you can see in this web. We are working on <strong>a new module to make queries</strong> and <strong>display graphs</strong> on the dataset we are gathering. In the meantime, you can see an example of some raw data files here.
     </p>
       <p>
-        Please, <strong>do not take the information provided here as medical advice</strong>. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the <strong>current performance score is around 80%</strong>.
+        Please, <strong>do not take the information provided here as medical advice</strong>. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the <strong><a href="http://insights.lifescope-project.com/2017/09/24/algorithms-confidence-rate-79-42/">current performance score</a> is around 80%</strong>.
+    </p>
+      <p>
+        You can see an example of some raw data files <a href="http://insights.lifescope-project.com/2017/09/24/202/">here</a>.
     </p>
       <p>
         Comments and suggestions are welcome. Contact us at <a href="mailto:info@lifescope-project.com">info@lifescope-project.com</a>
