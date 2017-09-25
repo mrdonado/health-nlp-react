@@ -22,6 +22,9 @@ export default class App extends React.Component {
       </Link>
 
       <NavLink to="/timeline">Timeline</NavLink>
+      <a target="_blank" className="nav-link"
+        rel="noopener noreferrer"
+        href="http://insights.lifescope-project.com">Insights</a>
       <NavLink to="/about-us">About</NavLink>
     </div>;
 
