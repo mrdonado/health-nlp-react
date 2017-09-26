@@ -76,8 +76,7 @@ export default class Home extends React.Component {
       </section>
       <section id="section-5"
         className={this.state &&
-          this.state.section === 5 ? 'active' : ''}
-        className="active">
+          this.state.section === 5 ? 'active' : ''}        >
         <p className="go-to-timeline">       <Link to="/timeline">
           Go to the <strong>timeline</strong>
         </Link>
