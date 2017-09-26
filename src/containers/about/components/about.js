@@ -20,13 +20,10 @@ export default class About extends React.Component {
         We believe that Lifescope will offer <strong>great research opportunities to anyone interested in healthcare information</strong>. We are concerned with the challenging issues posed by the New Media Age, where information flow surpasses the human ability to digest new data - consider, for example, how many talks, conferences or health discoveries are being posted now, at any second. That’s where Lifescope comes in.
     </p>
       <p>
-        Currently, the project is on development. After this first stage, <strong>we have completed the backend, frontend and analytics modules</strong> of the streaming panel that you can see in this web. We are working on <strong>a new module to make queries</strong> and <strong>display graphs</strong> on the dataset we are gathering. In the meantime, you can see an example of some raw data files here.
+        Currently, the project is on development. After this first stage, <strong>we have completed the backend, frontend and analytics modules</strong> of the streaming panel that you can see in this web. We are working on <strong>a new module to make queries</strong> and <strong>display graphs</strong> on the dataset we are gathering. In the meantime, you can see an example of <a href="http://insights.lifescope-project.com/2017/09/24/202/">some raw data files here</a>.
     </p>
       <p>
         Please, <strong>do not take the information provided here as medical advice</strong>. On the other hand, although we are constantly fine-tuning the algorithm, you may find errors in some analysis outputs - for example, a word like “hospital” wrongly annotated as a treatment. Every artificial intelligence software is prone to errors, as they never substitute humans. In any case, the <strong><a href="http://insights.lifescope-project.com/2017/09/24/algorithms-confidence-rate-79-42/">current performance score</a> is around 80%</strong>.
-    </p>
-      <p>
-        You can see an example of some raw data files <a href="http://insights.lifescope-project.com/2017/09/24/202/">here</a>.
     </p>
       <p>
         Comments and suggestions are welcome. Contact us at <a href="mailto:info@lifescope-project.com">info@lifescope-project.com</a>
