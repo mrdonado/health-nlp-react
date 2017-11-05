@@ -1,6 +1,6 @@
 import React from 'react';
 import Spinner from './spinner';
-import AnalysisBlock from './analysis-block';
+import AnalysisList from './analysis-list';
 import { HelpWindow } from './help-window';
 import AnalysisForm from './analysis-form';
 import './timeline.css';
@@ -21,22 +21,9 @@ export class Timeline extends React.Component {
     return <div>
       {this.props.analysis.results ? <div id='analysis-section'>
         <div className="listening"><div className="listening-spinner"></div></div>
-        <ul id="analysis-list">
-          {this.props
-            .analysis
-            .results
-            .map(result =>
-              <AnalysisBlock key={'analysis-' + result.id} result={result}></AnalysisBlock>)
-          }
-
-          {/* Show more button as last element of the list. */}
-          <button className="more-results-btn"
-            onClick={() => {
-              this.props.moreResults();
-            }}>
-            Show more
-          </button>
-        </ul>
+        <AnalysisList analysis={this.props.analysis}
+          moreResults={this.props.moreResults}>
+        </AnalysisList>
         <HelpWindow
           showHelp={this.state.showHelp}
           closeWindow={(e) => {
