@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Timeline } from './timeline';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
 describe('Timeline component', () => {
 
-  let _props, _spies, _wrapper;
+  let _props, _spies, _wrapper, _store = { getState: () => { }, dispatch: () => { }, subscribe: () => { } };
 
   const analysis = {
     results: [
@@ -16,7 +16,8 @@ describe('Timeline component', () => {
         message: 'a message with some problem and some solution',
         analysis: {
           problem: 'some problem',
-          solution: 'some solution'
+          solution: 'some solution',
+          profile: 'some profile'
         }
       }
     ]
@@ -26,7 +27,9 @@ describe('Timeline component', () => {
     _spies = {}
     _props = {
       analysis,
-      form: {
+      swapForm: false,
+      moreResults: () => { },
+      formWindow: {
         showForm: false
       },
       ...bindActionCreators({
@@ -34,12 +37,17 @@ describe('Timeline component', () => {
         changePage: (_spies.increment = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
-    _wrapper = shallow(<Timeline {..._props} />)
+    _wrapper = shallow(<Timeline {..._props} />);
   })
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Timeline {..._props} />, div);
+    // Timeline contains a redux-form, which needs to be
+    // wrapped within a Provider.
+    ReactDOM.render(
+      <Provider store={_store}>
+        <Timeline {..._props} />
+      </Provider>, div);
     expect(_spies.getResults.called).toBeTruthy();
   });
 
