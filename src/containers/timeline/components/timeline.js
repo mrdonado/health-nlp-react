@@ -12,10 +12,10 @@ export class Timeline extends React.Component {
     this.state = { showHelp: false };
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     window.scrollTo(0, 0);
     this.props.getResults();
-  };
+  }
 
   render() {
     return <div>
