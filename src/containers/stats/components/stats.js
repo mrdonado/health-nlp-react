@@ -1,8 +1,19 @@
 import React from 'react';
 import './stats.css';
+import AnalysisList from '../../timeline/components/analysis-list';
 
 export default class Home extends React.Component {
-  render(){
-    return <div>SOME STATS</div>
+  render() {
+    let analysisList = this.props.stats.messages || [];
+    return <div>
+      <div className="left-panel">
+        SOME STATS
+        </div>
+      <div className="right-panel">
+        <AnalysisList analysis={analysisList}
+          moreResults={() => { }}>
+        </AnalysisList>
+      </div>
+    </div>
   }
 }
