@@ -1,9 +1,18 @@
 import Actions from './actions';
 
-const getMessagesCount = () => {
+const setMessagesCount = (count) => {
   return {
-    type: Actions.GetMessagesCount
-  };
+    count,
+    type: Actions.SetMessagesCount
+  }
 };
 
-export { getMessagesCount };
+const fetchMessagesCount = () => dispatch => {
+  //fetch('https://health-nlp.stats.jdonado.com/')
+  fetch('http://localhost:7009')
+    .then(data => {
+      dispatch(setMessagesCount(data['messages-count']));
+    });
+};
+
+export { fetchMessagesCount, setMessagesCount };
