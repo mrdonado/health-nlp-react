@@ -2,7 +2,7 @@
 // Constants
 // ------------------------------------
 const Actions = {
-  GetMessagesCount: 'GET_MESSAGES_COUNT',
+  SetMessagesCount: 'SET_MESSAGES_COUNT',
   GetProblemsList: 'GET_PROBLEMS_LIST',
   GetProfilesList: 'GET_PROFILES_LIST',
   GetQueriesList: 'GET_QUERIES_LIST',
