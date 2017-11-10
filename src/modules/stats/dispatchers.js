@@ -8,8 +8,7 @@ const setMessagesCount = (count) => {
 };
 
 const fetchMessagesCount = () => dispatch => {
-  //fetch('https://health-nlp.stats.jdonado.com/')
-  fetch('http://localhost:7009')
+  fetch(process.env.REACT_APP_STATS_BASE_URL)
     .then(data => {
       dispatch(setMessagesCount(data['messages-count']));
     });
