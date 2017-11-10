@@ -1,5 +1,7 @@
 .DS_STORE
 *.log
+.env.local
+.env.development.local
 deprecated
 node_modules
 .vscode
