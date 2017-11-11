@@ -1,4 +1,5 @@
 import Actions from './actions';
+import StatsActions from '../stats/actions';
 
 const firebaseObjectToArray = (fbo) => {
   const result = [];
@@ -29,6 +30,7 @@ const analysisDispatchers = (database) => {
     let initialDataLoaded = false;
     database.ref('/analysis').on('child_added', (snap) => {
       if (initialDataLoaded) {
+        dispatch({ type: StatsActions.IncrementMessagesCount });
         dispatch(analysisAddedAction(snap.val(), snap.key));
       }
     });
