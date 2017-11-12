@@ -6,6 +6,7 @@
       "type": "node",
       "request": "launch",
       "port": 5858,
+      "envFile": "${workspaceFolder}/.env",
       "runtimeArgs": [
         "--debug-brk",
         "--nolazy"
