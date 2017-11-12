@@ -33,6 +33,7 @@
     "chai": "^4.1.0",
     "deep-freeze": "^0.0.1",
     "enzyme": "^2.9.1",
+    "fetch-mock": "^5.13.1",
     "jest-css": "^1.0.1",
     "jest-file": "^1.0.0",
     "npm-run-all": "^4.0.2",
