@@ -38,6 +38,10 @@ Run `yarn build` to build the project. The build artifacts will be stored in the
 
 Run `yarn test` to run the unit tests.
 
+## Debugging unit tests on visual studio code
+
+In order to debug the Jest tests of this project using Visual Studio Code, you need to use node JS version v6.10.3. An example `Jest Tests` test configuration can be found into the `.vscode/launch.json` file.
+
 ## Create React App
 
 This project has been scaffolded with [create-react-app](https://github.com/facebookincubator/create-react-app). Visit its repository for more information.
