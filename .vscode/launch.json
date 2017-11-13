@@ -23,16 +23,18 @@
       "type": "node",
       "request": "launch",
       "port": 5858,
+      "envFile": "${workspaceFolder}/.env",
       "runtimeArgs": [
         "--debug-brk",
         "--nolazy"
       ],
       "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
       "args": [
+        "${file}",
         "--runInBand",
         "--transform={\"^.+\\\\.(js|jsx)$\": \"babel-jest\",\"^.+\\\\.css$\": \"jest-css\",\"^(?!.*\\\\.(js|jsx|css|json)$)\": \"jest-file\"}"
       ],
-      "cwd": "${file}"
+      "cwd": "${workspaceRoot}"
     },
     {
       "type": "chrome",
