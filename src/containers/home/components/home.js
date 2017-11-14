@@ -28,7 +28,9 @@ export default class Home extends React.Component {
       s3 = document.getElementById('section-3').offsetTop,
       s4 = document.getElementById('section-4').offsetTop,
       s5 = document.getElementById('section-5').offsetTop,
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+      scrollTop = window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop || 0,
       offset = scrollTop + window.innerHeight / 2,
       sections = [s5, s4, s3, s2, s1];
     sections.some((s, idx) => {
@@ -37,8 +39,7 @@ export default class Home extends React.Component {
         return true;
       }
       return false;
-    })
-
+    });
   }
 
   render() {
