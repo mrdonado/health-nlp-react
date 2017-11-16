@@ -1,5 +1,5 @@
 import React from 'react';
-import UrlToA from './url-to-a';
+import UrlToA from '../../../utilities/url-to-a';
 
 /**
  * It receives an item where a message is contained along with an analysis. From the analysis,
