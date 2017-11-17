@@ -10,7 +10,7 @@ const UrlToA = (props) => {
     to = to > -1 ? to : div.length;
     let url = div.substring(from, to);
     div = [div.substring(0, from),
-    <a key={url} target="blank" href={url}>{url}</a>];
+    <a target="_blank" key={url} href={url}>{url}</a>];
     if (to < props.text.length) {
       div.push(' ' + props.text.substring(to + 1));
     }
