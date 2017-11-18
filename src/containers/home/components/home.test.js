@@ -26,10 +26,20 @@ describe('Home component', () => {
   });
 
   it('should set the right section according to the scroll position', () => {
-    document.getElementById = () => ({ offsetTop: 1 });
+
+    // Test each section rendering every 200 pixels
+    document.getElementById = (section) => ({
+      offsetTop: parseInt(section.replace('section-', '')) * 200
+    });
+
+    window.pageYOffset = null;
+    document.documentElement.scrollTop = null;
+    document.body.scrollTop = 250;
+    window.innerHeight = 300;
     let inst = _wrapper.instance();
     inst.scrollHandler();
-    expect(inst.state.section).toEqual(5);
+
+    expect(inst.state.section).toEqual(1);
   });
 
 
