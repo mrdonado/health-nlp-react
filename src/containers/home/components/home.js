@@ -6,10 +6,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.setState({ section: 0 });
-    setTimeout(() => {
-      this.setState({ section: 1 });
-    }, 50);
+    this.setState({ section: 1 });
     this.scrollEventListener = this.scrollHandler.bind(this);
     window.addEventListener('scroll',
       this.scrollEventListener
