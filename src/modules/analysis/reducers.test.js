@@ -66,4 +66,25 @@ describe('Analysis reducers', () => {
     expect(newState.resultsCount).toEqual(10);
   });
 
+  it('should reduce an AnalysisAdded action with a new analysis', () => {
+    let state = { results: [] };
+    deepFreeze(state);
+    const newState = analysisReducer(state, {
+      type: Actions.AnalysisAdded,
+      analysis: { id: '1234' }
+    });
+    expect(newState.resultsCount).toEqual(1);
+  });
+
+  it('should reduce an AnalysisAdded action with an existing analysis', () => {
+    let state = { results: [{id: '1234'}] };
+    deepFreeze(state);
+    const newState = analysisReducer(state, {
+      type: Actions.AnalysisAdded,
+      analysis: { id: '1234' }
+    });
+    expect(newState.resultsCount).toEqual(1);
+  });
+
+
 });
