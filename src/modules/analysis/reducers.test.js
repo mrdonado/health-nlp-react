@@ -1,4 +1,4 @@
-import { analysisReducer } from './reducers';
+import { analysisReducer, swapFormReducer } from './reducers';
 import Actions from './actions';
 import deepFreeze from 'deep-freeze';
 
@@ -67,7 +67,7 @@ describe('Analysis reducers', () => {
   });
 
   it('should reduce an AnalysisAdded action with a new analysis', () => {
-    let state = { results: [] };
+    const state = { results: [] };
     deepFreeze(state);
     const newState = analysisReducer(state, {
       type: Actions.AnalysisAdded,
@@ -77,7 +77,7 @@ describe('Analysis reducers', () => {
   });
 
   it('should reduce an AnalysisAdded action with an existing analysis', () => {
-    let state = { results: [{id: '1234'}] };
+    const state = { results: [{ id: '1234' }] };
     deepFreeze(state);
     const newState = analysisReducer(state, {
       type: Actions.AnalysisAdded,
@@ -88,3 +88,28 @@ describe('Analysis reducers', () => {
 
 
 });
+
+describe('Analysis reducers', () => {
+  it('should be defined', () => {
+    expect(swapFormReducer).toBeDefined();
+  });
+
+  it('should ignore unknown actions', () => {
+    const state = { showForm: false };
+    const action = { type: 'UNKNOWN_ACTION'};
+    deepFreeze(state);
+    const newState = swapFormReducer(state, action)
+    expect(newState).toEqual(state);
+  });
+
+  it('should reduce the SwapForm action', () => {
+    const action = { type: Actions.SwapForm };
+    let state;
+    const newState = swapFormReducer(state, action);
+    expect(newState).toEqual({ showForm: true });
+    deepFreeze(newState);
+    const newState2 = swapFormReducer(newState, action);
+    expect(newState2).toEqual({ showForm: false });
+  });
+});
+
