@@ -57,7 +57,7 @@ const analysisReducer = (state = { resultsCount: 5 }, action) => {
         inProgress: false,
         success: 'Got a new analysis.',
         results: newResults,
-        resultsCount: state.resultsCount + 1
+        resultsCount: (state.resultsCount || 0) + 1
       });
 
     case Actions.MoreResults:
