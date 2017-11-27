@@ -1,4 +1,5 @@
-import { analysisDispatchers } from './dispatchers';
+import Actions from './actions';
+import { analysisDispatchers, swapForm } from './dispatchers';
 
 let dbName, count, value, onceCb, errorCb, dispatchedActions, currentState;
 
@@ -75,4 +76,11 @@ describe('Analysis action dispatchers', () => {
     expect(dispatchedActions[1](dispatch, getState)).toEqual(getResults()(dispatch, getState));
   });
 
+});
+
+describe('swapForm dispatchers', () => {
+  it('dispatches a swapForm action', () => {
+    const swapFormAction = swapForm();
+    expect(swapFormAction).toEqual({ type: Actions.SwapForm });
+  });
 });
