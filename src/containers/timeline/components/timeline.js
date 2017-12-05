@@ -38,29 +38,7 @@ export class Timeline extends React.Component {
       </div> : <Spinner />}
       <AnalysisForm
         onClose={this.props.swapForm}
-        onSubmit={(values) => {
-          const data = {
-            source: 'web',
-            user_name: values.user_name,
-            user_description: values.user_description,
-            message: values.message
-          };
-          fetch('https://health-nlp.api.jdonado.com/analysis',
-            {
-              method: 'POST',
-              headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
-            }).then((response) => {
-              return response.json();
-            }).then((data) => {
-              this.props.swapForm();
-            }).catch(() => {
-              this.props.swapForm();
-            });
-        }}
+        onSubmit={this.props.postAnalysis}
         opened={this.props.formWindow.showForm}></AnalysisForm>
     </div >;
   }
