@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 import database from '../../firebase/firebase-db';
-import { analysisDispatchers, swapForm } from '../../modules/analysis/dispatchers';
+import { analysisDispatchers, swapForm, postAnalysis } from '../../modules/analysis/dispatchers';
 import { Timeline } from './components/timeline';
 
 // The analysis dispatchers must be configured with the
@@ -23,6 +23,7 @@ const mapDispatchToProps = dispatch => {
     swapForm,
     getResults,
     moreResults,
+    postAnalysis: postAnalysis(fetch)(dispatch),
     changePage: () => push('/about-us')
   }, dispatch)
 };

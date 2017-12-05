@@ -14,6 +14,30 @@ const swapForm = (dispatch) => {
   };
 };
 
+const postAnalysis = fetch => dispatch => values => {
+  const data = {
+    source: 'web',
+    user_name: values.user_name,
+    user_description: values.user_description,
+    message: values.message
+  };
+  fetch(process.env.REACT_APP_POST_ANALYSIS_URL,
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((response) => {
+      return response.json();
+    }).then((data) => {
+      dispatch(swapForm());
+    }).catch(() => {
+      dispatch(swapForm());
+    });
+};
+
 /**
  * analysisDispatchers. In order to use them, they 
  * must be first initialized with a firebase database
@@ -108,4 +132,4 @@ const analysisDispatchers = (database) => {
   return { getResults, moreResults, watchAnalysisAddedEvent };
 };
 
-export { analysisDispatchers, swapForm };
+export { analysisDispatchers, swapForm, postAnalysis };
