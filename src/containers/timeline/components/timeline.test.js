@@ -51,5 +51,13 @@ describe('Timeline component', () => {
     expect(_spies.getResults.called).toBeTruthy();
   });
 
+  it('shows and hides the help window by changing the component\'s internal state', () => {
+    expect(_wrapper.state().showHelp).toBeFalsy();
+    _wrapper.find('button.show-help').simulate('click');
+    expect(_wrapper.state().showHelp).toBeTruthy();
+    _wrapper.find('button.show-help').simulate('click');
+    expect(_wrapper.state().showHelp).toBeFalsy();
+  });
+
 });
 
