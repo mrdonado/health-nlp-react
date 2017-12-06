@@ -1,7 +1,8 @@
 import Actions from './actions';
 import { analysisDispatchers, swapForm, postAnalysis } from './dispatchers';
 
-let dbName, count, value, onceCb, errorCb, dispatchedActions, currentState;
+let dbName, count, value, onceCb, errorCb, dispatchedActions, currentState,
+  eventName, eventCb;
 
 const resetVars = () => {
   dbName = null;
@@ -9,6 +10,8 @@ const resetVars = () => {
   value = null;
   onceCb = null;
   errorCb = null;
+  eventName = null;
+  eventCb = null;
   currentState = null;
   dispatchedActions = [];
 };
@@ -17,6 +20,11 @@ function DbMock() { };
 
 DbMock.prototype.ref = function (db) {
   dbName = db;
+  return this;
+};
+DbMock.prototype.on = function (_eventName, _eventCb) {
+  eventName = _eventName;
+  eventCb = _eventCb;
   return this;
 };
 DbMock.prototype.limitToLast = function (_count) {
@@ -42,7 +50,7 @@ const getState = () => {
 
 describe('Analysis action dispatchers', () => {
 
-  const { getResults, moreResults } = analysisDispatchers(new DbMock());
+  const { getResults, moreResults, watchAnalysisAddedEvent } = analysisDispatchers(new DbMock());
 
   it('should dispatch getAnalysis and obtain 6 elements from the database on success.', () => {
     resetVars();
@@ -74,6 +82,36 @@ describe('Analysis action dispatchers', () => {
     expect(dispatchedActions[0]).toEqual({ 'type': 'MORE_RESULTS' });
     currentState = { analysis: { resultsCount: 5 } };
     expect(dispatchedActions[1](dispatch, getState)).toEqual(getResults()(dispatch, getState));
+  });
+
+  it('should watch on an child_added event', () => {
+    const snap = { val: () => [{ some: 'analysis' }], key: 'someKey' };
+    resetVars();
+    watchAnalysisAddedEvent(dispatch);
+    expect(eventName).toEqual('child_added');
+    expect(dispatchedActions).toEqual([]);
+    expect(value).toEqual('value');
+    // While no data is loaded, no action will be triggered
+    eventCb(snap);
+    expect(dispatchedActions).toEqual([]);
+    // After loading the data, actions will be triggered on
+    // every added child
+    onceCb();
+    eventCb(snap);
+    expect(dispatchedActions).toEqual([
+      {
+        "type": "INCREMENT_MESSAGES_COUNT",
+      },
+      {
+        "analysis": {
+          "0": {
+            "some": "analysis",
+          },
+          "id": "someKey",
+        },
+        "type": "ANALYSIS_ADDED",
+      },
+    ]);
   });
 
 });
