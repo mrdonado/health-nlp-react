@@ -1,5 +1,5 @@
 import Actions from './actions';
-import { analysisDispatchers, swapForm } from './dispatchers';
+import { analysisDispatchers, swapForm, postAnalysis } from './dispatchers';
 
 let dbName, count, value, onceCb, errorCb, dispatchedActions, currentState;
 
@@ -83,4 +83,64 @@ describe('swapForm dispatchers', () => {
     const swapFormAction = swapForm();
     expect(swapFormAction).toEqual({ type: Actions.SwapForm });
   });
+});
+
+describe('post an analysis and trigger a swap form action', () => {
+
+  let cb1, cb2, cbe, config;
+
+  const fetch = (_url, _config) => {
+    config = _config;
+    return {
+      then: (cb) => {
+        cb1 = cb;
+        return {
+          then: (cb) => {
+            cb2 = cb;
+            return {
+              catch: (cb) => {
+                cbe = cb;
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+
+  let dispCount = 0, action;
+
+  const dispatch = (_action) => {
+    dispCount += 1;
+    action = _action;
+  };
+
+  postAnalysis(fetch)(dispatch)({ user_name: 'someUser', user_description: 'some description', message: 'some random message' });
+
+  expect(config).toEqual({
+    body: "{\"source\":\"web\",\"user_name\":\"someUser\",\"user_description\":\"some description\",\"message\":\"some random message\"}",
+    headers: {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  });
+
+  expect(dispCount).toEqual(0);
+
+  const expJsonResponse = { data: 'Some json response' };
+  const jsonResponse = cb1({ json: () => expJsonResponse });
+  expect(jsonResponse).toEqual(expJsonResponse);
+
+  expect(dispCount).toEqual(0);
+  // Success case
+  cb2();
+  expect(dispCount).toEqual(1);
+  expect(action.type).toEqual('SWAP_FORM');
+  // Error case
+  dispCount = 0;
+  cbe();
+  expect(dispCount).toEqual(1);
+  expect(action.type).toEqual('SWAP_FORM');
+
 });
