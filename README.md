@@ -1,10 +1,16 @@
 [![Build Status][travis-badge]][travis-badge-url] 
 [![Coverage Status][coveralls-badge]][coveralls-badge-url]
+[![Dependency Status][david-badge]][david-badge-url]
+[![devDependency Status][david-dev-badge]][david-dev-badge-url]
 
 [travis-badge]: https://travis-ci.org/fjrd84/health-nlp-react.svg?branch=master
 [travis-badge-url]: https://travis-ci.org/fjrd84/health-nlp-react
 [coveralls-badge]: https://coveralls.io/repos/github/fjrd84/health-nlp-react/badge.svg?branch=master
 [coveralls-badge-url]: https://coveralls.io/github/fjrd84/health-nlp-react?branch=master
+[david-badge]: https://david-dm.org/fjrd84/health-nlp-react.svg
+[david-badge-url]: https://david-dm.org/fjrd84/health-nlp-react
+[david-dev-badge]: https://david-dm.org/fjrd84/health-nlp-react/dev-status.svg
+[david-dev-badge-url]: https://david-dm.org/fjrd84/health-nlp-react?type=dev
 
 # HealthNlpFrontend (React)
 

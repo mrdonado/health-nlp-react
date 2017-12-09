@@ -1,8 +1,11 @@
 import React from 'react';
 import NavLink from './nav-link';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
 import { StaticRouter } from 'react-router-dom';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() })
 
 describe('NavLink component', () => {
 

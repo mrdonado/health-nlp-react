@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import { Timeline } from './timeline';
 import { connect, Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { shallow } from 'enzyme';
 import sinon from 'sinon';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
 
 describe('Timeline component', () => {
 
@@ -27,7 +30,7 @@ describe('Timeline component', () => {
     _spies = {}
     _props = {
       analysis,
-      swapForm: false,
+      swapForm: ()=>{},
       moreResults: () => { },
       formWindow: {
         showForm: false

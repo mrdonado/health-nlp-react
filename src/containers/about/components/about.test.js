@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import About from './about';
 import { connect } from 'react-redux';
-import { shallow } from 'enzyme';
 import sinon from 'sinon';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
 
 describe('About component', () => {
 

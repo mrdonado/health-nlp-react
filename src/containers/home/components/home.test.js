@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './home';
 import { connect } from 'react-redux';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, configure, mount, render } from 'enzyme';
 import sinon from 'sinon';
 import { StaticRouter } from 'react-router-dom';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
 
 describe('Home component', () => {
 
