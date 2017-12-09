@@ -12,6 +12,7 @@ before_script:
   - npm install
 
 script:
+  - npm build
   - npm run test:coverage
 
 after_success:
