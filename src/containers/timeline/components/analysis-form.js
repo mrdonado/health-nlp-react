@@ -75,9 +75,9 @@ const renderTextArea = ({
 const warn = values => {
   const warnings = {}
   return warnings
-}
+};
 
-const AnalysisForm = props => {
+const AnalysisFormComponent = props => {
   const { handleSubmit, /*pristine, reset,*/ submitting, onClose, opened } = props
   return <div id="form-mask"
     onClick={onClose}
@@ -143,8 +143,12 @@ const AnalysisForm = props => {
   </div>;
 };
 
-export default reduxForm({
+
+const AnalysisForm = reduxForm({
   form: 'analysisForm', // a unique identifier for this form
   validate, // <--- validation function given to redux-form
   warn // <--- warning function given to redux-form
-})(AnalysisForm)
+})(AnalysisFormComponent);
+
+
+export { AnalysisForm, validate };
