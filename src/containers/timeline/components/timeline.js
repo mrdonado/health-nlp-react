@@ -2,7 +2,7 @@ import React from 'react';
 import Spinner from './spinner';
 import AnalysisList from './analysis-list';
 import { HelpWindow } from './help-window';
-import AnalysisForm from './analysis-form';
+import { AnalysisForm } from './analysis-form';
 import './timeline.css';
 
 export class Timeline extends React.Component {
