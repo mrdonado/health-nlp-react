@@ -2,7 +2,10 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Stats from './components/stats';
-import { fetchMessagesCount } from '../../modules/stats/dispatchers';
+import {
+  fetchMessagesCount,
+  fetchProblemsList 
+} from '../../modules/stats/dispatchers';
 
 const mapStateToProps = state => ({
   stats: state.stats
@@ -10,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    fetchMessagesCount
+    fetchMessagesCount,
+    fetchProblemsList 
   }, dispatch);
 };
 
