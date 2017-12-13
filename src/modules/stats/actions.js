@@ -3,6 +3,7 @@
 // ------------------------------------
 const Actions = {
   SetMessagesCount: 'SET_MESSAGES_COUNT',
+  SetProblemsList: 'SET_PROBLEMS_LIST',
   IncrementMessagesCount: 'INCREMENT_MESSAGES_COUNT',
   GetProblemsList: 'GET_PROBLEMS_LIST',
   GetProfilesList: 'GET_PROFILES_LIST',

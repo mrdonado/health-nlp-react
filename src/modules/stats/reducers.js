@@ -4,6 +4,8 @@ const statsReducer = (stats = {}, action) => {
   switch (action.type) {
     case Actions.SetMessagesCount:
       return Object.assign({}, stats, { count: action.count });
+    case Actions.SetProblemsList:
+      return Object.assign({}, stats, { problems: action.problems });
     case Actions.IncrementMessagesCount:
       return Object.assign({}, stats, { count: stats.count + 1 });
     default:
