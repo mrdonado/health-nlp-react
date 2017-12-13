@@ -14,7 +14,11 @@ describe('Stats component', () => {
 
   beforeEach(() => {
     _spies = {};
-    _props = { stats: {}, fetchMessagesCount: ()=>{} };
+    _props = {
+      stats: {},
+      fetchMessagesCount: () => { },
+      fetchProblemsList: () => { }
+    };
     _context = {};
     _wrapper = shallow(<Stats {..._props} />, { context: _context });
   });
@@ -22,17 +26,21 @@ describe('Stats component', () => {
   it('renders without crashing, fetching messages when no count is ready yet', () => {
     const div = document.createElement('div');
     const context = {};
-    const fmcount = sinon.spy(); 
-    ReactDOM.render(<Stats stats={{}} fetchMessagesCount={fmcount} />, div);
+    const fmcount = sinon.spy();
+    const fplist = sinon.spy();
+    ReactDOM.render(<Stats stats={{}} fetchMessagesCount={fmcount} fetchProblemsList={fplist} />, div);
     expect(fmcount.called).toBeTruthy();
+    expect(fplist.called).toBeTruthy();
   });
 
   it('renders without crashing, fetching no messages if a count is already present', () => {
     const div = document.createElement('div');
     const context = {};
     const fmcount = sinon.spy();
-    ReactDOM.render(<Stats stats={{count: 50}} fetchMessagesCount={fmcount} />, div);
+    const fplist = sinon.spy();
+    ReactDOM.render(<Stats stats={{ count: 50 }} fetchMessagesCount={fmcount} fetchProblemsList={fplist} />, div);
     expect(fmcount.called).toBeFalsy();
+    expect(fplist.called).toBeFalsy();
   });
 
 });

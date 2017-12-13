@@ -7,6 +7,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     if (this.props.stats.count) { return; }
     this.props.fetchMessagesCount();
+    this.props.fetchProblemsList();
   }
   render() {
     let analysisList = this.props.stats.messages || [];
