@@ -42,4 +42,14 @@ describe('Stats reducers', () => {
       .toEqual({});
   });
 
+  it('should set a list of health problems', () => {
+    const problems = [{ "key": "cancer", "doc_count": 55184 }, { "key": "diabetes", "doc_count": 8826 }, { "key": "breast", "doc_count": 7912 }, { "key": "obesity", "doc_count": 4086 }];
+    let state; // Undefined
+    expect(statsReducer(state, {
+      problems,
+      type: Actions.SetProblemsList
+    })).toEqual({ problems });
+
+  });
+
 });
