@@ -3,11 +3,9 @@ import {
   fetchMessagesCount,
   fetchProblemsList
 } from './dispatchers';
+
 import Actions from './actions';
 import fetchMock from 'fetch-mock';
-
-
-
 
 describe('Stats action dispatchers', () => {
 
