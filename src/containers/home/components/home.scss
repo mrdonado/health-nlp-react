@@ -42,7 +42,6 @@
     animation: fade-in 0.5s 1;
     max-width: 900px;
     margin: auto;
-    padding: 4rem 0 0 0;
     div.background {
         width: 100vw;
         height: 100vh;
@@ -71,9 +70,7 @@
             background-image: url(../../../assets/images/bg-5.jpg);
         }
     }
-    @media screen and (min-width: 550px) {
-        padding: 1rem 0 0 0;
-    }
+
     section {
         display: table;
         span.smaller {

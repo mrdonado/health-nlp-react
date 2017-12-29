@@ -11,7 +11,7 @@ export default class Home extends React.Component {
   }
   render() {
     let analysisList = this.props.stats.messages || [];
-    return <div>
+    return <div className="main-content">
       <div className="left-panel">
         SOME STATS {this.props.stats.count}
         </div>
