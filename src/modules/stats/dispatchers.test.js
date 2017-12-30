@@ -1,7 +1,8 @@
 import {
   setMessagesCount,
   fetchMessagesCount,
-  fetchProblemsList
+  fetchProblemsList,
+  fetchSolutionsToProblem
 } from './dispatchers';
 
 import Actions from './actions';
@@ -37,4 +38,14 @@ describe('Stats action dispatchers', () => {
       done();
     });
   });
+
+  it('should fetch the solutions list for a given problem and trigger the set solutions list action', (done) => {
+    fetchMock.get('*', [{ key: 'solution1', doc_count: 1234 }]);
+    fetchSolutionsToProblem('problem1')((action) => {
+      expect(action.type).toEqual(Actions.SetSolutionsList);
+      expect(action.solutions[0].key).toEqual('solution1');
+      done();
+    });
+  });
+
 });

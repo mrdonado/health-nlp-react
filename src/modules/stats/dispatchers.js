@@ -14,6 +14,13 @@ const setProblemsList = (problems) => {
   };
 };
 
+const setSolutionsList = (solutions) => {
+  return {
+    solutions,
+    type: Actions.SetSolutionsList
+  };
+}
+
 const fetchMessagesCount = () => dispatch => {
   fetch(process.env.REACT_APP_STATS_BASE_URL)
     .then(response => response.json())
@@ -31,8 +38,17 @@ const fetchProblemsList = () => dispatch => {
 
 };
 
+const fetchSolutionsToProblem = (problem) => dispatch => {
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/solutions/${problem}`)
+    .then(response => response.json())
+    .then(solutions => {
+      dispatch(setSolutionsList(solutions));
+    });
+};
+
 export {
   fetchMessagesCount,
   fetchProblemsList,
+  fetchSolutionsToProblem,
   setMessagesCount
 };
