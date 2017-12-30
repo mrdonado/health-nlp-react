@@ -52,4 +52,14 @@ describe('Stats reducers', () => {
 
   });
 
+  it('should set a list of solutions for a given problem', () => {
+    const solutions = [{ "key": "food", "doc_count": 500 }, { "key": "activity", "doc_count": 333 }];
+    let state; // Undefined
+    expect(statsReducer(state, {
+      solutions,
+      type: Actions.SetSolutionsList
+    })).toEqual({ solutions });
+
+  });
+
 });

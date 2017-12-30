@@ -8,6 +8,8 @@ const statsReducer = (stats = {}, action) => {
       return Object.assign({}, stats, { problems: action.problems });
     case Actions.IncrementMessagesCount:
       return Object.assign({}, stats, { count: stats.count + 1 });
+    case Actions.SetSolutionsList:
+      return Object.assign({}, stats, { solutions: action.solutions });
     default:
       return stats;
   }
