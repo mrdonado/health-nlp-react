@@ -3,6 +3,7 @@
 // ------------------------------------
 const Actions = {
   SetMessagesCount: 'SET_MESSAGES_COUNT',
+  SetMessagesList: 'SET_MESSAGES_LIST',
   SetProblemsList: 'SET_PROBLEMS_LIST',
   SetSolutionsList: 'SET_SOLUTIONS_LIST',
   IncrementMessagesCount: 'INCREMENT_MESSAGES_COUNT',
