@@ -10,7 +10,7 @@ export default class AnalysisList extends React.Component {
     return <ul id="analysis-list">
       {list
         .map(result =>
-          <AnalysisBlock key={'analysis-' + result.id} result={result}></AnalysisBlock>)
+          <AnalysisBlock key={'analysis-' + result.created_at} result={result}></AnalysisBlock>)
       }
       {/* Show more button as last element of the list. */}
       {list.length > 0 ?
