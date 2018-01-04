@@ -62,4 +62,46 @@ describe('Stats reducers', () => {
 
   });
 
+  it('should set a list of messages', () => {
+    const messages = [{
+      user_name: 'FlorinDanPopesc',
+      user_description: 'Allergist, Assoc. Professor,\nNational Rep @EAACI_HQ,\n#TeamFollowBack 4 #ContinuousAllergyAwareness, Tweets/RTweets≠medical advice, Following/RTweets≠endorsement',
+      created_at: '2017-10-28T13:15:23.269Z',
+      message: 'RT @faye_harrison: Important message from fantastic pro-con debate: IgG4 testing on its own is currently NOT validated for food allergy dia…',
+      source: 'twitter',
+      query: 'food allergy',
+      analysis: {
+        profile: 'Doctor',
+        profile_rule: '(?i)^(\\S+ ){0,5}<DOCTOR>\\b',
+        profile_origin: '<from Description>',
+        health_related: true,
+        solution: 'testing',
+        problem: 'food allergy',
+        created_at: '2017-10-28T13:15:24.683484'
+      }
+    },
+    {
+      user_name: 'newsaction_',
+      user_description: 'Get the latest #World #news and #international #news.',
+      created_at: '2017-09-08T08:01:58.866Z',
+      message: 'RT inews2day “”https://t.co/xLrfQ8LDfQ family seeks help getting dad home following overseas cancer dia………… https://t.co/ReO68mvP1c',
+      source: 'twitter',
+      query: 'cancer',
+      analysis: {
+        profile: 'News source',
+        profile_rule: '(?i)news',
+        profile_origin: '<from Name>',
+        health_related: true,
+        solution: 'family',
+        problem: 'cancer',
+        created_at: '2017-09-08T08:02:00.177895'
+      }
+    }];
+    let state; // Undefined
+    expect(statsReducer(state, {
+      messages,
+      type: Actions.SetMessagesList
+    })).toEqual({ messages });
+  });
+
 });
