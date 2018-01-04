@@ -19,7 +19,14 @@ const setSolutionsList = (solutions) => {
     solutions,
     type: Actions.SetSolutionsList
   };
-}
+};
+
+const setMessagesList = (messages) => {
+  return {
+    messages,
+    type: Actions.SetMessagesList
+  };
+};
 
 const fetchMessagesCount = () => dispatch => {
   fetch(process.env.REACT_APP_STATS_BASE_URL)
@@ -35,7 +42,6 @@ const fetchProblemsList = () => dispatch => {
     .then(problems => {
       dispatch(setProblemsList(problems));
     });
-
 };
 
 const fetchSolutionsToProblem = (problem) => dispatch => {
@@ -46,9 +52,18 @@ const fetchSolutionsToProblem = (problem) => dispatch => {
     });
 };
 
+const fetchWordSearch = (word) => dispatch => {
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/search/${word}`)
+    .then(response => response.json())
+    .then(messages => {
+      dispatch(setMessagesList(messages));
+    });
+};
+
 export {
   fetchMessagesCount,
   fetchProblemsList,
   fetchSolutionsToProblem,
+  fetchWordSearch,
   setMessagesCount
 };
