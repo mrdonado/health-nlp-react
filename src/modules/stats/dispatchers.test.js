@@ -2,7 +2,9 @@ import {
   setMessagesCount,
   fetchMessagesCount,
   fetchProblemsList,
-  fetchSolutionsToProblem
+  fetchSolutionsToProblem,
+  fetchWordSearch,
+  fetchMessagesForProblemSolution
 } from './dispatchers';
 
 import Actions from './actions';
@@ -55,4 +57,28 @@ describe('Stats action dispatchers', () => {
     });
   });
 
+  it('should search for messages containing a keyword, and then set the received messages list', (done) => {
+    fetchMock.get('*', [{ query: 'message1q' }, { query: 'message2q' }]);
+    fetchWordSearch('searchTerm')((action) => {
+      expect(action.type).toEqual(Actions.SetMessagesList);
+      expect(action.messages[0].query).toEqual('message1q');
+      done();
+    });
+  });
+
+  it('should set the current solution, fetch the messages list for the current problem-solution pair and trigger the set messages list action', (done) => {
+    let callNum = 0;
+    fetchMock.get('*', [{ query: 'message1q' }, { query: 'message2q' }]);
+    fetchMessagesForProblemSolution('problem1', 'solution1')((action) => {
+      if (callNum === 0) {
+        expect(action.type).toEqual(Actions.SetSolution);
+        expect(action.solution).toEqual('solution1');
+        callNum += 1;
+      } else {
+        expect(action.type).toEqual(Actions.SetMessagesList);
+        expect(action.messages[0].query).toEqual('message1q');
+        done();
+      }
+    });
+  });
 });

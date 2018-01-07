@@ -77,10 +77,20 @@ const fetchWordSearch = (word) => dispatch => {
     });
 };
 
+const fetchMessagesForProblemSolution = (problem, solution) => dispatch => {
+  dispatch(setSolution(solution));
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/match/${problem}/${solution}`)
+    .then(response => response.json())
+    .then(messages => {
+      dispatch(setMessagesList(messages));
+    });
+};
+
 export {
   fetchMessagesCount,
   fetchProblemsList,
   fetchSolutionsToProblem,
   fetchWordSearch,
+  fetchMessagesForProblemSolution,
   setMessagesCount
 };
