@@ -39,12 +39,19 @@ describe('Stats action dispatchers', () => {
     });
   });
 
-  it('should fetch the solutions list for a given problem and trigger the set solutions list action', (done) => {
+  it('should set the current problem, fetch the solutions list for that problem and trigger the set solutions list action', (done) => {
+    let callNum = 0;
     fetchMock.get('*', [{ key: 'solution1', doc_count: 1234 }]);
     fetchSolutionsToProblem('problem1')((action) => {
-      expect(action.type).toEqual(Actions.SetSolutionsList);
-      expect(action.solutions[0].key).toEqual('solution1');
-      done();
+      if (callNum === 0) {
+        expect(action.type).toEqual(Actions.SetProblem);
+        expect(action.problem).toEqual('problem1');
+        callNum += 1;
+      } else {
+        expect(action.type).toEqual(Actions.SetSolutionsList);
+        expect(action.solutions[0].key).toEqual('solution1');
+        done();
+      }
     });
   });
 
