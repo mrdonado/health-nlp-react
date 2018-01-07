@@ -12,6 +12,10 @@ const statsReducer = (stats = {}, action) => {
       return Object.assign({}, stats, { solutions: action.solutions });
     case Actions.SetMessagesList:
       return Object.assign({}, stats, { messages: action.messages });
+    case Actions.SetProblem:
+      return Object.assign({}, stats, { problem: action.problem });
+    case Actions.SetSolution:
+      return Object.assign({}, stats, { solution: action.solution });
     default:
       return stats;
   }

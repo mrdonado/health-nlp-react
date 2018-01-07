@@ -14,6 +14,21 @@ const setProblemsList = (problems) => {
   };
 };
 
+const setProblem = (problem) => {
+  return {
+    problem,
+    type: Actions.SetProblem
+  };
+};
+
+const setSolution = (solution) => {
+  return {
+    solution,
+    type: Actions.SetSolution
+  };
+};
+
+
 const setSolutionsList = (solutions) => {
   return {
     solutions,
@@ -45,8 +60,10 @@ const fetchProblemsList = () => dispatch => {
 };
 
 const fetchSolutionsToProblem = (problem) => dispatch => {
+  dispatch(setProblem(problem));
   fetch(`${process.env.REACT_APP_STATS_BASE_URL}/solutions/${problem}`)
-    .then(response => response.json())
+    .then(response => response.json(),
+    () => { setSolutionsList([]) })
     .then(solutions => {
       dispatch(setSolutionsList(solutions));
     });

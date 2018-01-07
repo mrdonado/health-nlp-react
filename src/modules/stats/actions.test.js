@@ -12,5 +12,7 @@ describe('Analysis actions', () => {
     expect(Actions.GetQueriesList).toBeDefined();
     expect(Actions.GetSolutionsToProblem).toBeDefined();
     expect(Actions.SearchMessages).toBeDefined();
+    expect(Actions.SetProblem).toBeDefined();
+    expect(Actions.SetSolution).toBeDefined();
   });
 });

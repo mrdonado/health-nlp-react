@@ -62,6 +62,8 @@ describe('Stats reducers', () => {
 
   });
 
+
+
   it('should set a list of messages', () => {
     const messages = [{
       user_name: 'FlorinDanPopesc',
@@ -102,6 +104,24 @@ describe('Stats reducers', () => {
       messages,
       type: Actions.SetMessagesList
     })).toEqual({ messages });
+  });
+
+  it('should set the currently selected problem', () => {
+    const problem = 'someProblem';
+    let state; // Undefined
+    expect(statsReducer(state, {
+      problem,
+      type: Actions.SetProblem
+    })).toEqual({ problem });
+  });
+
+  it('should set the currently selected solution', () => {
+    const solution = 'solution';
+    let state; // Undefined
+    expect(statsReducer(state, {
+      solution,
+      type: Actions.SetSolution
+    })).toEqual({ solution });
   });
 
 });
