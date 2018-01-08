@@ -52,7 +52,7 @@ const fetchMessagesCount = () => dispatch => {
 };
 
 const fetchProblemsList = () => dispatch => {
-  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/problems`)
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/problems/`)
     .then(response => response.json())
     .then(problems => {
       dispatch(setProblemsList(problems));
@@ -61,7 +61,7 @@ const fetchProblemsList = () => dispatch => {
 
 const fetchSolutionsToProblem = (problem) => dispatch => {
   dispatch(setProblem(problem));
-  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/solutions/${problem}`)
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/solutions/${problem}/`)
     .then(response => response.json(),
     () => { setSolutionsList([]) })
     .then(solutions => {
@@ -70,7 +70,7 @@ const fetchSolutionsToProblem = (problem) => dispatch => {
 };
 
 const fetchWordSearch = (word) => dispatch => {
-  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/search/${word}`)
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/search/${word}/`)
     .then(response => response.json())
     .then(messages => {
       dispatch(setMessagesList(messages));
@@ -79,7 +79,7 @@ const fetchWordSearch = (word) => dispatch => {
 
 const fetchMessagesForProblemSolution = (problem, solution) => dispatch => {
   dispatch(setSolution(solution));
-  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/match/${problem}/${solution}`)
+  fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/match/${problem}/${solution}/`)
     .then(response => response.json())
     .then(messages => {
       dispatch(setMessagesList(messages));
