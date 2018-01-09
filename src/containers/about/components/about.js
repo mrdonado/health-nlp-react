@@ -12,7 +12,7 @@ export default class About extends React.Component {
 
   render() {
     return <div id="about-content">
-      <h2>About the lifescope project</h2>
+      <h2>About lifescope</h2>
       <p>
         Lifescope is an Artificial Intelligence software that <strong>finds solutions to health diseases</strong> in digital sources, such as social networks or news feeds. It consists of a live stream of text messages, and a Natural Language Processing algorithm that extracts health problems and solutions, and provides semantic labels to categorize the message sender profile. In other words, it finds out <strong>what the message says and who says it</strong>, providing an accurate and real-time analysis on massive health data.
     </p>
