@@ -36,16 +36,15 @@ export default class About extends React.Component {
         Comments and suggestions are welcome. Contact us at < a href="mailto:info@lifescope-project.com" > info@lifescope-project.com</a >
       </p>
       <h2>On the authors</h2>
-      <p className="author-data">
-        <p className="left-paragraph">
+      <p className="author-info">
+        <img className="right-photo" src={juanPhoto}></img>
         <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/juanff/">Juan Fernández Fernández</a> holds a PhD in Natural Language Processing. He works in Analytics and Information Extraction systems based on insights into the properties of human language, specially Semantics and Cognition. He suffers from an autoimmune condition called alopecia areata, for which there is currently no effective treatment. He works in this project to make a contribution to research on hard to treat diseases.
         </p>
-        <img className="right-photo" src={juanPhoto}></img>
-      </p>
-      <p className="author-data">
+      <p className="author-info">
         <img className="left-photo" src={javiPhoto}></img>
-        <p className="right-paragraph">
-          <a target="_blank" rel="noopener noreferrer" href="http://www.jdonado.com/">F. Javier R. Donado</a> holds a M.Eng. in Telecom and has been developing software professionally since 2010. He currently works as a software development team lead in Stuttgart (Germany). Javier has a wide experience in the development of modern web applications and is always looking for new challenges and interesting projects. He loves Open Source, VIM, functional programming and triple chocolate cookies.</p>
+        <a target="_blank" rel="noopener noreferrer" href="http://www.jdonado.com/">F. Javier R. Donado</a> holds a M.Eng. in Telecom and has been 
+developing software professionally since 2010. He currently works as a software development team lead in Stuttgart (Germany). 
+        Javier has a wide experience in the development of modern web applications and is always looking for new challenges and interesting projects. He loves Open Source, VIM, functional programming and triple chocolate cookies.
       </p>
       <footer></footer>
     </div >

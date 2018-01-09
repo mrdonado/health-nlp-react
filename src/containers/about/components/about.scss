@@ -1,5 +1,6 @@
 #about-content {
   animation: fade-in 0.5s 1;
+  text-align: justify;
   margin: auto;
   max-width: 500px;
   margin-top: 50px;
@@ -10,35 +11,19 @@
   footer {
     height: 70px;
   }
-  .left-paragraph,
-  .right-paragraph {
-    width: calc(70% - 1rem);
-  }
-  .right-paragraph{
-      text-align: right;
-  }
-  .author-data{
-    margin-top: -1rem;
+  .author-info {
     margin-bottom: 2rem;
   }
-  .left-paragraph,
   .left-photo,
-  .author-data {
-    float: left;
+  .right-photo {
+    width: 7rem;
   }
   .left-photo {
+    float: left;
     margin-right: 1rem;
   }
   .right-photo {
-    margin-left: 1rem;
-  }
-  .right-paragraph,
-  .right-photo {
     float: right;
-  }
-  .left-photo,
-  .right-photo {
-    width: 30%;
-    margin-top: 1rem;
+    margin-left: 1rem;
   }
 }
