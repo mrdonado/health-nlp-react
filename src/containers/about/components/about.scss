@@ -1,13 +1,44 @@
 #about-content {
-    animation: fade-in 0.5s 1;
-    margin: auto;
-    max-width: 500px;
-    margin-top: 50px;
-    padding: 1rem 1rem 0 1rem;
-    @media screen and (min-width: 550px) {
-      padding: 0;
-    }
-    footer {
-        height: 70px;
-    }
+  animation: fade-in 0.5s 1;
+  margin: auto;
+  max-width: 500px;
+  margin-top: 50px;
+  padding: 1rem 1rem 0 1rem;
+  @media screen and (min-width: 550px) {
+    padding: 0;
+  }
+  footer {
+    height: 70px;
+  }
+  .left-paragraph,
+  .right-paragraph {
+    width: calc(70% - 1rem);
+  }
+  .right-paragraph{
+      text-align: right;
+  }
+  .author-data{
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+  .left-paragraph,
+  .left-photo,
+  .author-data {
+    float: left;
+  }
+  .left-photo {
+    margin-right: 1rem;
+  }
+  .right-photo {
+    margin-left: 1rem;
+  }
+  .right-paragraph,
+  .right-photo {
+    float: right;
+  }
+  .left-photo,
+  .right-photo {
+    width: 30%;
+    margin-top: 1rem;
+  }
 }
