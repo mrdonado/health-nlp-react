@@ -1,4 +1,5 @@
 import React from 'react';
+import './help-window.css';
 
 export const HelpWindow = (props) => {
   return <div id="help-window"
@@ -8,7 +9,7 @@ export const HelpWindow = (props) => {
       Lifescope analyzes health-related feeds taking content and sender into account.
     </p>
     <p>
-      As for content, incoming messages are automatically annotated using labels. Green labels match treatments, procedures or generic solutions to health diseases, for which red labels are used.
+      As for content, incoming messages are automatically annotated using labels.</p><p><i className="solution">Green labels</i> match treatments, procedures or generic solutions to health diseases, for which <i className="problem">red labels</i> are used.
     </p>
     <p>
       On the other hand, user categories are inferred from user description texts. The algorithm identifies eleven different profiles:
