@@ -24,10 +24,10 @@ export default class App extends React.Component {
 
       <NavLink to="/stats">Stats</NavLink>
       <NavLink to="/timeline">Timeline</NavLink>
-      <a target="_blank" className="nav-link"
+      {/* <a target="_blank" className="nav-link"
         rel="noopener noreferrer"
-        href="http://insights.lifescope-project.com">Insights</a>
-      <NavLink to="/about-us">About</NavLink>
+        href="http://insights.lifescope-project.com">Insights</a> */}
+      <NavLink to="/about-us">Insights</NavLink>
     </div>;
 
     return <div>
