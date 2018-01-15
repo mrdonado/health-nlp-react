@@ -204,6 +204,12 @@ ul#analysis-list {
             &.twitter {
                 background-image: url('../../../assets/images/twitter-icon.png');
             }
+            &.pubmed {
+                background-image: url('../../../assets/images/pubmed-icon.png');
+            }
+            &.clinicaltrials {
+                background-image: url('../../../assets/images/clinical-trials-icon.png');
+            }
         }
         .date-and-query {
             white-space: nowrap;
