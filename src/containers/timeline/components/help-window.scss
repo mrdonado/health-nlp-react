@@ -1,12 +1,12 @@
 @import '../../../common.scss';
 .problem {
   border: 3px solid transparentize($red-text, 0.55);
-  background-color: transparentize(red, 0.85);
+  background-color: rgb(255, 222, 222);
   border-radius: 8px;
 }
 
 .solution {
   border: 3px solid transparentize($green-gradient, 0.45);
-  background-color: rgb(255, 222, 222);
+  background-color: rgba(0, 128, 0, 0.15);
   border-radius: 8px;
 }
