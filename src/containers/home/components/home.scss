@@ -141,3 +141,24 @@
     }*/
     }
 }
+
+.corner-ribbon{
+    width: 200px;
+    z-index: 2;
+    background: #170f29;
+    color: #f0f0f0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    font-size: 90%;
+    line-height: 2rem;
+    letter-spacing: 1px;
+    position: fixed;
+    top: auto;
+    right: -3rem;
+    bottom: 2rem;
+    left: auto;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    -webkit-transform: rotate(-45deg);
+  }

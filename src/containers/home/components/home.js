@@ -41,6 +41,10 @@ export default class Home extends React.Component {
 
   render() {
     return <div id="home-content" className="main-content">
+      <a className="corner-ribbon"
+        target="_blank" rel="noopener noreferrer"
+        href="http://insights.lifescope-project.com/">Visit our Blog!
+        </a>
       <div className={'background slide-' + ((this.state && this.state.section) || '1')}></div>
       <section id="section-1" className={this.state &&
         this.state.section === 1 ? 'active' : ''}>
