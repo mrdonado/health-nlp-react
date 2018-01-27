@@ -22,7 +22,7 @@ export default class App extends React.Component {
           lifescope</span>
       </Link>
 
-      {/* <NavLink to="/stats">Stats</NavLink> */}
+      <NavLink to="/stats">Stats</NavLink>
       <NavLink to="/timeline">Timeline</NavLink>
       {/* <a target="_blank" className="nav-link"
         rel="noopener noreferrer"
