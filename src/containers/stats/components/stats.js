@@ -12,7 +12,12 @@ export default class Home extends React.Component {
   render() {
     return <div className="main-content">
       <div className="left-panel">
-        SOME STATS {this.props.stats.count}
+        <div className="data-box">
+          <div className="box-title">
+            Total number of analyzed messages
+          </div>
+          {this.props.stats.count}
+        </div>
         <input id="free-text" type="text" />
         <input onClick={() => this.props.fetchWordSearch(document.getElementById('free-text').value)}
           type="button"
