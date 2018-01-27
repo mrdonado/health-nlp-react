@@ -10,7 +10,6 @@ export default class Home extends React.Component {
     this.props.fetchProblemsList();
   }
   render() {
-    let analysisList = this.props.stats.messages || [];
     return <div className="main-content">
       <div className="left-panel">
         SOME STATS {this.props.stats.count}
