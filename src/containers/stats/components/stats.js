@@ -10,6 +10,7 @@ export default class Home extends React.Component {
     this.props.fetchProblemsList();
   }
   render() {
+    let textSearch = '';
     return <div className="main-content">
       <div className="left-panel">
         <div className="data-box">
@@ -18,11 +19,15 @@ export default class Home extends React.Component {
           </div>
           {this.props.stats.count}
         </div>
-        <input id="free-text" type="text" />
-        <input onClick={() => this.props.fetchWordSearch(document.getElementById('free-text').value)}
+        <input id="free-text" type="text"
+          onChange={v => textSearch = v.target.value}
+        />
+        <input
+          id="search-button"
+          onClick={() => this.props.fetchWordSearch(textSearch)}
           type="button"
           value="Search" />
-        <select onChange={(v) => this.props.fetchSolutionsToProblem(v.target.value)}>
+        <select onChange={v => this.props.fetchSolutionsToProblem(v.target.value)}>
           <option>-select problem-</option>
           {(this.props.stats.problems || [])
             .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
@@ -38,6 +43,6 @@ export default class Home extends React.Component {
           moreResults={() => { }}>
         </AnalysisList>
       </div>
-    </div >
+    </div>
   }
 };
