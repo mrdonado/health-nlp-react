@@ -15,9 +15,12 @@ describe('Stats component', () => {
   beforeEach(() => {
     _spies = {};
     _props = {
-      stats: {},
-      fetchMessagesCount: () => { },
-      fetchProblemsList: () => { }
+      stats: { problems: [{ key: 'problem0' }] },
+      fetchMessagesCount: sinon.spy(),
+      fetchProblemsList: sinon.spy(),
+      fetchWordSearch: sinon.spy(),
+      fetchSolutionsToProblem: sinon.spy(),
+      fetchMessagesForProblemSolution: sinon.spy()
     };
     _context = {};
     _wrapper = shallow(<Stats {..._props} />, { context: _context });
@@ -41,6 +44,14 @@ describe('Stats component', () => {
     ReactDOM.render(<Stats stats={{ count: 50 }} fetchMessagesCount={fmcount} fetchProblemsList={fplist} />, div);
     expect(fmcount.called).toBeFalsy();
     expect(fplist.called).toBeFalsy();
+  });
+
+  it('fetches a word search when clicking on search', () => {
+    expect(_props.fetchWordSearch.called).toBeFalsy();
+    const freeTextInput = _wrapper.find('#free-text');
+    freeTextInput.simulate('change', { target: { value: 'searchword' } });
+    _wrapper.find('#search-button').simulate('click');
+    expect(_props.fetchWordSearch.calledWith('searchword')).toBeTruthy();
   });
 
 });
