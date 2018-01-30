@@ -4,13 +4,22 @@ import AnalysisList from '../../timeline/components/analysis-list';
 
 export default class Home extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { resultsDisplayed: 5, searchString: '' };
+  }
+
   componentDidMount() {
     if (this.props.stats.count) { return; }
     this.props.fetchMessagesCount();
     this.props.fetchProblemsList();
   }
+
+  componentWillReceiveProps() {
+    this.setState({ resultsDisplayed: 5 });
+  }
+
   render() {
-    let textSearch = '';
     return <div className="main-content">
       <div className="left-panel">
         <div className="data-box">
@@ -20,7 +29,10 @@ export default class Home extends React.Component {
           {this.props.stats.count}
         </div>
         <input id="free-text" type="text"
-          onChange={v => textSearch = v.target.value}
+          onChange={v =>
+            this.setState({
+              searchString: v.target.value
+            })}
         />
         <div className="data-box">
           <div className="box-title">
@@ -30,7 +42,9 @@ export default class Home extends React.Component {
         </div>
         <input
           id="search-button"
-          onClick={() => this.props.fetchWordSearch(textSearch)}
+          onClick={() => {
+            this.props.fetchWordSearch(this.state.searchString);
+          }}
           type="button"
           value="Search" />
         <select
@@ -43,15 +57,23 @@ export default class Home extends React.Component {
         <select
           id="solution-select"
           disabled={!Array.isArray(this.props.stats.solutions)}
-          onChange={(v) => this.props.fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value)}>
+          onChange={(v) => {
+            this
+              .props
+              .fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value);
+          }}>
           <option>-select solution-</option>
           {(this.props.stats.solutions || [])
             .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
         </select>
       </div>
       <div className="right-panel">
-        <AnalysisList analysis={{ results: this.props.stats.messages || [] }}
-          moreResults={() => { }}>
+        <AnalysisList analysis={{
+          results: (this.props.stats.messages || [])
+            .slice(0, this.state.resultsDisplayed)
+        }}
+          moreResults={() =>
+            this.setState({ resultsDisplayed: this.state.resultsDisplayed + 5 })}>
         </AnalysisList>
       </div>
     </div>
