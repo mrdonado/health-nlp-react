@@ -73,7 +73,8 @@ export default class Home extends React.Component {
             .slice(0, this.state.resultsDisplayed)
         }}
           moreResults={() =>
-            this.setState({ resultsDisplayed: this.state.resultsDisplayed + 5 })}>
+            this.setState({ resultsDisplayed: this.state.resultsDisplayed + 5 })}
+          hideButton={this.state.resultsDisplayed >= (this.props.stats.messages || []).length}>
         </AnalysisList>
       </div>
     </div>
