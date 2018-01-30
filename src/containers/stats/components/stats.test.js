@@ -15,7 +15,10 @@ describe('Stats component', () => {
   beforeEach(() => {
     _spies = {};
     _props = {
-      stats: { problems: [{ key: 'problem0' }] },
+      stats: {
+        problems: [{ key: 'problem0' }],
+        solutions: [{ key: 'solution0' }]
+      },
       fetchMessagesCount: sinon.spy(),
       fetchProblemsList: sinon.spy(),
       fetchWordSearch: sinon.spy(),
@@ -52,6 +55,15 @@ describe('Stats component', () => {
     freeTextInput.simulate('change', { target: { value: 'searchword' } });
     _wrapper.find('#search-button').simulate('click');
     expect(_props.fetchWordSearch.calledWith('searchword')).toBeTruthy();
+  });
+
+  it('fetches messages for a specific problem-solution pair when selecting a solution', () => {
+    expect(_props.fetchSolutionsToProblem.called).toBeFalsy();
+    _wrapper.find('#problem-select').simulate('change', { target: { value: 'problem0' } });
+    expect(_props.fetchSolutionsToProblem.called).toBeTruthy();
+    expect(_props.fetchMessagesForProblemSolution.called).toBeFalsy();
+    _wrapper.find('#solution-select').simulate('change', { target: { value: 'solution0' } });
+    expect(_props.fetchMessagesForProblemSolution.called).toBeTruthy();
   });
 
 });
