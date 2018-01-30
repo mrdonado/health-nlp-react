@@ -22,7 +22,8 @@ export class Timeline extends React.Component {
       {this.props.analysis.results ? <div id='analysis-section'>
         <div className="listening"><div className="listening-spinner"></div></div>
         <AnalysisList analysis={this.props.analysis}
-          moreResults={this.props.moreResults}>
+          moreResults={this.props.moreResults}
+          hideButton={this.props.hideButton}>
         </AnalysisList>
         <HelpWindow
           showHelp={this.state.showHelp}
