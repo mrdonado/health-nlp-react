@@ -10,13 +10,40 @@ export default class Home extends React.Component {
     this.props.fetchProblemsList();
   }
   render() {
-    let analysisList = this.props.stats.messages || [];
+    let textSearch = '';
     return <div className="main-content">
       <div className="left-panel">
-        SOME STATS {this.props.stats.count}
+        <div className="data-box">
+          <div className="box-title">
+            Total number of analyzed messages
+          </div>
+          {this.props.stats.count}
         </div>
+        <input id="free-text" type="text"
+          onChange={v => textSearch = v.target.value}
+        />
+        <input
+          id="search-button"
+          onClick={() => this.props.fetchWordSearch(textSearch)}
+          type="button"
+          value="Search" />
+        <select
+          id="problem-select"
+          onChange={v => this.props.fetchSolutionsToProblem(v.target.value)}>
+          <option>-select problem-</option>
+          {(this.props.stats.problems || [])
+            .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
+        </select>
+        <select
+          id="solution-select"
+          onChange={(v) => this.props.fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value)}>
+          <option>-select solution-</option>
+          {(this.props.stats.solutions || [])
+            .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
+        </select>
+      </div>
       <div className="right-panel">
-        <AnalysisList analysis={analysisList}
+        <AnalysisList analysis={{ results: this.props.stats.messages || [] }}
           moreResults={() => { }}>
         </AnalysisList>
       </div>

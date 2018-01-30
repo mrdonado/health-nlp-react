@@ -4,7 +4,10 @@ import { bindActionCreators } from 'redux';
 import Stats from './components/stats';
 import {
   fetchMessagesCount,
-  fetchProblemsList 
+  fetchProblemsList,
+  fetchSolutionsToProblem,
+  fetchWordSearch,
+  fetchMessagesForProblemSolution
 } from '../../modules/stats/dispatchers';
 
 const mapStateToProps = state => ({
@@ -14,7 +17,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
     fetchMessagesCount,
-    fetchProblemsList 
+    fetchProblemsList,
+    fetchSolutionsToProblem,
+    fetchWordSearch,
+    fetchMessagesForProblemSolution
   }, dispatch);
 };
 
