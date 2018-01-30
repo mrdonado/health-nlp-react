@@ -22,6 +22,12 @@ export default class Home extends React.Component {
         <input id="free-text" type="text"
           onChange={v => textSearch = v.target.value}
         />
+        <div className="data-box">
+          <div className="box-title">
+            Messages found:
+          </div>
+          {(this.props.stats.messages || []).length}
+        </div>
         <input
           id="search-button"
           onClick={() => this.props.fetchWordSearch(textSearch)}
@@ -36,6 +42,7 @@ export default class Home extends React.Component {
         </select>
         <select
           id="solution-select"
+          disabled={!Array.isArray(this.props.stats.solutions)}
           onChange={(v) => this.props.fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value)}>
           <option>-select solution-</option>
           {(this.props.stats.solutions || [])
