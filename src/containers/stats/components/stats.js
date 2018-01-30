@@ -27,12 +27,16 @@ export default class Home extends React.Component {
           onClick={() => this.props.fetchWordSearch(textSearch)}
           type="button"
           value="Search" />
-        <select onChange={v => this.props.fetchSolutionsToProblem(v.target.value)}>
+        <select
+          id="problem-select"
+          onChange={v => this.props.fetchSolutionsToProblem(v.target.value)}>
           <option>-select problem-</option>
           {(this.props.stats.problems || [])
             .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
         </select>
-        <select onChange={(v) => this.props.fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value)}>
+        <select
+          id="solution-select"
+          onChange={(v) => this.props.fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value)}>
           <option>-select solution-</option>
           {(this.props.stats.solutions || [])
             .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
