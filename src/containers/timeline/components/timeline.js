@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from './spinner';
+import Spinner from '../../../utilities/spinner';
 import AnalysisList from './analysis-list';
 import { HelpWindow } from './help-window';
 import { AnalysisForm } from './analysis-form';
