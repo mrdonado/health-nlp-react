@@ -2,6 +2,8 @@
 // Constants
 // ------------------------------------
 const Actions = {
+  AddPendingRequest: 'ADD_PENDING_REQUEST',
+  RemovePendingRequest: 'REMOVE_PENDING_REQUEST',
   SetMessagesCount: 'SET_MESSAGES_COUNT',
   SetMessagesList: 'SET_MESSAGES_LIST',
   SetProblemsList: 'SET_PROBLEMS_LIST',

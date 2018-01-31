@@ -1,6 +1,7 @@
 import Actions from './actions';
 
 const statsReducer = (stats = {}, action) => {
+  let pendingRequests = [...(stats.pendingRequests || [])];
   switch (action.type) {
     case Actions.SetMessagesCount:
       return Object.assign({}, stats, { count: action.count });
@@ -16,6 +17,15 @@ const statsReducer = (stats = {}, action) => {
       return Object.assign({}, stats, { problem: action.problem });
     case Actions.SetSolution:
       return Object.assign({}, stats, { solution: action.solution });
+    case Actions.AddPendingRequest:
+      // TODO: Refactor :22 and :26 with lodash for improved readability
+      pendingRequests.indexOf(action.requestName) === -1 ?
+        pendingRequests.push(action.requestName) : null;
+      return Object.assign({}, stats, { pendingRequests });
+    case Actions.RemovePendingRequest:
+      pendingRequests.indexOf(action.requestName) > -1 ?
+        pendingRequests.pop(action.requestName) : null;
+      return Object.assign({}, stats, { pendingRequests });
     default:
       return stats;
   }
