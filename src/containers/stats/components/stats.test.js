@@ -16,6 +16,7 @@ describe('Stats component', () => {
     _spies = {};
     _props = {
       stats: {
+        count: 50,
         problems: [{ key: 'problem0' }],
         solutions: [{ key: 'solution0' }]
       },
