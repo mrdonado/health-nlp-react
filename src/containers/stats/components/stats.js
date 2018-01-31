@@ -1,6 +1,7 @@
 import React from 'react';
 import './stats.css';
 import AnalysisList from '../../timeline/components/analysis-list';
+import Spinner from '../../../utilities/spinner';
 
 export default class Home extends React.Component {
 
@@ -20,6 +21,9 @@ export default class Home extends React.Component {
   }
 
   render() {
+    if (typeof this.props.stats.count === 'undefined') {
+      return <Spinner />;
+    }
     return <div className="main-content">
       <div className="left-panel">
         <div className="data-box">
