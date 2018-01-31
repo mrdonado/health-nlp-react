@@ -1,4 +1,16 @@
 import Actions from './actions';
+import './constants';
+import C from './constants';
+
+const addPendingRequest = requestName => ({
+  requestName,
+  type: Actions.AddPendingRequest
+});
+
+const removePendingRequest = requestName => ({
+  requestName,
+  type: Actions.RemovePendingRequest
+});
 
 const setMessagesCount = count => {
   return {
@@ -70,9 +82,11 @@ const fetchSolutionsToProblem = problem => dispatch => {
 };
 
 const fetchWordSearch = word => dispatch => {
+  dispatch(addPendingRequest(C.requestTypes.wordSearch));
   fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/search/${word}/`)
     .then(response => response.json())
     .then(messages => {
+      dispatch(removePendingRequest(C.requestTypes.wordSearch));
       dispatch(setMessagesList(messages));
     });
 };
