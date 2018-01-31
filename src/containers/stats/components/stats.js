@@ -34,12 +34,7 @@ export default class Home extends React.Component {
               searchString: v.target.value
             })}
         />
-        <div className="data-box">
-          <div className="box-title">
-            Messages found:
-          </div>
-          {(this.props.stats.messages || []).length}
-        </div>
+
         <input
           id="search-button"
           onClick={() => {
@@ -66,6 +61,12 @@ export default class Home extends React.Component {
           {(this.props.stats.solutions || [])
             .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
         </select>
+        <div className="data-box">
+          <div className="box-title">
+            Current search results
+          </div>
+          {(this.props.stats.messages || []).length}
+        </div>
       </div>
       <div className="right-panel">
         <AnalysisList analysis={{
