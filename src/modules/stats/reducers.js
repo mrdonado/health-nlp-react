@@ -19,12 +19,14 @@ const statsReducer = (stats = {}, action) => {
       return Object.assign({}, stats, { solution: action.solution });
     case Actions.AddPendingRequest:
       // TODO: Refactor :22 and :26 with lodash for improved readability
-      pendingRequests.indexOf(action.requestName) === -1 ?
-        pendingRequests.push(action.requestName) : null;
+      if (pendingRequests.indexOf(action.requestName) === -1) {
+        pendingRequests.push(action.requestName);
+      }
       return Object.assign({}, stats, { pendingRequests });
     case Actions.RemovePendingRequest:
-      pendingRequests.indexOf(action.requestName) > -1 ?
-        pendingRequests.pop(action.requestName) : null;
+      if (pendingRequests.indexOf(action.requestName) > -1) {
+        pendingRequests.pop(action.requestName);
+      }
       return Object.assign({}, stats, { pendingRequests });
     default:
       return stats;
