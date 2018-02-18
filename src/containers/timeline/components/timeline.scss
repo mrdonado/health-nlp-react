@@ -113,6 +113,15 @@ div.listening {
     &.publishing-source {
         color: #ffdc00;
     }
+    &.association {
+        color: #777777;
+    }
+    &.pubmed-tag {
+        color: #ab47bc;
+    }
+    &.clinicaltrials-tag {
+        color: #4abca8;
+    }
 }
 
 button.add-analysis,
