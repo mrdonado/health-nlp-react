@@ -59,10 +59,19 @@ describe('Stats action dispatchers', () => {
 
   it('should search for messages containing a keyword, and then set the received messages list', (done) => {
     fetchMock.get('*', [{ query: 'message1q' }, { query: 'message2q' }]);
+    let callCount = 0;
     fetchWordSearch('searchTerm')((action) => {
-      expect(action.type).toEqual(Actions.SetMessagesList);
-      expect(action.messages[0].query).toEqual('message1q');
-      done();
+      if (callCount === 0) {
+        expect(action.type).toEqual(Actions.AddPendingRequest);
+        callCount += 1;
+      } else if (callCount === 1) {
+        expect(action.type).toEqual(Actions.RemovePendingRequest);
+        callCount += 1;
+      } else {
+        expect(action.type).toEqual(Actions.SetMessagesList);
+        expect(action.messages[0].query).toEqual('message1q');
+        done();
+      }
     });
   });
 

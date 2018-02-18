@@ -1,27 +1,39 @@
 import Actions from './actions';
+import './constants';
+import C from './constants';
 
-const setMessagesCount = (count) => {
+const addPendingRequest = requestName => ({
+  requestName,
+  type: Actions.AddPendingRequest
+});
+
+const removePendingRequest = requestName => ({
+  requestName,
+  type: Actions.RemovePendingRequest
+});
+
+const setMessagesCount = count => {
   return {
     count,
     type: Actions.SetMessagesCount
   }
 };
 
-const setProblemsList = (problems) => {
+const setProblemsList = problems => {
   return {
     problems,
     type: Actions.SetProblemsList
   };
 };
 
-const setProblem = (problem) => {
+const setProblem = problem => {
   return {
     problem,
     type: Actions.SetProblem
   };
 };
 
-const setSolution = (solution) => {
+const setSolution = solution => {
   return {
     solution,
     type: Actions.SetSolution
@@ -29,14 +41,14 @@ const setSolution = (solution) => {
 };
 
 
-const setSolutionsList = (solutions) => {
+const setSolutionsList = solutions => {
   return {
     solutions,
     type: Actions.SetSolutionsList
   };
 };
 
-const setMessagesList = (messages) => {
+const setMessagesList = messages => {
   return {
     messages,
     type: Actions.SetMessagesList
@@ -59,7 +71,7 @@ const fetchProblemsList = () => dispatch => {
     });
 };
 
-const fetchSolutionsToProblem = (problem) => dispatch => {
+const fetchSolutionsToProblem = problem => dispatch => {
   dispatch(setProblem(problem));
   fetch(`${process.env.REACT_APP_STATS_BASE_URL}/solutions/${problem}/`)
     .then(response => response.json(),
@@ -69,10 +81,12 @@ const fetchSolutionsToProblem = (problem) => dispatch => {
     });
 };
 
-const fetchWordSearch = (word) => dispatch => {
+const fetchWordSearch = word => dispatch => {
+  dispatch(addPendingRequest(C.requestTypes.wordSearch));
   fetch(`${process.env.REACT_APP_STATS_BASE_URL}/messages/search/${word}/`)
     .then(response => response.json())
     .then(messages => {
+      dispatch(removePendingRequest(C.requestTypes.wordSearch));
       dispatch(setMessagesList(messages));
     });
 };

@@ -13,7 +13,7 @@ export default class AnalysisList extends React.Component {
           <AnalysisBlock key={'analysis-' + result.created_at} result={result}></AnalysisBlock>)
       }
       {/* Show more button as last element of the list. */}
-      {list.length > 0 ?
+      {list.length > 0 && !this.props.hideButton ?
         <button className="more-results-btn"
           onClick={() => {
             this.props.moreResults();

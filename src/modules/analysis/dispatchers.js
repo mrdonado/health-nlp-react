@@ -86,7 +86,7 @@ const analysisDispatchers = (database) => {
         .limitToLast(count)
         .once('value',
         snap => {
-          const resultsObject = snap.val();
+          const resultsObject = snap.val() || {};
           const results = firebaseObjectToArray(resultsObject);
           dispatch(getResultsFulfilledAction(results));
         })

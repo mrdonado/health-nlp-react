@@ -62,8 +62,6 @@ describe('Stats reducers', () => {
 
   });
 
-
-
   it('should set a list of messages', () => {
     const messages = [{
       user_name: 'FlorinDanPopesc',
@@ -122,6 +120,34 @@ describe('Stats reducers', () => {
       solution,
       type: Actions.SetSolution
     })).toEqual({ solution });
+  });
+
+  it('should add a new name to the pending requests list', () => {
+    const requestName = 'someRequest';
+    let state; // Undefined
+    expect(statsReducer(state, {
+      requestName, type: Actions.AddPendingRequest
+    })).toEqual({ pendingRequests: [requestName] })
+
+    // It stays the same if that request is already pending
+    expect(statsReducer({ pendingRequests: [requestName] }, {
+      requestName, type: Actions.AddPendingRequest
+    })).toEqual({ pendingRequests: [requestName] })
+  });
+
+  it('should remove an existing name from the pending requests list', () => {
+    const requestName = 'someRequest';
+    let state = { pendingRequests: [requestName] };
+    expect(statsReducer(state, {
+      requestName, type: Actions.RemovePendingRequest
+    })).toEqual({ pendingRequests: [] })
+
+    // It stays the same if the request didn't exist
+    expect(statsReducer({ pendingRequests: [] }, {
+      requestName, type: Actions.RemovePendingRequest
+    })).toEqual({ pendingRequests: [] })
+
+
   });
 
 });
