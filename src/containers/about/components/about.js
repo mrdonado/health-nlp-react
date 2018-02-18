@@ -1,6 +1,6 @@
 import React from 'react';
 import './about.css';
-import juanPhoto from '../../../assets/images/juan-photo.jpg';
+import juanPhoto from '../../../assets/images/juan-photo.png';
 import javiPhoto from '../../../assets/images/javi-photo.jpg';
 import lifescopeInsightsPhoto from '../../../assets/images/lifescope-insights.jpg';
 
