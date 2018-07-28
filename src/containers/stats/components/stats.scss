@@ -1,0 +1,14 @@
+.stats-grid{
+  display: grid;
+  grid-template-colums: 1fr 1fr 1fr;
+  .left-panel {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .right-panel {
+    grid-column-start: 3;
+    grid-column-end: 3;
+  }
+
+}
+

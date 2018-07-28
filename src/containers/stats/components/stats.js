@@ -24,7 +24,7 @@ export default class Home extends React.Component {
     if (typeof this.props.stats.count === 'undefined') {
       return <Spinner />;
     }
-    return <div className="main-content">
+    return <div className="main-content stats-grid">
       <div className="left-panel">
         <div className="data-box">
           <div className="box-title">
