@@ -32,26 +32,25 @@ export default class Home extends React.Component {
     return <div className="main-content stats-grid">
       <div className="left-panel">
         <div>
-          <div className="switch-selector">
-            <span className={
-              !this.state.freeSearch && 'active'
-            }>Problem/Solution</span>
-            <label className="switch">
-              <input type="checkbox"
-                id="free-search"
-                onChange={(e) => {
-                  this.setState({
-                    freeSearch: e.target.checked
-                  });
-                }}
-                iname="free-search"
-                label="Free search" />
-              <span className="slider" />
-            </label>
-            <span className={
-              this.state.freeSearch && 'active'
-            }>Free search</span>
+          <label className={
+            "toggler " + (!this.state.freeSearch &&
+              "toggler--is-active")
+          }
+           id="p-s-search">Problem/Solution</label>
+          <div className="toggle">
+            <input type="checkbox" id="switcher"
+              onChange={(e) => {
+                this.setState({
+                  freeSearch: e.target.checked
+                });
+              }}
+              className="check" />
+            <b className="b switch"></b>
           </div>
+          <label className={
+            "toggler " + (this.state.freeSearch && " toggler--is-active")
+           }
+            id="free-search">Free Search</label>
         </div>
         <div className="data-box">
           <div className="box-title">
@@ -65,7 +64,6 @@ export default class Home extends React.Component {
           </div>
           {(this.props.stats.messages || []).length}
         </div>
-
         {this.state.freeSearch ?
           <div>
             <input id="free-text" type="text"
