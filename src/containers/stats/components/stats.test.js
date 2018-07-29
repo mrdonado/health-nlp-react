@@ -52,6 +52,12 @@ describe('Stats component', () => {
 
   it('fetches a word search when clicking on search', () => {
     expect(_props.fetchWordSearch.called).toBeFalsy();
+    // First, activate the free search
+    _wrapper
+      .find('#search-switcher')
+      .simulate('change',
+        { target: { checked: true } });
+    // Now, test the search
     const freeTextInput = _wrapper.find('#free-text');
     freeTextInput.simulate('change', { target: { value: 'searchword' } });
     _wrapper.find('#search-button').simulate('click');
@@ -65,6 +71,15 @@ describe('Stats component', () => {
     expect(_props.fetchMessagesForProblemSolution.called).toBeFalsy();
     _wrapper.find('#solution-select').simulate('change', { target: { value: 'solution0' } });
     expect(_props.fetchMessagesForProblemSolution.called).toBeTruthy();
+  });
+
+  it('starts with problem/solution as default search', ()=>{
+    expect(_wrapper.state().freeSearch).toBeFalsy();
+    _wrapper
+      .find('#search-switcher')
+      .simulate('change',
+        { target: { checked: true } });
+    expect(_wrapper.state().freeSearch).toBeTruthy();
   });
 
 });

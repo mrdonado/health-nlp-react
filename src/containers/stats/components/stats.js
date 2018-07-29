@@ -38,7 +38,7 @@ export default class Home extends React.Component {
           }
            id="p-s-search">Problem/Solution</label>
           <div className="toggle">
-            <input type="checkbox" id="switcher"
+            <input type="checkbox" id="search-switcher"
               onChange={(e) => {
                 this.setState({
                   freeSearch: e.target.checked
