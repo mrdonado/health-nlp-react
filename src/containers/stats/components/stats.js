@@ -1,8 +1,8 @@
 import React from 'react';
 import './stats.css';
-import './slider.css';
 import AnalysisList from '../../timeline/components/analysis-list';
 import Spinner from '../../../utilities/spinner';
+import Toggler from './toggler';
 
 export default class Home extends React.Component {
 
@@ -25,44 +25,29 @@ export default class Home extends React.Component {
     this.setState({ resultsDisplayed: 5 });
   }
 
+  freeSearchChange(e) {
+    this.setState({
+      freeSearch: e.target.checked
+    });
+  }
+
   render() {
+
     if (typeof this.props.stats.count === 'undefined') {
       return <Spinner />;
     }
+
     return <div className="main-content stats-grid">
       <div className="left-panel">
-        <div>
-          <label className={
-            "toggler " + (!this.state.freeSearch &&
-              "toggler--is-active")
-          }
-           id="p-s-search">Problem/Solution</label>
-          <div className="toggle">
-            <input type="checkbox" id="search-switcher"
-              onChange={(e) => {
-                this.setState({
-                  freeSearch: e.target.checked
-                });
-              }}
-              className="check" />
-            <b className="b switch"></b>
-          </div>
-          <label className={
-            "toggler " + (this.state.freeSearch && " toggler--is-active")
-           }
-            id="free-search">Free Search</label>
-        </div>
+
+        <Toggler
+          freeSearch={this.state.freeSearch}
+          choiceA="Problem/Solution"
+          choiceB="Free Search"
+          onChange={this.freeSearchChange.bind(this)}/>
+
         <div className="data-box">
-          <div className="box-title">
-            Total number of analyzed messages
-          </div>
-          {this.props.stats.count}
-        </div>
-        <div className="data-box">
-          <div className="box-title">
-            Current search results
-          </div>
-          {(this.props.stats.messages || []).length}
+          {this.props.stats.count} messages analyzed
         </div>
         {this.state.freeSearch ?
           <div>
@@ -104,7 +89,12 @@ export default class Home extends React.Component {
         }
       </div>
       <div className="right-panel">
-
+        <div className="data-box">
+          <div className="box-title">
+            {(this.props.stats.messages || []).length} results
+          </div>
+          
+        </div>
         <AnalysisList analysis={{
           results: (this.props.stats.messages || [])
             .slice(0, this.state.resultsDisplayed)

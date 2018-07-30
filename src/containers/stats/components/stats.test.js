@@ -7,7 +7,6 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-
 describe('Stats component', () => {
 
   let _props, _spies, _wrapper, _context;
@@ -52,11 +51,16 @@ describe('Stats component', () => {
 
   it('fetches a word search when clicking on search', () => {
     expect(_props.fetchWordSearch.called).toBeFalsy();
+    expect(_wrapper.state('freeSearch')).toEqual(false);
     // First, activate the free search
-    _wrapper
-      .find('#search-switcher')
-      .simulate('change',
+    const instance = _wrapper
+      .instance();
+    instance
+      .freeSearchChange
+      .call(instance,
         { target: { checked: true } });
+    _wrapper.update();
+    expect(_wrapper.state('freeSearch')).toEqual(true);
     // Now, test the search
     const freeTextInput = _wrapper.find('#free-text');
     freeTextInput.simulate('change', { target: { value: 'searchword' } });
@@ -71,15 +75,6 @@ describe('Stats component', () => {
     expect(_props.fetchMessagesForProblemSolution.called).toBeFalsy();
     _wrapper.find('#solution-select').simulate('change', { target: { value: 'solution0' } });
     expect(_props.fetchMessagesForProblemSolution.called).toBeTruthy();
-  });
-
-  it('starts with problem/solution as default search', ()=>{
-    expect(_wrapper.state().freeSearch).toBeFalsy();
-    _wrapper
-      .find('#search-switcher')
-      .simulate('change',
-        { target: { checked: true } });
-    expect(_wrapper.state().freeSearch).toBeTruthy();
   });
 
 });
