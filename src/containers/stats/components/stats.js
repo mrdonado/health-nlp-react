@@ -3,6 +3,14 @@ import './stats.css';
 import AnalysisList from '../../timeline/components/analysis-list';
 import Spinner from '../../../utilities/spinner';
 import Toggler from './toggler';
+import Chart from './charts/chart';
+
+const sampleData = [
+  {id: '5fbmzmtc', x: 7, y: 41, z: 6},
+  {id: 's4f8phwm', x: 11, y: 45, z: 9}
+];
+
+const domain = {x: [0, 30], y: [0, 100]};
 
 export default class Home extends React.Component {
 
@@ -45,6 +53,9 @@ export default class Home extends React.Component {
           choiceA="Problem/Solution"
           choiceB="Free Search"
           onChange={this.freeSearchChange.bind(this)}/>
+
+        <Chart data={sampleData}
+          domain={domain} />
 
         <div className="data-box">
           {this.props.stats.count} messages analyzed
