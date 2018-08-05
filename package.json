@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
+    "d3": "^5.5.0",
     "firebase": "^5.2.0",
     "node-sass-chokidar": "^1.3.0",
     "ramda": "^0.25.0",
