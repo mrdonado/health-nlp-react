@@ -5,13 +5,6 @@ import Spinner from '../../../utilities/spinner';
 import Toggler from './toggler';
 import Chart from './charts/chart';
 
-const sampleData = [
-  {id: '5fbmzmtc', x: 7, y: 41, z: 6},
-  {id: 's4f8phwm', x: 11, y: 45, z: 9}
-];
-
-const domain = {x: [0, 30], y: [0, 100]};
-
 export default class Home extends React.Component {
 
   constructor(props) {
@@ -30,7 +23,9 @@ export default class Home extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.setState({ resultsDisplayed: 5 });
+    this.setState({
+      resultsDisplayed: 5
+    });
   }
 
   freeSearchChange(e) {
@@ -53,9 +48,6 @@ export default class Home extends React.Component {
           choiceA="Problem/Solution"
           choiceB="Free Search"
           onChange={this.freeSearchChange.bind(this)}/>
-
-        <Chart data={sampleData}
-          domain={domain} />
 
         <div className="data-box">
           {this.props.stats.count} messages analyzed
@@ -98,6 +90,22 @@ export default class Home extends React.Component {
             </select>
           </div>
         }
+
+        <Chart data={(this.props.stats.problems || [])
+          .slice(0, 5)
+          .map(p => {
+            return { label: p.key, count: p.doc_count };
+          })
+        } />
+
+        <Chart data={(this.props.stats.solutions || [])
+          .slice(0, 5)
+          .map(p => {
+            return { label: p.key, count: p.doc_count };
+          })
+        } />
+
+
       </div>
       <div className="right-panel">
         <div className="data-box">

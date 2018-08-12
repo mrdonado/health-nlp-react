@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import d3Chart from './d3-chart';
 
-
 export default class Chart extends React.Component {
 
   componentDidMount () {
     var el = ReactDOM.findDOMNode(this);
     d3Chart.create(el, {
-      width: '100%',
-      height: '300px'
+      width: 650,
+      height: 300
     }, this.getChartState());
   }
 
@@ -20,8 +19,7 @@ export default class Chart extends React.Component {
 
   getChartState () {
     return {
-      data: this.props.data,
-      domain: this.props.domain
+      dataset: this.props.data
     };
   }
 
