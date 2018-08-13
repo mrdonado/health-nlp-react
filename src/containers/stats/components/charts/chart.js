@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import d3Chart from './d3-chart';
+import d3ChartFactory from './d3-chart';
+import './chart.css';
 
 export default class Chart extends React.Component {
 
+  d3Chart = d3ChartFactory();
+
   componentDidMount () {
     var el = ReactDOM.findDOMNode(this);
-    d3Chart.create(el, {
+    this.d3Chart.create(el, {
       width: 650,
       height: 300
     }, this.getChartState());
@@ -14,7 +17,7 @@ export default class Chart extends React.Component {
 
   componentDidUpdate () {
     var el = ReactDOM.findDOMNode(this);
-    d3Chart.update(el, this.getChartState());
+    this.d3Chart.update(el, this.getChartState());
   }
 
   getChartState () {
@@ -25,7 +28,7 @@ export default class Chart extends React.Component {
 
   componentWillUnmount () {
     var el = ReactDOM.findDOMNode(this);
-    d3Chart.destroy(el);
+    this.d3Chart.destroy(el);
   }
 
   render () {
