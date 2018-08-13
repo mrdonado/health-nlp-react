@@ -1,0 +1,94 @@
+[
+  {
+    "key": "cancer",
+    "doc_count": 58690
+  },
+  {
+    "key": "disease",
+    "doc_count": 19887
+  },
+  {
+    "key": "pain",
+    "doc_count": 6390
+  },
+  {
+    "key": "heart",
+    "doc_count": 6121
+  },
+  {
+    "key": "diabetes",
+    "doc_count": 5450
+  },
+  {
+    "key": "disorder",
+    "doc_count": 5271
+  },
+  {
+    "key": "chronic",
+    "doc_count": 4771
+  },
+  {
+    "key": "depression",
+    "doc_count": 4512
+  },
+  {
+    "key": "breast",
+    "doc_count": 4217
+  },
+  {
+    "key": "stroke",
+    "doc_count": 3735
+  },
+  {
+    "key": "lung",
+    "doc_count": 3071
+  },
+  {
+    "key": "dementia",
+    "doc_count": 2862
+  },
+  {
+    "key": "alzheimer",
+    "doc_count": 2594
+  },
+  {
+    "key": "syndrome",
+    "doc_count": 2558
+  },
+  {
+    "key": "back",
+    "doc_count": 2506
+  },
+  {
+    "key": "obesity",
+    "doc_count": 2370
+  },
+  {
+    "key": "parkinson's",
+    "doc_count": 2212
+  },
+  {
+    "key": "anxiety",
+    "doc_count": 2188
+  },
+  {
+    "key": "prostate",
+    "doc_count": 2078
+  },
+  {
+    "key": "arthritis",
+    "doc_count": 2050
+  },
+  {
+    "key": "brain",
+    "doc_count": 1953
+  },
+  {
+    "key": "asthma",
+    "doc_count": 1845
+  },
+  {
+    "key": "kidney",
+    "doc_count": 1758
+  }
+]
