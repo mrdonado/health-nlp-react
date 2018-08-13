@@ -4,6 +4,7 @@ import AnalysisList from '../../timeline/components/analysis-list';
 import Spinner from '../../../utilities/spinner';
 import Toggler from './toggler';
 import Chart from './charts/chart';
+import docsToDataset from './data-functions/docs-to-dataset';
 
 export default class Home extends React.Component {
 
@@ -91,20 +92,9 @@ export default class Home extends React.Component {
           </div>
         }
 
-        <Chart data={(this.props.stats.problems || [])
-          .slice(0, 5)
-          .map(p => {
-            return { label: p.key, count: p.doc_count };
-          })
-        } />
+        <Chart data={docsToDataset(this.props.stats.problems)} />
 
-        <Chart data={(this.props.stats.solutions || [])
-          .slice(0, 5)
-          .map(p => {
-            return { label: p.key, count: p.doc_count };
-          })
-        } />
-
+        <Chart data={docsToDataset(this.props.stats.solutions)} /> 
 
       </div>
       <div className="right-panel">
