@@ -1,3 +1,19 @@
 rect.disabled {
   opacity: 0.2;
 }
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px #8080809c;
+  transition: 0.5s visibility, 0.5s opacity;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
