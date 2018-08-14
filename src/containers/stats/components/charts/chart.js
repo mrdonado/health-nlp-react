@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import d3ChartFactory from './d3-chart';
 import './chart.css';
 
+const sameProperties = (prevProps, props)=>{
+  const propsReducer = (l, d) => { return l + d.label };
+  return (prevProps.data).reduce(propsReducer, "") ===
+    (props.data).reduce(propsReducer, "") 
+};
+
 export default class Chart extends React.Component {
 
   d3Chart = d3ChartFactory();
@@ -15,7 +21,10 @@ export default class Chart extends React.Component {
     }, this.getChartState());
   }
 
-  componentDidUpdate () {
+  componentDidUpdate (prevProps) {
+    if(sameProperties(prevProps, this.props)){
+      return;
+    }
     var el = ReactDOM.findDOMNode(this);
     this.d3Chart.update(el, this.getChartState());
   }
@@ -33,7 +42,7 @@ export default class Chart extends React.Component {
 
   render () {
     return (
-      <div className="Chart"></div>
+      <div className="chart"></div>
     );
   }
 
