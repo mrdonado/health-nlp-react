@@ -35,6 +35,20 @@ export default class Home extends React.Component {
     });
   }
 
+  selectSolution(elem) {
+    const solution = elem.target ? elem.target.value : elem;
+    this
+      .props
+      .fetchMessagesForProblemSolution(this.props.stats.problem, solution);
+  }
+
+  selectProblem(elem) {
+    const problem = elem.target ? elem.target.value : elem;
+    this
+      .props
+      .fetchSolutionsToProblem(problem)
+  }
+
   render() {
 
     if (typeof this.props.stats.count === 'undefined') {
@@ -72,19 +86,17 @@ export default class Home extends React.Component {
           <div>
             <select
               id="problem-select"
-              onChange={v => this.props.fetchSolutionsToProblem(v.target.value)}>
+              onChange={this.selectProblem.bind(this)}
+              value={this.props.stats.problem} >
               <option>-select problem-</option>
               {(this.props.stats.problems || [])
                 .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
             </select>
             <select
               id="solution-select"
+              value={this.props.stats.solution}
               disabled={!Array.isArray(this.props.stats.solutions)}
-              onChange={(v) => {
-                this
-                  .props
-                  .fetchMessagesForProblemSolution(this.props.stats.problem, v.target.value);
-              }}>
+              onChange={this.selectSolution.bind(this)}>
               <option>-select solution-</option>
               {(this.props.stats.solutions || [])
                 .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
@@ -92,9 +104,11 @@ export default class Home extends React.Component {
           </div>
         }
 
-        <Chart data={docsToDataset(this.props.stats.problems)} />
+        <Chart data={docsToDataset(this.props.stats.problems)}
+          cb={this.selectProblem.bind(this)} />
 
-        <Chart data={docsToDataset(this.props.stats.solutions)} /> 
+        <Chart data={docsToDataset(this.props.stats.solutions)}
+          cb={this.selectSolution.bind(this)} /> 
 
       </div>
       <div className="right-panel">
