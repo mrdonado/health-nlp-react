@@ -66,6 +66,12 @@ const d3ChartFactory = function () {
       .data(pie(dataset)) //associate dataset wit he path elements we're about to create. must pass through the pie function. it magically knows how to extract values and bakes it into the pie
       .enter() //creates placeholder nodes for each of the values
       .append('path') // replace placeholders with path elements
+      .attr('class', 'clickable-path')
+      .on('click', (d) => {
+        if (typeof this.cb === 'function') {
+          this.cb(d.data.label);
+        }
+      })
       .attr('d', arc) // define d attribute with arc function above
       .attr('fill', function (d) { return color(d.data.label); }) // use color scale to define fill of each label in dataset
       .each(function (d) { return this._current - d; }); // creates a smooth animation for each track

@@ -8,7 +8,6 @@ const sameProperties = (prevProps, props)=>{
   return (prevProps.data).reduce(propsReducer, "") ===
     (props.data).reduce(propsReducer, "") 
 };
-
 export default class Chart extends React.Component {
 
   d3Chart = d3ChartFactory();
@@ -25,6 +24,7 @@ export default class Chart extends React.Component {
     if(sameProperties(prevProps, this.props)){
       return;
     }
+    this.d3Chart.cb = this.props.cb;
     var el = ReactDOM.findDOMNode(this);
     this.d3Chart.update(el, this.getChartState());
   }

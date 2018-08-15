@@ -2,6 +2,12 @@ rect.disabled {
   opacity: 0.2;
 }
 
+.chart {
+  .clickable-path {
+    cursor: pointer;
+  }
+}
+
 .tooltip {
   visibility: hidden;
   position: absolute;
