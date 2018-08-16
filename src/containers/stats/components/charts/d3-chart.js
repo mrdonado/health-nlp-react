@@ -7,7 +7,9 @@ const d3ChartFactory = function () {
 
   // more color scales: https://bl.ocks.org/pstuffa/3393ff2711a53975040077b7453781a9
 
-  const d3Chart = {};
+  const d3Chart = {
+    cb: () => { } // This callback can later be reassigned
+  };
 
   let radius, width, height;
 
@@ -67,11 +69,7 @@ const d3ChartFactory = function () {
       .enter() //creates placeholder nodes for each of the values
       .append('path') // replace placeholders with path elements
       .attr('class', 'clickable-path')
-      .on('click', (d) => {
-        if (typeof this.cb === 'function') {
-          this.cb(d.data.label);
-        }
-      })
+      .on('click', (d) => d3Chart.cb(d.data.label))
       .attr('d', arc) // define d attribute with arc function above
       .attr('fill', function (d) { return color(d.data.label); }) // use color scale to define fill of each label in dataset
       .each(function (d) { return this._current - d; }); // creates a smooth animation for each track
@@ -153,7 +151,8 @@ const d3ChartFactory = function () {
     legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
-      .text(function (d) { return d; }); 
+      .text(function (d) { return d; })
+      .on('click', (t) => { d3Chart.cb(t) }); 
 
   };
 

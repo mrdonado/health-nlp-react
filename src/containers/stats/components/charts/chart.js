@@ -18,6 +18,7 @@ export default class Chart extends React.Component {
       width: 650,
       height: 300
     }, this.getChartState());
+    this.d3Chart.cb = this.props.cb;
   }
 
   componentDidUpdate (prevProps) {

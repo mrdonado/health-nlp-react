@@ -6,6 +6,9 @@ rect.disabled {
   .clickable-path {
     cursor: pointer;
   }
+  .legend rect, .legend text{
+    cursor: pointer;
+  }
 }
 
 .tooltip {
