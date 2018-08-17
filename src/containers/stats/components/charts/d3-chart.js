@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 
 const d3ChartFactory = function () {
   // legend dimensions
-  const legendRectSize = 25; // defines the size of the colored squares in legend
+  const legendRectSize = 15; // defines the size of the colored squares in legend
   const legendSpacing = 6; // defines spacing between squares
 
   // more color scales: https://bl.ocks.org/pstuffa/3393ff2711a53975040077b7453781a9
@@ -32,8 +32,9 @@ const d3ChartFactory = function () {
       .attr('width', width) 
       .attr('height', height)
       .append('g') 
+      .style('transform', 'translate(40%, 50%)')
       // our reference is now to the 'g' element. centerting the 'g' element to the svg element
-      .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')'); 
+      //.attr('transform', 'translate(' + (width / 2 - 100) + ',' + (height / 2) + ')'); 
 
     // define tooltip
     const tooltip = d3.select(el) 
@@ -96,7 +97,12 @@ const d3ChartFactory = function () {
     });
 
     // define legend
-    const legend = svg.selectAll('.legend') // selecting elements with class 'legend'
+    const legend = d3.select(el)
+      .select('svg')
+      .append('g')
+      .attr('class', 'legend-wrapper')
+      .style('transform', 'translate(50%, 50%)')
+      .selectAll('.legend') // selecting elements with class 'legend'
       .data(color.domain()) // refers to an array of labels from our dataset
       .enter() // creates placeholder
       .append('g') // replace placeholders with g elements

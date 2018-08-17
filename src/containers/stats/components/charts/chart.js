@@ -15,7 +15,7 @@ export default class Chart extends React.Component {
   componentDidMount () {
     var el = ReactDOM.findDOMNode(this);
     this.d3Chart.create(el, {
-      width: 650,
+      width: 460,
       height: 300
     }, this.getChartState());
     this.d3Chart.cb = this.props.cb;
