@@ -1,4 +1,4 @@
-.stats-grid{
+.stats-grid {
   display: grid;
   grid-template-colums: 1fr 1fr 1fr;
   .left-panel {
@@ -19,3 +19,6 @@
   }
 }
 
+.chart-wrapper {
+  display: inline-block;
+}

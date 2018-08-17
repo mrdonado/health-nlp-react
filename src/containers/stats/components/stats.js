@@ -6,6 +6,9 @@ import Toggler from './toggler';
 import Chart from './charts/chart';
 import docsToDataset from './data-functions/docs-to-dataset';
 
+const OTHERS_LABEL = 'others';
+const SHIFT_STEP = 9;
+
 export default class Home extends React.Component {
 
   constructor(props) {
@@ -13,7 +16,9 @@ export default class Home extends React.Component {
     this.state = {
       resultsDisplayed: 5,
       searchString: '',
-      freeSearch: false
+      freeSearch: false,
+      problemsOffset: 0,
+      solutionsOffset: 0
     };
   }
 
@@ -37,6 +42,10 @@ export default class Home extends React.Component {
 
   selectSolution(elem) {
     const solution = elem.target ? elem.target.value : elem;
+    if (solution === OTHERS_LABEL) {
+      this.setState({ solutionsOffset: this.state.solutionsOffset + SHIFT_STEP });
+      return;
+    }
     this
       .props
       .fetchMessagesForProblemSolution(this.props.stats.problem, solution);
@@ -44,6 +53,11 @@ export default class Home extends React.Component {
 
   selectProblem(elem) {
     const problem = elem.target ? elem.target.value : elem;
+    this.setState({ solutionsOffset: 0 });
+    if (problem === OTHERS_LABEL) {
+      this.setState({ problemsOffset: this.state.problemsOffset + SHIFT_STEP });
+      return;
+    }
     this
       .props
       .fetchSolutionsToProblem(problem)
@@ -104,11 +118,26 @@ export default class Home extends React.Component {
           </div>
         }
 
-        <Chart data={docsToDataset(this.props.stats.problems)}
-          cb={this.selectProblem.bind(this)} />
+          <div className="chart-wrapper">
 
-        <Chart data={docsToDataset(this.props.stats.solutions)}
-          cb={this.selectSolution.bind(this)} /> 
+            <div className="chart-title">Problems ({(this.props.stats.problems || []).length - this.state.problemsOffset} of {(this.props.stats.problems || []).length})</div>
+
+            <Chart data={docsToDataset(this.props.stats.problems,
+              this.state.problemsOffset)}
+              cb={this.selectProblem.bind(this)} />
+
+          </div>
+
+        <div className="chart-wrapper">
+
+            <div className="chart-title">Solutions for {this.props.stats.problem} ({(this.props.stats.solutions || []).length - this.state.solutionsOffset} of {(this.props.stats.solutions || []).length})</div>
+
+          <Chart data={docsToDataset(this.props.stats.solutions,
+            this.state.solutionsOffset)}
+            cb={this.selectSolution.bind(this)} />
+
+        </div>
+
 
       </div>
       <div className="right-panel">

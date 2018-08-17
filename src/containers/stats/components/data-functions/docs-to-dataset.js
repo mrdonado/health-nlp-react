@@ -1,6 +1,7 @@
 const MAX_RESULTS = 9; 
 
-export default docs => (docs || [])
+export default (docs, offset = 0) => (docs || [])
+  .slice(offset)
   .map(d => {
     return { label: d.key, count: d.doc_count };
   })
