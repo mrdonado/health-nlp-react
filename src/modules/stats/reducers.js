@@ -5,6 +5,8 @@ const IRRELEVANT_KEYWORDS = [
   'this',
   'these',
   'other',
+  'new',
+  'first',
   'others'
 ];
 const keyWordsFilter = (list) => {
