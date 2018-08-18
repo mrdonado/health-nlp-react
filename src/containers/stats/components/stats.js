@@ -120,7 +120,7 @@ export default class Home extends React.Component {
 
           <div className="chart-wrapper">
 
-            <div className="chart-title">Problems ({(this.props.stats.problems || []).length - this.state.problemsOffset} of {(this.props.stats.problems || []).length})</div>
+          <div className="chart-title">Problems ({(this.props.stats.problems || []).length - this.state.problemsOffset} of {(this.props.stats.problems || []).length}) <span className="reset-button" onClick={() => { this.setState({ problemsOffset: 0 }) }}>⟳</span></div>
 
             <Chart data={docsToDataset(this.props.stats.problems,
               this.state.problemsOffset)}
@@ -143,7 +143,7 @@ export default class Home extends React.Component {
       <div className="right-panel">
         <div className="data-box">
           <div className="box-title">
-            {(this.props.stats.messages || []).length} results
+            {(this.props.stats.messages || []).length} results (problem: {this.props.stats.problem} / solution: {this.props.stats.solution})
           </div>
           
         </div>
