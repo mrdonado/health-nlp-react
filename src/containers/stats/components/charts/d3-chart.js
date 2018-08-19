@@ -46,12 +46,7 @@ const d3ChartFactory = function () {
       .value(function (d) { return d.count; }) 
       .sort(null); 
 
-    const { dataset } = state;
-
-    dataset.forEach(function (d) {
-      d.count = +d.count; // calculate count as we iterate through the data
-      d.enabled = true; // add enabled property to track which entries are checked
-    });
+    const dataset = [];
 
     // creating the chart
     d3Chart.path = d3Chart.svg
