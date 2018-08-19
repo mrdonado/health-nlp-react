@@ -2,17 +2,22 @@ import Actions from './actions';
 const IRRELEVANT_KEYWORDS = [
   'a',
   'the',
+  'and',
   'this',
   'these',
   'other',
   'new',
   'first',
-  'others'
+  'best',
+  'others',
+  'none',
+  'our',
+  'ours',
+  'its'
 ];
 const keyWordsFilter = (list) => {
   return list
     .filter(e => {
-      console.log('.');
       return (e.key.length > 2) &&
         (IRRELEVANT_KEYWORDS.indexOf(e.key) === -1);
     });
