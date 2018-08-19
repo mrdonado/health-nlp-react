@@ -4,10 +4,12 @@ import AnalysisList from '../../timeline/components/analysis-list';
 import Spinner from '../../../utilities/spinner';
 import Toggler from './toggler';
 import Chart from './charts/chart';
-import docsToDataset from './data-functions/docs-to-dataset';
+import docsToDatasetFn from './data-functions/docs-to-dataset';
 
 const OTHERS_LABEL = 'others';
-const SHIFT_STEP = 9;
+const SHIFT_STEP = 45;
+
+const docsToDataset = docsToDatasetFn(SHIFT_STEP);
 
 export default class Home extends React.Component {
 
