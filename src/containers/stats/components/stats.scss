@@ -1,12 +1,14 @@
 .stats-grid {
   display: grid;
   grid-template-colums: 1fr 1fr 1fr;
-  .left-panel {
-    grid-column-start: 1;
-    grid-column-end: 2;
+  .top-panel {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-column-end: 3;
   }
-  .right-panel {
-    grid-column-start: 3;
+  .bottom-panel {
+    grid-row-start: 2;
+    grid-column-start: 1;
     grid-column-end: 3;
   }
   .switch-selector{
@@ -17,6 +19,10 @@
       color: black;
     }
   }
+}
+
+.box-title {
+  text-align: center;
 }
 
 .reset-button {

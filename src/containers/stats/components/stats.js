@@ -72,7 +72,7 @@ export default class Home extends React.Component {
     }
 
     return <div className="main-content stats-grid">
-      <div className="left-panel">
+      <div className="top-panel">
 
         <Toggler
           freeSearch={this.state.freeSearch}
@@ -140,9 +140,9 @@ export default class Home extends React.Component {
 
         </div>
 
-
       </div>
-      <div className="right-panel">
+
+      <div className="bottom-panel">
         <div className="data-box">
           <div className="box-title">
             {(this.props.stats.messages || []).length} results (problem: {this.props.stats.problem} / solution: {this.props.stats.solution})
