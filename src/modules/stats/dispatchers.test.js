@@ -4,7 +4,8 @@ import {
   fetchProblemsList,
   fetchSolutionsToProblem,
   fetchWordSearch,
-  fetchMessagesForProblemSolution
+  fetchMessagesForProblemSolution,
+  resetStats
 } from './dispatchers';
 
 import Actions from './actions';
@@ -90,4 +91,11 @@ describe('Stats action dispatchers', () => {
       }
     });
   });
+
+
+  it('should dispatch the reset stats action', () => {
+    const action = resetStats();
+    expect(action.type).toEqual(Actions.ResetStats);
+  });
+
 });

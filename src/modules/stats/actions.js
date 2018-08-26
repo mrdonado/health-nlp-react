@@ -18,7 +18,8 @@ const Actions = {
   SearchMessages: 'SEARCH_MESSAGES',
   GetHistogramDays: 'GET_HISTOGRAM_DAYS',
   GetHistogramWeeks: 'GET_HISTOGRAM_WEEKS',
-  GetHistogramMonths: 'GET_HISTOGRAM_MONTHS'
+  GetHistogramMonths: 'GET_HISTOGRAM_MONTHS',
+  ResetStats: 'RESET_STATS'
 };
 
 export default Actions;
