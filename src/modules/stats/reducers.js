@@ -55,6 +55,8 @@ const statsReducer = (stats = {}, action) => {
         pendingRequests.pop(action.requestName);
       }
       return Object.assign({}, stats, { pendingRequests });
+    case Actions.ResetStats:
+      return Object.assign({}, stats, { problem: null, solution: null, messages: [], solutions: [] });
     default:
       return stats;
   }

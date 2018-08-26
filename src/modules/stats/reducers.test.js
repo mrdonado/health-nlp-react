@@ -147,6 +147,21 @@ describe('Stats reducers', () => {
       requestName, type: Actions.RemovePendingRequest
     })).toEqual({ pendingRequests: [] })
 
+  });
+
+  it('should reset the existing stats', () => {
+    let state = {
+      problem: 'someProblem',
+      solution: 'someSolution',
+      solutions: [{
+        "key": "food"
+        , "doc_count": 500
+      },
+      { "key": "activity", "doc_count": 333 }]
+    };
+
+    expect(statsReducer(state, { type: Actions.ResetStats }))
+      .toEqual({messages: [], problem: null, solution: null, solutions: []});
 
   });
 
