@@ -7,7 +7,7 @@ import Chart from './charts/chart';
 import docsToDatasetFn from './data-functions/docs-to-dataset';
 
 const OTHERS_LABEL = 'others';
-const SHIFT_STEP = 45;
+const SHIFT_STEP = 12;
 
 const docsToDataset = docsToDatasetFn(SHIFT_STEP);
 
@@ -103,20 +103,24 @@ export default class Home extends React.Component {
             <select
               id="problem-select"
               onChange={this.selectProblem.bind(this)}
-              value={this.props.stats.problem} >
+              value={this.props.stats.problem || ''} >
               <option>-select problem-</option>
               {(this.props.stats.problems || [])
                 .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
             </select>
             <select
               id="solution-select"
-              value={this.props.stats.solution}
+              value={this.props.stats.solution || ''}
               disabled={!Array.isArray(this.props.stats.solutions)}
               onChange={this.selectSolution.bind(this)}>
               <option>-select solution-</option>
               {(this.props.stats.solutions || [])
                 .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
             </select>
+            <button onClick={() => {
+              this.setState({ problemsOffset: 0 });
+              this.props.resetStats();
+            }}>Reset Stats</button>
           </div>
         }
 

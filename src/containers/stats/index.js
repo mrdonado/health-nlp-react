@@ -6,7 +6,8 @@ import {
   fetchProblemsList,
   fetchSolutionsToProblem,
   fetchWordSearch,
-  fetchMessagesForProblemSolution
+  fetchMessagesForProblemSolution,
+  resetStats
 } from '../../modules/stats/dispatchers';
 
 const mapStateToProps = state => ({
@@ -19,7 +20,8 @@ const mapDispatchToProps = dispatch => {
     fetchProblemsList,
     fetchSolutionsToProblem,
     fetchWordSearch,
-    fetchMessagesForProblemSolution
+    fetchMessagesForProblemSolution,
+    resetStats
   }, dispatch);
 };
 
