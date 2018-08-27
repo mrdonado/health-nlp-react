@@ -17,36 +17,37 @@ const d3ChartFactory = function () {
     // a circle chart needs a radius
     radius = Math.min(width, height) / 2;
 
-    d3Chart.svg = d3.select(el) 
-      .append('svg') 
-      .attr('width', width) 
+    d3Chart.svg = d3.select(el)
+      .append('svg')
+      .attr('width', width)
       .attr('height', height)
-      .append('g') 
+      .append('g')
       .style('transform', 'translate(40%, 50%)')
 
     // define tooltip
-    d3Chart.tooltip = d3.select(el) 
+    d3Chart.tooltip = d3.select(el)
       .append('div')
-      .attr('class', 'tooltip'); 
+      .attr('class', 'tooltip');
 
-    d3Chart.tooltip.append('div') 
-      .attr('class', 'label'); 
+    d3Chart.tooltip.append('div')
+      .attr('class', 'label');
 
-    d3Chart.tooltip.append('div') 
-      .attr('class', 'count'); 
+    d3Chart.tooltip.append('div')
+      .attr('class', 'count');
 
-    d3Chart.tooltip.append('div') 
-      .attr('class', 'percent'); 
+    d3Chart.tooltip.append('div')
+      .attr('class', 'percent');
 
     d3Chart.arc = d3.arc()
-      .innerRadius(100) 
-      .outerRadius(radius); 
+      .innerRadius(100)
+      .outerRadius(radius);
 
-    d3Chart.pie = d3.pie() 
-      .value(function (d) { return d.count; }) 
-      .sort(null); 
+    d3Chart.pie = d3.pie()
+      .value(function (d) { return d.count; })
+      .sort(null);
 
-    const dataset = [];
+    const dataset = [{ count: 1, label: '-select solution-' },
+    { count: 1, label: '-select solution-' }];
 
     // creating the chart
     d3Chart.path = d3Chart.svg
@@ -61,9 +62,23 @@ const d3ChartFactory = function () {
   };
 
   d3Chart.update = function (el, state) {
-    const { dataset } = state;
+    let { dataset } = state;
 
-    d3Chart.color = d3.scaleOrdinal(d3.schemeCategory10);
+    if (!dataset || dataset.length === 0) {
+      d3Chart.svg.selectAll('path').remove();
+      dataset = [{ count: 1, label: '-select solution-' }];
+    }
+
+    const colorRange = d3
+      .scaleLinear()
+      .domain([1, dataset.length])
+      .interpolate(d3.interpolateHcl)
+      .range(["#3f2a72", "#ebebeb"]);
+
+    d3Chart.color = d3.scaleOrdinal()
+      .domain(dataset.map(d => d.label))
+      .range(dataset.map((d, i) => colorRange(i)));
+
 
     dataset.forEach(function (d) {
       d.count = +d.count; // calculate count as we iterate through the data
@@ -184,7 +199,7 @@ const d3ChartFactory = function () {
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
       .text(function (d) { return d; })
-      .on('click', (t) => { d3Chart.cb(t) }); 
+      .on('click', (t) => { d3Chart.cb(t) });
   };
 
   d3Chart.destroy = function (el) {
