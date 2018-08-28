@@ -14,15 +14,20 @@ const d3ChartFactory = function () {
   d3Chart.create = function (el, props, state) {
     width = props.width;
     height = props.height;
+    const translateX = props.width / 2 - 60;
+    const translateY = props.height / 2;
     // a circle chart needs a radius
     radius = Math.min(width, height) / 2;
 
     d3Chart.svg = d3.select(el)
       .append('svg')
-      .attr('width', width)
-      .attr('height', height)
+      .attr('width', '100%')
+      .attr('height', '100%')
+      .attr('height', '100%')
+      .attr('viewBox', `-0 -0 ${width} ${height}`)
+      .attr('preserveAspectRatio', 'xMinYMin')
       .append('g')
-      .style('transform', 'translate(40%, 50%)')
+      .attr('transform', `translate(${translateX}, ${translateY})`)
 
     // define tooltip
     d3Chart.tooltip = d3.select(el)
