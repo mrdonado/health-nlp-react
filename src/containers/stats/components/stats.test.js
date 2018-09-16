@@ -68,6 +68,7 @@ describe('Stats component', () => {
     expect(_props.fetchWordSearch.calledWith('searchword')).toBeTruthy();
   });
 
+  /*
   it('fetches messages for a specific problem-solution pair when selecting a solution', () => {
     expect(_props.fetchSolutionsToProblem.called).toBeFalsy();
     _wrapper.find('#problem-select').simulate('change', { target: { value: 'problem0' } });
@@ -76,5 +77,6 @@ describe('Stats component', () => {
     _wrapper.find('#solution-select').simulate('change', { target: { value: 'solution0' } });
     expect(_props.fetchMessagesForProblemSolution.called).toBeTruthy();
   });
+  */
 
 });

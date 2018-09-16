@@ -5,6 +5,7 @@ import Spinner from '../../../utilities/spinner';
 import Toggler from './toggler';
 import Chart from './charts/chart';
 import docsToDatasetFn from './data-functions/docs-to-dataset';
+import { Combobox } from 'react-input-enhancements';
 
 const OTHERS_LABEL = 'others';
 const SHIFT_STEP = 12;
@@ -42,7 +43,16 @@ export default class Home extends React.Component {
     });
   }
 
+  resetStats() {
+    this.setState({ problemsOffset: 0, solutionsOffset: 0 });
+    this.props.resetStats();
+  }
+
   selectSolution(elem) {
+    if(!elem) {
+      this.resetStats();
+      return;
+    }
     const solution = elem.target ? elem.target.value : elem;
     if (solution === OTHERS_LABEL) {
       this.setState({ solutionsOffset: this.state.solutionsOffset + SHIFT_STEP });
@@ -54,6 +64,10 @@ export default class Home extends React.Component {
   }
 
   selectProblem(elem) {
+    if(!elem) {
+      this.resetStats();
+      return;
+    }
     const problem = elem.target ? elem.target.value : elem;
     this.setState({ solutionsOffset: 0 });
     if (problem === OTHERS_LABEL) {
@@ -100,27 +114,31 @@ export default class Home extends React.Component {
           </div>
           :
           <div>
-            <select
-              id="problem-select"
-              onChange={this.selectProblem.bind(this)}
-              value={this.props.stats.problem || ''} >
-              <option>-select problem-</option>
-              {(this.props.stats.problems || [])
-                .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
-            </select>
-            <select
-              id="solution-select"
+            <Combobox value={this.props.stats.problem || ''}
+              options={[{ static: true, text: '-reset-' },
+                ...(this.props.stats.problems || [])
+                .map(p => p.key)]}
+              autosize
+              placeholder="Select a problem"
+              onSelect={this.selectProblem.bind(this)}
+              autocomplete>
+              {(inputProps, { matchingText, width }) =>
+                <input id="problem-select"
+                  placeholder="Select a problem"
+                  type='text' {...inputProps} />
+              }
+            </Combobox>
+            <Combobox
               value={this.props.stats.solution || ''}
+              options={[{ static: true, text: '-reset-' },
+                ...(this.props.stats.solutions || []).map(p => p.key)]}
               disabled={!Array.isArray(this.props.stats.solutions)}
-              onChange={this.selectSolution.bind(this)}>
-              <option>-select solution-</option>
-              {(this.props.stats.solutions || [])
-                .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
-            </select>
-            <button onClick={() => {
-              this.setState({ problemsOffset: 0, solutionsOffset: 0 });
-              this.props.resetStats();
-            }}>Reset Stats</button>
+              onSelect={this.selectSolution.bind(this)}>
+              {(inputProps, { matchingText, width }) =>
+                <input id="solution-select"
+                 type='text' {...inputProps} />
+              }             
+            </Combobox>
           </div>
         }
 
