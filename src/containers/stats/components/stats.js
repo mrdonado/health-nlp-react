@@ -118,7 +118,7 @@ export default class Home extends React.Component {
                 .map(p => <option key={p.key} value={p.key}>{p.key}</option>)}
             </select>
             <button onClick={() => {
-              this.setState({ problemsOffset: 0 });
+              this.setState({ problemsOffset: 0, solutionsOffset: 0 });
               this.props.resetStats();
             }}>Reset Stats</button>
           </div>

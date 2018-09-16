@@ -12,6 +12,7 @@ const d3ChartFactory = function () {
   let radius, width, height;
 
   d3Chart.create = function (el, props, state) {
+
     width = props.width;
     height = props.height;
     const translateX = props.width / 2 - 60;
@@ -56,8 +57,8 @@ const d3ChartFactory = function () {
 
     // creating the chart
     d3Chart.path = d3Chart.svg
-      .selectAll('path') // select all path elements inside the svg. specifically the 'g' element. they don't exist yet but they will be created below
-      .data(d3Chart.pie(dataset)) //associate dataset wit he path elements we're about to create. must pass through the pie function. it magically knows how to extract values and bakes it into the pie
+      .selectAll('path') 
+      .data(d3Chart.pie(dataset)) 
       .enter() //creates placeholder nodes for each of the values
       .append('path'); // replace placeholders with path elements
 
@@ -70,8 +71,11 @@ const d3ChartFactory = function () {
     let { dataset } = state;
 
     if (!dataset || dataset.length === 0) {
-      d3Chart.svg.selectAll('path').remove();
       dataset = [{ count: 1, label: '-select solution-' }];
+    }
+
+    if(d3Chart.svg.selectAll('path').data().length > dataset.length) {
+      d3Chart.svg.selectAll('path').remove();
     }
 
     const colorRange = d3
