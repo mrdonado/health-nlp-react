@@ -19,6 +19,7 @@ cache:
   - node_modules
 
 before_script:
+  - npm install --global node-pre-gyp
   - npm install coveralls
   - npm install
 
