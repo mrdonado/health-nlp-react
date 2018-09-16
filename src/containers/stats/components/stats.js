@@ -126,7 +126,7 @@ export default class Home extends React.Component {
 
           <div className="chart-wrapper">
 
-          <div className="chart-title">Problems ({(this.props.stats.problems || []).length - this.state.problemsOffset} of {(this.props.stats.problems || []).length}) <span className="reset-button" onClick={() => { this.setState({ problemsOffset: 0 }) }}>⟳</span></div>
+          <div className="chart-title">Problems ({SHIFT_STEP + this.state.problemsOffset} of {(this.props.stats.problems || []).length})</div>
 
             <Chart data={docsToDataset(this.props.stats.problems,
               this.state.problemsOffset)}
@@ -136,7 +136,7 @@ export default class Home extends React.Component {
 
         <div className="chart-wrapper">
 
-            <div className="chart-title">Solutions for {this.props.stats.problem} ({(this.props.stats.solutions || []).length - this.state.solutionsOffset} of {(this.props.stats.solutions || []).length})</div>
+            <div className="chart-title">Solutions for {this.props.stats.problem} ({SHIFT_STEP + this.state.solutionsOffset} of {(this.props.stats.solutions || []).length})</div>
 
           <Chart data={docsToDataset(this.props.stats.solutions,
             this.state.solutionsOffset)}
