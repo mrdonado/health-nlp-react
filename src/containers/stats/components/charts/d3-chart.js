@@ -15,6 +15,8 @@ const d3ChartFactory = function () {
 
     width = props.width;
     height = props.height;
+    d3Chart.colorRange = props.colorRange;
+
     const translateX = props.width / 2 - 60;
     const translateY = props.height / 2;
     
@@ -81,7 +83,7 @@ const d3ChartFactory = function () {
       .scaleLinear()
       .domain([1, dataset.length])
       .interpolate(d3.interpolateHcl)
-      .range(["#3f2a72", "#ebebeb"]);
+      .range(d3Chart.colorRange);
 
     d3Chart.color = d3.scaleOrdinal()
       .domain(dataset.map(d => d.label))

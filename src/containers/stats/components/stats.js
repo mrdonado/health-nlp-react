@@ -148,6 +148,7 @@ export default class Home extends React.Component {
 
             <Chart data={docsToDataset(this.props.stats.problems,
               this.state.problemsOffset)}
+              colorRange={['#946667', '#fbd9df']}
               cb={this.selectProblem.bind(this)} />
 
           </div>
@@ -158,6 +159,7 @@ export default class Home extends React.Component {
 
           <Chart data={docsToDataset(this.props.stats.solutions,
             this.state.solutionsOffset)}
+            colorRange={['#78927b', '#dceade']}
             cb={this.selectSolution.bind(this)} />
 
         </div>
