@@ -1,6 +1,8 @@
 {
   "sourceMaps": "inline",
   "presets": [
-    "react-app"
+    [
+      "react-app"
+    ]
   ]
 }
