@@ -20,7 +20,6 @@ cache:
 
 before_script:
   - npm install --global node-pre-gyp
-  - npm install coveralls
   - npm install
 
 script:
@@ -28,4 +27,4 @@ script:
   - npm run test:coverage
 
 after_success:
-  cat ./coverage/lcov.info | node node_modules/.bin/coveralls
+  - npm run coveralls
