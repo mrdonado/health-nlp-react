@@ -25,7 +25,7 @@ export default class About extends React.Component {
         We believe that Lifescope will offer great <strong>research opportunities</strong> to anyone interested in healthcare information. We are concerned with the challenging issues posed by the New Media Age, where information flow surpasses the human ability to digest new data - consider, for example, how many talks, conferences or health discoveries are being posted now, at any second.
       </p>
       <p>
-        This project is <strong>on development</strong>. We have finished the backend and text analysis modules of the streaming panel that you can see in this web. Contact us at <a href='mailto:info@lifescope-project.com' > info@lifescope-project.com</a > if you wish to access the data we are gathering from May 2018.
+        This project is <strong>on development</strong>. Contact us at <a href='mailto:info@lifescope-project.com' > info@lifescope-project.com</a > if you wish to access the data we've been gathering since May 2018.
       </p>
 
       <p>
